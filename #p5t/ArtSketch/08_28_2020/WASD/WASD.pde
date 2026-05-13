@@ -1,0 +1,1 @@
+int x,y,u,s,o,p,a,m=500,t;void draw(){frame.setSize(500,500);clear();s=key=='a'?-3:key=='d'?3:0;x+=s;u=key=='w'?-3:key=='s'?3:0;y+=u;x=x>m?0:x<0?m:x;y=y>m?0:y<0?m:y;text(t,x,y);if(p<0|p>m|dist(x,y,o,p)<9){t=p<0|p>m?0:t+1;p=m*(t%2);a=p>0?-2:2;o=(int)random(m);}p+=a;text('✪',o,p);}

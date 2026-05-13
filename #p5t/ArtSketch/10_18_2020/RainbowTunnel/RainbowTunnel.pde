@@ -1,0 +1,1 @@
+float t,a,m=240,x,n=99,k,l;void setup(){size(480,480,P3D);noStroke();colorMode(3,n);clear();}void draw(){translate(n,n);x=-m;rotateZ(++t*9/n);beginShape(10);while(x<m){fill(abs(x-t)%n,n,n,9);vertex(k=sin(x)*m,l=cos(x)*m,a=x*9+sin(x/2)*25);vertex(k,l,a+9);x+=.1;}endShape();}//#p5t

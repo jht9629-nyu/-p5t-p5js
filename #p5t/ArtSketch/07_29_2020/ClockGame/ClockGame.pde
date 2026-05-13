@@ -1,0 +1,1 @@
+int i,f,s,c,p=250;void setup(){size(500,500);frameRate(9);strokeWeight(9);}void draw(){f++;s++;if(key!='a')c=ceil(random(23));key='a';for(i=0;i<24;i++){stroke(0);float a=-PI*i/12;if(i==c)stroke(99);if(i==f%24)stroke(p);if(c==f%24)s=0;line(p,p,p+sin(a)*p,p+cos(a)*p);}text(s,p,p);}

@@ -1,0 +1,1 @@
+float f,i,l=1,m,c=480;void draw(){m++;frame.setSize(480,480);noStroke();colorMode(3,99);f+=l;l*=f<0|f>240?-1:1;clip(f,f,c-f*2,c-f*2);fill((m/9)%99,99,99);rect(f,f,c-f*2,c-f*2);fill(-1);translate(240,240);rotate(f/9);for(i=0;i++<480*9;)circle(sin(i/99)*i/9,cos(i/99)*i/9,9);}//#p5t

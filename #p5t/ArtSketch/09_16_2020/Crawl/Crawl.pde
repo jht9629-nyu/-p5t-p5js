@@ -1,0 +1,1 @@
+int x,y,b,m,c,n=500,k=#000000;void setup(){size(500,500);}void draw(){for(m=x=0;x<n;x++)for(y=0;y<n;y++)if(red(get(x,y))>0){for(b=0;b<99;b++){if(b<65)c=-1;else c=k;set(int(x+random(-2,2)),int(y+random(-2,2)),c);}set(x,y,k);}else m++;if(m>=n*n){clear();circle(400,400,199);}}//#p5t

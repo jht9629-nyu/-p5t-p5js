@@ -1,0 +1,1 @@
+class P{float x=i,y,a=i,d;void d(){for(P o:p){d=dist(o.x,o.y,x,y);if(d<25&o!=this)a--;if(d>50)a=lerp(a,atan2(o.y-y,o.x-x),.01);}x+=sin(a)+n;y+=cos(a)+n;text(8,x%=n,y%=n);}}int i,n=480;P[]p=new P[n];void draw(){clear();while(i<n)p[i++]=new P();frame.setSize(n,n);for(P o:p)o.d();}

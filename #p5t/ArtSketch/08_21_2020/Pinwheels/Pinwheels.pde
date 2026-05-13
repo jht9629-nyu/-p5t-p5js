@@ -1,0 +1,1 @@
+float x,y,f,a,u,v,i,b,c=255;void draw(){f+=.2;fill(0,2);square(-9,-9,520);frame.setSize(500,500);colorMode(HSB,c);stroke(f%c,c,c);for(y=0;y<520;y+=40){b++;stroke((f*3+y/9)%c,c,c);for(x=0;x<520;x+=40){i++;a=PI/2*((i+b)%2)+f/9;u=sin(a)*20;v=cos(a)*20;line(x+u,y+v,x-u,y-v);}}}//#p5t

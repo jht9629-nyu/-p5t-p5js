@@ -1,0 +1,1 @@
+int x,y,m=1,c;float f,a,n=99;void setup(){size(480,480);colorMode(3,9);}void draw(){if(m<1){noiseSeed(int(f));f=-16;clear();}f+=.2;x=m=0;for(;x<480;x++)for(y=0;y<480;y++){a=noise(x/9f,y/9f)+sin(x/9f)+cos(y/9f);c=get(x,y);if(a<f/9&hue(c)<1){set(x,y,color((f*.6)%9,9,9));m++;}}}

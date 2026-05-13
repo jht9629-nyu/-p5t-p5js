@@ -1,0 +1,1 @@
+class P{float a=c,q,w;void d(){text(x=0,q=sin(a)+(q+c)%c,w=cos(a+=red(get(int(q),int(w)))>0?1:0)+(w+c)%c);}}int x,y,c;P[]p=new P[480];void draw(){for(;x++<c&c>0;)for(y=0;y++<c;)set(x,y,color(noise(x/99f,y/99f)*2)*c);while(c<480)p[c++]=new P();for(P o:p)o.d();frame.setSize(c,c);}

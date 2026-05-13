@@ -1,0 +1,1 @@
+int x,y,n=480;void draw(){frameRate(20);frame.setSize(n,n);noStroke();fill(0,12);rect(x=0,0,n,n);for(;x<n;x+=9){fill(random(y),random(255),random(x));circle(x+(y%2)*5,y,9);circle(x+((n-y)%2)*5,(n-y),9);circle(y,x+(y%2)*5,9);circle((n-y),x+((n-y)%2)*5,9);}y=y>n+30?0:y+3;}//#p5t

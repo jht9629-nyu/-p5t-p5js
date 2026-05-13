@@ -1,0 +1,18 @@
+class P {
+  float s=random(-.1,.1), u=random(-.1,.1), x=c, y=c, i;
+  void d() {
+    for (i=0; i<9; )circle(x=x<0?x=n:x>n?x=0:x+s,y=y<0?y=n:y>n?y=0:y+u,i++*5);
+  }
+}
+
+int j, c=240, n=480;
+P[] p=new P[c];
+void draw() {
+  frame.setSize(n, n);
+  noStroke();
+  while (j<c)p[j++]=new P();
+  fill(0, 3);
+  square(0, 0, n);
+  fill(c, 2);
+  for (P o:p)o.d();
+}//#p5t

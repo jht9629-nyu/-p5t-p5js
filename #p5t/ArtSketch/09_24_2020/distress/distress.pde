@@ -1,0 +1,1 @@
+float x,y,f,c;void setup(){size(500,500,P3D);}void draw(){clear();for(;x++<51;){beginShape(18);for(y=0;y<35;){fill(x<24&y>18?y%2>0&x%3<1?-1:#0000FF:y%2<1?-65536:-1);vertex(x*9,y*9,noise(x/9+f,y/9)*59-59);c=x+1;vertex(c*9,y*9,noise(c/9+f,y++/9)*59-59);}endShape();}f+=x=.01;}//#p5t

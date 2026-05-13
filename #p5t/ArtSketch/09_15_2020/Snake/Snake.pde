@@ -1,0 +1,1 @@
+int x,y,i,b,l;int[] g={};void draw(){frame.setSize(500,500);frameRate(9);g=expand(g,81);i=0;x+=key=='a'?-1:key=='d'?1:0;x+=9;x%=9;y+=key=='w'?-1:key=='s'?1:0;y+=9;y%=9;b=x+y*9;if(l++/2+g[b]>99)l=0;g[b]=99;while(i<81){g[i]--;fill(l/2+g[i]<99?0:-1);square(56*(i%9),56*(i++/9),56);}}

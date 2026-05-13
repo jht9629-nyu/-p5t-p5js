@@ -1,0 +1,1 @@
+float x,y,f,a=2,n=500,i;void draw(){frame.setSize(500, 500);colorMode(3,n);fill(0,9);if(f%9<1)rect(0,0,502,502);if(f<1)f=250*9;f-=a;x=250+sin(f/99)*f/9;y=250+cos(f/99)*f/9;stroke(f%n,n,n,7);for(i=0;i<6;i+=.524){stroke((f/2+i*(n/9))%n,n,n,35);line(sin(i)*n+250,cos(i)*n+250,x,y);}}

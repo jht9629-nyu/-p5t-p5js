@@ -1,0 +1,1 @@
+void setup(){size(500,500);}class P{float x=sin(i),y=sin(x),u,s;void d(){for(P o:p)if(dist(o.x,o.y,x,y)<20){s+=(x-o.x)/9;u+=(y-o.y)/9;}x+=s>5?log(s):s;y+=u>5?log(u):u;x%=i;y%=i;text("⋱",x,y);}};int i;P[] p=new P[501];void draw(){while(i<501)p[i++]=new P();clear();frame.setSize(i,i);for(P o:p)o.d();}//#p5t

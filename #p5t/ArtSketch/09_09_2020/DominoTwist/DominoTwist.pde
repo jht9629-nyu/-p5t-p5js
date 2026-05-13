@@ -1,0 +1,1 @@
+float f,m,j,i,n=250;void setup(){size(500,500,P3D);}void draw(){f+=.01;clear();for(j=0;j<8;){push();m=j%2;directionalLight(n*m,0,(1-m)*n,0,m,m-1);translate((j%2)*550,200*j++-n);for(i=0;i<500;){push();translate(20*i,0,f*9-50*i);rotateX(i++/9+f);box(100,200,9);pop();}pop();}}//#p5t

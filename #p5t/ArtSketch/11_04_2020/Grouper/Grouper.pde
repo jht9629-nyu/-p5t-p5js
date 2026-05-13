@@ -1,0 +1,1 @@
+class P{float x=sin(c)*c,y=random(l),a;P f;void d(){for(P o:p)f=dist(o.x,o.y,x,y)<9&o!=this?o:f;a=f==null?cos(y):f.a;text(0,x+=sin(a),y+=cos(a));x+=l;y+=l;x%=480;y%=480;}}int c,l=480;P[]p=new P[l];void draw(){frame.setSize(l,l);while(c<l)p[c++]=new P();clear();for(P o:p)o.d();}

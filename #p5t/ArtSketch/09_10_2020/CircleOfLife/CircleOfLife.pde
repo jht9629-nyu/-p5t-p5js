@@ -1,0 +1,1 @@
+int x,y,t,a,b,f;void setup(){size(500,500);}void draw(){loadPixels();for(x=1;x<499;x++)for(y=1;y<499;){t=0;for(a=x-1;a<x+2;a++)for(b=y-1;b<y+2;)t+=red(pixels[a+b++*500])/255;float d=dist(99,99,x,y);t=d>f&d<f+.2?-1:t==3?-1:t!=4?#000000:get(x,y);set(x,y++,t);}if(f--<0)f=599;}//#p5t

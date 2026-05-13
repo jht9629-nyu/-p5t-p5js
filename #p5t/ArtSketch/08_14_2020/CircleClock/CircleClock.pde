@@ -1,0 +1,1 @@
+float i,c,r;void draw(){frame.setSize(500,500);clear();for(i=3;i<8;i+=2){c=(i<4)?second()/60f*2*PI:(i<6)?minute()/60f*2*PI:PI*2*abs(hour()-12)/12;r=(8-i)*99;fill(i*28);arc(250,250,r,r,-PI/2,c-PI/2);}fill(9*28);for(i=0;i<PI*2;i+=2*PI/12){circle(250+sin(i)*225,250+cos(i)*225,50);}}

@@ -1,0 +1,1 @@
+int x,y,i,w=480;int[] b=new int[w*w],n=new int[w*w],t;public void setup(){size(480,480);frameRate(99);}public void draw(){b[240*w+240] += w*w;for(y=0;++y<w-1;)for(x=0;++x<w-1;){i=x+y*w;b[i]=int((n[i+1]+n[i-1]+n[x+(y+1)*w]+n[x+(y-1)*w])*.5-b[i]);set(x,y,b[i]);}t=n;n=b;b=t;}//#p5t

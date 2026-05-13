@@ -1,0 +1,1 @@
+class P{float x,y,u,s;void d(){s=u=.2;for(P o:p)if(dist(o.x,o.y,x,y)<9){s+=(x-o.x)/4;u+=(y-o.y)/4;}x+=s<.1?random(2):s;y+=u<.1?random(2):u;x%=c;y%=c;text("%",x,y);}};int i,c=500;P[] p=new P[c];void draw(){frame.setSize(c,c);while(i<c)p[i++]=new P();clear();for(P o:p)o.d();}//#p5t

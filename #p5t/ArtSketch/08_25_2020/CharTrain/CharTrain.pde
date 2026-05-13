@@ -1,0 +1,1 @@
+float f,x,y,c=50,b=530,a=20,p,o;void draw(){frame.setSize(500,500);textFont(createFont("",a));o=++f%b;clear();text("✈\n\n◙◡◙◡◙",o,c);text("☀☁",c,a);for(y=c*2;y<b;y+=a)for(x=0;x<b;x+=a){text("⌗",x,135);p=c*cos((y+f)/a);if(y%c<1&p<0)text('⇰',(o+y)%b,y+p);text('~',x,y+cos(f/c)*a);}}

@@ -1,0 +1,1 @@
+int f,c=250,m=500,x,y,a,b;float i,n,w=99;void setup(){size(500,500);frameRate(m);}void draw(){if(i==0|a<0){background(0,150,c);a=b=c;noiseSeed(f);}set(a,b,color(f++%w,w,w));i=0;for(x=a-1;x<a+2;x++)for(y=b-1;y<b+2;y++){n=noise(x/w,y/w);if(red(get(x,y))<1&n>i){a=x;b=y;i=n;}}}//#p5t

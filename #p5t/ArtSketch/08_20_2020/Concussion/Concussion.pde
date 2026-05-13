@@ -1,0 +1,1 @@
+float f;int i=99,n=500;float[] x=new float[i],y=new float[i],s={},u={};void draw(){frame.setSize(n,n);colorMode(HSB,9);noStroke();for(i=0;i<99;i++){if(f<1){s=append(s,sin(i)+4);u=append(u,cos(i)+4);}fill(i%9,9,9,1);circle(x[i],y[i],9);x[i]+=s[i];x[i]%=n;y[i]+=u[i];y[i]%=n;}f++;}

@@ -1,0 +1,1 @@
+int x,y,i,n=480;int[] l={0,160,320};void setup(){size(480,480);}void draw(){for(i=0;i<3;){for(x=0;x<n;)set(x,ceil(l[i]+sin(x++/99f)*9),-1);l[i]+=2;l[i++]%=n;}for(x=0;x<n;x++)for(y=0;y<n;)set(x,y++,y>460-noise(x/99f)*30?-1716703:lerpColor(get(x,y),-14567533,noise(x,y)/9));}//#p5t

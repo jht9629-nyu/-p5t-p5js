@@ -1,0 +1,1 @@
+int x,y,i;float f,t,n=375.2;void setup(){size(480,480,P3D);clear();}void draw(){for(x=-10;x<20;x++)for(y=-10;y<20;y++){push();translate(x*48,y*48,f*n);t=1+((x+y)%2)*-2;rotateZ(f*PI/2*t);for(i=-1;i<4;i++){if(x!=5&&y!=5)box(48,48,9);translate(0,0,-n);}pop();}f=f>1?.01:f+.01;}//#p5t

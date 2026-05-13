@@ -1,0 +1,1 @@
+p[] a={};int f;void setup(){size(500,500);colorMode(HSB,9);for(f=0;f<99;f++){a=(p[])append(a,new p(f));}}void draw(){f++;for(p e:a){fill((f/9)%9,9,9);square(e.x+=e.s,e.y-=e.u,e.u--);if(e.y>500){e.x=250;e.y=99;e.s=sin(f/9)*9;e.u=random(9);}}}class p{float x,y,u,s;p(int f){s=f;}}

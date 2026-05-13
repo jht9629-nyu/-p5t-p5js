@@ -1,0 +1,1 @@
+int f,m,x,y,c,a=color(1),b=-1,o=a,p=b,s;void setup(){size(500,500);}void draw(){m=0;for(x=0;x<500;x++){for(y=0;y<500;y++){if(f<1){c=random(1)<.00001?o:p;set(x,y,c);}if(get(x,y)==o)set((int)random(4)-2+x,(int)random(4)-2+y,o);else m++;}}if(m<1|m>249999){f=0;s=o;o=p;p=s;}else f++;}

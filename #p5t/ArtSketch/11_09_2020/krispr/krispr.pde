@@ -1,0 +1,1 @@
+float f,i,j,n=99,b;void setup(){size(480,480,P3D);noStroke();colorMode(3,n);}void draw(){f+=.1;clear();lights();translate(240,i=0);for(;i++<n;){push();b=i+f;for(j=0;j++<9;){translate(0,i*5);rotateY(b/9);fill(b%n,n,n);box(9);translate(40+j*5,0);fill(b*2%n,n,n);box(n,2,2);}pop();}}

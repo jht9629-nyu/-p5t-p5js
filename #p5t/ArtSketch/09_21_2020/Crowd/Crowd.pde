@@ -1,0 +1,1 @@
+void setup(){size(500,500);}class P{float x,y,u=i,s=i/9;void d(){for(P o:p)if(dist(o.x,o.y,x,y)<23){n++;s+=(x-o.x)/7;u+=(y-o.y)/7;}fill(0,(n-1)*c,c);x+=s/n+c;y+=u/n+c;text(8,x%=c,y%=c);s=u=n=0;}};int i,c=500,n;P[] p=new P[c];void draw(){frame.setSize(c,c);while(i<c)p[i++]=new P();clear();for(P o:p)o.d();}

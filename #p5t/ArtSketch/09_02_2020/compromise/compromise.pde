@@ -1,0 +1,1 @@
+int c=250,m=500,i;float p[]=new float[996];void draw(){frame.setSize(m,m);fill(i=0,9);rect(0,0,m,m);fill(c,50);for(;i<996;i+=4){if(p[i]<1){p[i+2]=sin(i)*3;p[i+3]=cos(i)*3;}circle(p[i],p[i+1],9);p[i]+=p[i+2];p[i+1]+=p[i+3];if(p[i]>m|p[i]<0|p[i+1]>m|p[i+1]<0)p[i]=p[i+1]=c;}}//#p5t

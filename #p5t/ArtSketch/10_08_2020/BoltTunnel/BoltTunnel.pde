@@ -1,0 +1,1 @@
+float i,j,k,f,p,l,n=240;void setup(){size(480,480,P3D);}void draw(){f+=f>n*60?-n*12:4;for(k=0;k<3;k++)for(j=n;j>0;){p=n+sin(j/9)*50;l=j--*9-f+k*n*24;beginShape();for(i=0;i<TAU;)vertex(p+sin(i)*480,p+cos(i++)*480,l);for(;i>0;i-=.6)vertex(p+sin(i)*n,p+cos(i)*n,l);endShape(2);}}

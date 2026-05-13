@@ -1,0 +1,1 @@
+float f,c=-PI*25,b,i;void setup(){size(500,500,P3D);noStroke();}void draw(){clear();lights();f=++f%400;c+=PI/2;for(i=0;i<9;i++){push();translate(250,f-600+i*200);box(99);pop();}for(i=0;i<3;i++){push();b=i%2<1?1:-1;translate(250+cos(c/100)*200*b,50+i*200);sphere(30);pop();}}//#p5t
