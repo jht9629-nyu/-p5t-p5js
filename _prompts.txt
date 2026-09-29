@@ -22,3 +22,7 @@ v1.1.1
 No errors in the first 40
 
 next batch
+
+v1.2
+
+All 159 sketches are now in p5js/, and the gallery lists every one as converted.
