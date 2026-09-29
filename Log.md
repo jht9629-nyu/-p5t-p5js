@@ -146,3 +146,53 @@ _Time cost: about 2 minutes._
 > with approximate time cost
 
 These 80 sketches depend on Processing's int-based pixel model with direct get()/set() access across all 230,000 pixels per frame, which p5's slower, non-int color API can't match. I'll build a shared helper, p5js/lib/p5t.js, to maintain an int-ARGB pixel buffer in sync with the canvas—starting by identifying which p5 2D drawing methods need hooking.
+
+## 2026-09-29 ~19:15–19:40 EDT: Batch 3, pixel and int-colour sketches
+
+_Time cost: about 25 minutes (estimated from file timestamps; about 5 of those went to profiling and the CaveExplorers speed-up)._
+
+### Prompt
+
+> do batch 3
+
+### Response
+
+Batch 3 is done: all 80 sketches are ported, and the gallery now shows 154 of 159 converted. All 80 load with no JavaScript errors, and the screenshots look right.
+
+**New shared helper library: `p5js/lib/p5t.js`**
+- **Why:** these sketches use Java int colours (`-1` for white, `#000000`, and even arithmetic on packed colours) and read or write every pixel with `get()`/`set()`/`pixels[]`. p5's versions don't use int colours and are far too slow for that.
+- **What it provides:** `jget`/`jset`/`jloadPixels`, `jcolor`/`jcolorInt`, the `jred`/`jhue`/`jbrightness` family, `jlerpColor`, `jfill`/`jstroke`/`jbackground`, `idiv` for Java integer division, and `jint` for Java's `(int)` cast. They follow Processing's rules, including which arguments count as a gray level and which as a packed colour.
+- **Keeping pixels and shapes in sync:** it works on an integer copy of the canvas, so sketches can mix pixel access with `circle()` or `text()` freely.
+- **Where it's used:** 44 of the 80 sketches use it. `tools/p5t.py` adds it to a sketch's `index.html` automatically when the code calls it.
+
+**How Java behaviour is preserved in the ports**
+- **Snapshot versus live pixels:** `loadPixels()` takes a snapshot and `get()` reads live pixels, as in Processing. The Game-of-Life-style sketches (life, CircleOfLife, BlueCircle) depend on the snapshot.
+- **Casts and division:** `(int)random(4)-2` and `int(random(4)-2)` give different ranges in Java, and each port keeps the one its original used. Java int division is kept, including MazeAdventure's `/96` that produces its blocky maze.
+- **Overflow:** Java int overflow is kept in the water ripples (WaterOne, WaterWater, WaterFinal, NotGreat), Mandlebrot and CaveExplorers.
+- **Window size:** the 40 or so sketches that sized their window with `frame.setSize()` in `draw()` now call `createCanvas()` in `setup()`.
+
+**Behaviour that's faithful but may look like a bug**
+- **MazeDraft** never wraps its x position, so after the first step every `set()` lands off the canvas and is ignored, just as in Processing.
+- **SunDown** turns the whole canvas one colour every few seconds. The "sun" radius jumps past the largest distance on the canvas, so that's correct.
+- **Colours with alpha set directly on pixels** (Mandlebrot, LavaFlow, ColorMoves) are shown at full opacity. That matches Processing's opaque window, though there was no real Processing render to compare against.
+
+**Small deviations:** ClipSpiral uses a canvas clip rectangle, because p5 1.x has no rectangle `clip()`. RingOfNonFire no longer logs to the console every frame. Flocking's `d` field is renamed, because JS can't share a name between a field and a method.
+
+**Slow sketches (frame rates measured with the GPU on this Mac)**
+- **ParticleTrail2: 1.7 fps.** It draws 62,500 `text()` characters per frame.
+- **About 12 noise-per-pixel sketches: 8–18 fps.** These include LavaFlow, ColorNoise, MapGen, DessertIsland, Nova and Beach. Profiling shows 70–75% of the time is p5's `noise()`, and the helpers take about 5%.
+- **CaveExplorers: 11.7 fps.** It started at 1 fps because every particle's `text()` forced a full canvas reload; the library now reads single pixels in that case.
+
+Batch 4 is the last 5 sketches: MazeMaker, MazeMaker2 and MazeMaker3 (the two MazeMakers with extra `.pde` files), CharTrain (`char` math and a font), and `Samples/PixelBased`.
+
+## 2026-09-29 19:41 EDT: Commit Batch 3 and log update
+
+_Time cost: about 3 minutes._
+
+### Prompt
+
+> commit Batch 3 first and add batch 3 chat to Log.md
+
+### Response
+
+Batch 3 was already committed (as `v1.1.1`, with the library fix in the next commit). The only uncommitted change was the rebuilt gallery page, now committed as `caad649` ("Batch 3: rebuild gallery (154/159 converted)"). This entry was then added to Log.md.
