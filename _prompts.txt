@@ -16,3 +16,7 @@ converted Batch 1: 39 sketches
 Batch 2 is done: all 34 P3D sketches are ported to p5 WEBGL
 
 Batch 3 is next: the roughly 50
+
+v1.1.1
+
+No errors in the first 40

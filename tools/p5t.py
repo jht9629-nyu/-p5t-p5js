@@ -9,6 +9,7 @@ p5js/<same path as in #p5t>/{index.html, sketch.js}.
 
 import html
 import json
+import re
 import sys
 from pathlib import Path
 from urllib.parse import quote
@@ -20,6 +21,12 @@ P5_VERSION = "1.11.12"
 P5_URL = f"https://cdnjs.cloudflare.com/ajax/libs/p5.js/{P5_VERSION}/p5.min.js"
 UPSTREAM = "https://github.com/madparker/-p5t/blob/main/"
 
+# Sketches calling these get p5js/lib/p5t.js (Processing-style pixels and colors).
+LIB_USE = re.compile(
+    r"\b(j(get|set|loadPixels|color|colorInt|red|green|blue|hue|saturation|brightness"
+    r"|lerpColor|fill|stroke|background|int)|idiv)\("
+)
+
 # Scratch copies left next to the real sketch; not ported.
 SKIP_FILES = {"BAK.pde", "Temop.pde"}
 
@@ -30,7 +37,7 @@ INDEX_HTML = """<!doctype html>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
     <script src="{p5_url}"></script>
-    <script src="sketch.js"></script>
+{libs}    <script src="sketch.js"></script>
     <style>
       body {{
         margin: 0;
@@ -71,20 +78,27 @@ def write_sketch(rel, body):
     pde = main_pde(rel)
     src_rel = pde.relative_to(ROOT).as_posix()
     original = pde.read_text().rstrip()
-    if "*/" in original:
-        raise ValueError(f"{src_rel} contains */ and can't sit in a block comment")
     name = Path(rel).name
     header = (
         f"// {name} (p5.js {P5_VERSION} port of a #p5t Processing sketch)\n"
         f"// {upstream_url(pde)}\n"
         f"// {src_rel}\n"
     )
-    footer = f"\n// ---- Original Processing source: {src_rel}\n/*\n{original}\n*/\n"
+    if "*/" in original:
+        # The source has its own block comment, so comment it line by line.
+        quoted = "\n".join(("// " + line).rstrip() for line in original.split("\n"))
+    else:
+        quoted = f"/*\n{original}\n*/"
+    footer = f"\n// ---- Original Processing source: {src_rel}\n{quoted}\n"
     out = OUT / rel
     out.mkdir(parents=True, exist_ok=True)
     (out / "sketch.js").write_text(header + "\n" + body.strip() + "\n" + footer)
+    libs = ""
+    if LIB_USE.search(body):
+        lib = "../" * len(Path(rel).parts) + "lib/p5t.js"
+        libs = f'    <script src="{lib}"></script>\n'
     (out / "index.html").write_text(
-        INDEX_HTML.format(title=html.escape(name), p5_url=P5_URL)
+        INDEX_HTML.format(title=html.escape(name), p5_url=P5_URL, libs=libs)
     )
 
 
