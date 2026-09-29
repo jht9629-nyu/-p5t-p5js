@@ -1,0 +1,12 @@
+
+
+v1.1
+
+plan out conversion from processing files in folder #p5t
+to p5js files stored p5js 
+following the same folder path 
+any recommendations before we start
+
+pin p5 version to 1.11.12
+create gallery page
+do batch 1
