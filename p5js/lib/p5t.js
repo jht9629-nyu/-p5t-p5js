@@ -38,6 +38,7 @@ let _pxW = 0;
 let _pxH = 0;
 let _pxStale = true; // canvas changed since the buffer was loaded
 let _pxDirty = false; // buffer changed since it was written to the canvas
+let _pxStaleReads = 0; // single-pixel reads since the canvas last changed
 
 function _pxLoad() {
   const ctx = drawingContext;
@@ -76,6 +77,7 @@ for (const name of [
     _pxFlush();
     const result = draw.apply(this, args);
     _pxStale = true;
+    _pxStaleReads = 0;
     return result;
   };
 }
@@ -84,7 +86,17 @@ p5.prototype.registerMethod('post', _pxFlush);
 function jget(x, y) {
   x |= 0;
   y |= 0;
-  if (_pxStale) _pxLoad();
+  if (_pxStale) {
+    // A few reads between shapes (say, one per text() call) are cheaper one
+    // pixel at a time than reloading the whole buffer before each.
+    if (++_pxStaleReads <= 64) {
+      const c = drawingContext.canvas;
+      if (x < 0 || y < 0 || x >= c.width || y >= c.height) return 0;
+      const d = drawingContext.getImageData(x, y, 1, 1).data;
+      return (0xff000000 | (d[0] << 16) | (d[1] << 8) | d[2]) | 0;
+    }
+    _pxLoad();
+  }
   if (x < 0 || y < 0 || x >= _pxW || y >= _pxH) return 0;
   return _pxBuf[x + y * _pxW] | 0xff000000;
 }

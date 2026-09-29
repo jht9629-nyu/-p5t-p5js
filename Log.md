@@ -21,18 +21,18 @@
 
 #### Where the conversion is risky (sketch counts)
 
-| Issue | Sketches | Why it matters |
-|---|---|---|
-| `colorMode` (mostly `HSB,99`) | 64 | Works the same in p5; low risk |
-| `set()`/`get()` | ~50 | Processing lets you pass a packed int color like `-1` or `c--`. p5 doesn't accept those, so each one needs an ARGB-to-`color()` helper |
-| `P3D` | 34 | This is the big one. p5's `WEBGL` puts the origin at the center, so every `translate(250,250)` would draw off-center. Adding `translate(-width/2,-height/2)` at the top of `draw()` fixes that. Stroke and blending also look different in WebGL |
-| `color()` / `#RRGGBB` literals | 34 / 11 | Hex literals become strings. Code that does arithmetic on colors breaks |
-| Typed arrays (`int[]`, `new int[n]`) | 33 | Become `new Array(n).fill(0)`, or `Int32Array` where the code relies on wraparound |
-| Integer math (`int`, casts) | 25+ | **The quietest risk.** In Java, `i/5` truncates when both values are ints; in JS it doesn't. Tweet-sized code depends on this all the time (for example `p++/3`), so each one needs a `floor()` or `\|0` |
-| `pixels[]` | 8 | p5 stores four bytes per pixel (RGBA), so every index is multiplied by 4. It also needs `pixelDensity(1)`, as LangtonsAnt already uses |
-| `class` / `PVector` | 17 / 5 | Direct translation, low risk |
-| `text()` | 24 | Mostly fine, but default fonts differ |
-| Java-only calls | a few | `frame.setSize` (drop it and use `createCanvas`), `3f` float suffixes, `char` math in `CharTrain` |
+| Issue                                | Sketches | Why it matters                                                                                                                                                                                                                                   |
+| ------------------------------------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `colorMode` (mostly `HSB,99`)        | 64       | Works the same in p5; low risk                                                                                                                                                                                                                   |
+| `set()`/`get()`                      | ~50      | Processing lets you pass a packed int color like `-1` or `c--`. p5 doesn't accept those, so each one needs an ARGB-to-`color()` helper                                                                                                           |
+| `P3D`                                | 34       | This is the big one. p5's `WEBGL` puts the origin at the center, so every `translate(250,250)` would draw off-center. Adding `translate(-width/2,-height/2)` at the top of `draw()` fixes that. Stroke and blending also look different in WebGL |
+| `color()` / `#RRGGBB` literals       | 34 / 11  | Hex literals become strings. Code that does arithmetic on colors breaks                                                                                                                                                                          |
+| Typed arrays (`int[]`, `new int[n]`) | 33       | Become `new Array(n).fill(0)`, or `Int32Array` where the code relies on wraparound                                                                                                                                                               |
+| Integer math (`int`, casts)          | 25+      | **The quietest risk.** In Java, `i/5` truncates when both values are ints; in JS it doesn't. Tweet-sized code depends on this all the time (for example `p++/3`), so each one needs a `floor()` or `\|0`                                         |
+| `pixels[]`                           | 8        | p5 stores four bytes per pixel (RGBA), so every index is multiplied by 4. It also needs `pixelDensity(1)`, as LangtonsAnt already uses                                                                                                           |
+| `class` / `PVector`                  | 17 / 5   | Direct translation, low risk                                                                                                                                                                                                                     |
+| `text()`                             | 24       | Mostly fine, but default fonts differ                                                                                                                                                                                                            |
+| Java-only calls                      | a few    | `frame.setSize` (drop it and use `createCanvas`), `3f` float suffixes, `char` math in `CharTrain`                                                                                                                                                |
 
 #### Recommendations to decide before starting
 
@@ -69,6 +69,7 @@ _Time cost: about 25 minutes (estimated from file timestamps)._
 I set every sketch to p5.js 1.11.12, built the gallery page, and converted Batch 1: 39 sketches, so 40 of 159 are now in `p5js/`, counting LangtonsAnt. All 40 load in headless Chrome with no JavaScript errors and draw something plausible. Whether each one matches the original's look and motion is still for you to judge. Nothing is committed yet.
 
 **Where things are**
+
 - **Pinned version:** every `index.html` loads p5.js 1.11.12, and LangtonsAnt's was updated from 1.9.0.
 - **Gallery:** `p5js/index.html` lists all 159 sketches grouped by date, with unconverted ones marked "todo". Clicking a converted sketch plays it next to the list, with links to its `sketch.js` and the original `.pde`.
 - **Tool:** `tools/p5t.py` writes each sketch's `index.html` and wraps `sketch.js` with a header linking the original and the full original source in a comment at the bottom. After each batch, run `python3 tools/p5t.py gallery` to refresh the gallery.
@@ -77,6 +78,7 @@ I set every sketch to p5.js 1.11.12, built the gallery page, and converted Batch
 **What's in Batch 1:** every sketch without `P3D`, `set()`/`get()`, `pixels[]` or font/image loading, and not one of the odd ones (MazeMaker, CharTrain, Samples, Rose).
 
 **Differences between Processing and p5 that I fixed in every sketch where they apply**
+
 - **Background:** p5 starts with a transparent canvas, so sketches that never set one get Processing's default gray (`background(204)`). `clear()` becomes `background(0)`, because p5's `clear()` shows the page through the canvas.
 - **Text colour:** p5 draws text in black until `fill()` is called, while Processing uses white. Without the fix, DontPanic, CovidCases, Game, Whack and ClockGame showed nothing.
 - **Text outline:** p5 outlines text with the current stroke and Processing never does, so NightPond and ClockGame turn the stroke off around their `text()` calls.
@@ -84,6 +86,7 @@ I set every sketch to p5.js 1.11.12, built the gallery page, and converted Batch
 - **Speed:** browsers cap drawing at about 60 frames per second. For sketches set higher (Game at 500, Warp at 999, sketch_200701a at 1250, Towers, ColorCity, Abstract), `draw()` runs several steps per frame to keep the original speed.
 
 **Changes to specific sketches**
+
 - **sketch_200718a would freeze forever.** Its angle falls into a cycle that never finds a point on the canvas. The port stalls after about 49 frames, and with Java's number precision the original freezes the same way after about 73 seconds. I added a guard that picks a new random angle after 1000 failed tries.
 - **HSBNoise** looped to 99 in both directions, but anything past 25 is off the 500px canvas. It now stops at 25, which draws the same image much faster.
 - **Warp** only draws its lines once per frame, since each step repaints the whole canvas and only the last one would be visible.
@@ -105,6 +108,7 @@ Batch 2 is done: all 34 `P3D` sketches are ported to p5 WEBGL, and the gallery n
 This batch includes `#p5t/Rose` and `#p5t/Samples/Move3DShape`. I'd planned them for Batch 4, but they turned out to be plain `P3D` sketches.
 
 **Changes made in every WEBGL port**
+
 - **Origin:** p5 puts the origin at the canvas center, so each `draw()` starts with `translate(-width/2, -height/2)`. The default camera then matches Processing's.
 - **Antialiasing and strokes:** Processing smooths 3D shapes and keeps 3D lines a constant width. p5 does neither by default in Chrome, so each sketch turns antialiasing on and calls `linePerspective(false)`.
 - **Constants:** `beginShape(10)` is `TRIANGLE_STRIP`, `beginShape(18)` is `QUAD_STRIP`, and `colorMode(3)` is `HSB`.
@@ -112,6 +116,7 @@ This batch includes `#p5t/Rose` and `#p5t/Samples/Move3DShape`. I'd planned them
 - **Point lights:** p5 ignores the current transform when placing a `pointLight`, so Knit and Cave pass Processing's screen coordinates shifted to p5's.
 
 **Changes to specific sketches**
+
 - **DominoTwist:** in Processing each row's light stays on for the rest of the frame. p5 turns lights off at `pop()` and allows at most 5, so the lights are now added before `push()` and stop at 5. The last three rows get slightly less light than in the original.
 - **ColorSpace:** p5 WEBGL can't draw text without a loaded font file. It now loads DejaVu Sans from jsDelivr, so it needs a network connection, like CovidCases.
 - **ColorRotate and distress:** Java int colours (`-1` for white, `-65536` for red) became explicit colours.
@@ -119,13 +124,13 @@ This batch includes `#p5t/Rose` and `#p5t/Samples/Move3DShape`. I'd planned them
 
 **Slow sketches (frame rates measured with the GPU on this Mac)**
 
-| Sketch | fps | Why |
-|---|---|---|
-| SpaceValley | 1.4 | about 62,000 stroked vertices per frame |
-| Landscape | 1.6 | about 20,000 boxes per frame |
-| WireWorld, BoltTunnel | 3–4 | stroked strips; BoltTunnel also has 720 filled rings to triangulate |
-| ColorSpiral, DownTheSpiral, DominoTwist, Cave | 6–9 | stroked strips (ColorSpiral, DownTheSpiral), thousands of boxes or spheres (DominoTwist, Cave) |
-| DepthRot, distress, StainedGlassTunnel | 14–20 | many boxes (DepthRot), stroked strips (distress, StainedGlassTunnel) |
+| Sketch                                        | fps   | Why                                                                                            |
+| --------------------------------------------- | ----- | ---------------------------------------------------------------------------------------------- |
+| SpaceValley                                   | 1.4   | about 62,000 stroked vertices per frame                                                        |
+| Landscape                                     | 1.6   | about 20,000 boxes per frame                                                                   |
+| WireWorld, BoltTunnel                         | 3–4   | stroked strips; BoltTunnel also has 720 filled rings to triangulate                            |
+| ColorSpiral, DownTheSpiral, DominoTwist, Cave | 6–9   | stroked strips (ColorSpiral, DownTheSpiral), thousands of boxes or spheres (DominoTwist, Cave) |
+| DepthRot, distress, StainedGlassTunnel        | 14–20 | many boxes (DepthRot), stroked strips (distress, StainedGlassTunnel)                           |
 
 Profiling showed two causes. For stroked strips, p5 1.x rebuilds stroke geometry for every shape on every frame: without strokes, SpaceValley goes from 1.4 to 32 fps and WireWorld from 4 to 60, while square caps and miter joins didn't help. For box-heavy sketches, the cost is the overhead of each box draw call; skipping unneeded `push()`/`pop()` in Landscape made no measurable difference, so I reverted it. Making these faster would change how they look, so they're left faithful. A coarser version could be added alongside each original if wanted.
 
@@ -139,3 +144,5 @@ _Time cost: about 2 minutes._
 
 > append this chat to Log.md with date and time stamp
 > with approximate time cost
+
+These 80 sketches depend on Processing's int-based pixel model with direct get()/set() access across all 230,000 pixels per frame, which p5's slower, non-int color API can't match. I'll build a shared helper, p5js/lib/p5t.js, to maintain an int-ARGB pixel buffer in sync with the canvas—starting by identifying which p5 2D drawing methods need hooking.
