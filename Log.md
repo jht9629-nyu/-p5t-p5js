@@ -196,3 +196,32 @@ _Time cost: about 3 minutes._
 ### Response
 
 Batch 3 was already committed (as `v1.1.1`, with the library fix in the next commit). The only uncommitted change was the rebuilt gallery page, now committed as `caad649` ("Batch 3: rebuild gallery (154/159 converted)"). This entry was then added to Log.md.
+
+## 2026-09-29 ~19:42–19:46 EDT: Batch 4, the last five sketches
+
+_Time cost: about 5 minutes._
+
+### Prompt
+
+> next batch
+
+### Response
+
+Batch 4 is done, so the conversion is complete: all 159 sketches are in `p5js/`, and the gallery shows 159 of 159. All 5 new sketches load with no JavaScript errors and run at about 60 fps, and their screenshots look right.
+
+- **MazeMaker, MazeMaker2 and MazeMaker3:** Java's `ArrayList.contains()` checks whether a list holds a point with the same coordinates, but JavaScript's `includes()` only matches the identical object. Each port uses a small `has()` helper to keep Java's behaviour. MazeMaker2 picks its direction from `second()`, so it still makes long straight corridors that change every second; MazeMaker3's fixed scan order still produces its zig-zag rows.
+- **BAK.pde and Temop.pde:** these extra files in the MazeMaker2 and MazeMaker3 folders are entirely commented out, so there was nothing to port.
+- **CharTrain:** `textFont(createFont("", 20))` became p5's default sans-serif at size 20, with `fill(255)` added so the text is white as in Processing. The ✈ ☀ ⌗ ⇰ characters render with the system font.
+- **Samples/PixelBased:** this uses the pixel helper library. It adds 9 directly to each pixel's integer colour, and Java's overflow is kept, so blue brightens and carries into green and red.
+
+## 2026-09-29 19:49 EDT: Commit Batch 4
+
+_Time cost: about 2 minutes._
+
+### Prompt
+
+> yes (commit, add this batch to Log.md, and ignore `__pycache__/`)
+
+### Response
+
+Added `__pycache__/` to `.gitignore`, removed `tools/__pycache__` from the repo (the local file stays), added this entry, and committed Batch 4 with the rebuilt gallery.
