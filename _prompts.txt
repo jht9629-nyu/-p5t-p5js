@@ -32,3 +32,23 @@ v1.3
 Add a loop checkbox to gallery p5js/index.html
 to play each sketch for 7 seconds
 report "playing n of 159"
+
+v1.4
+
+in p5js/index.html
+new version of play back 
+and new layout 
+order the sketches in a random order
+for 8  540 x 480 playback area
+in 2 x 4 arrangement
+in each area a sketch is played 
+from the 159 available in random order
+every n seconds (control by variable in code),
+one is replaced by next random sketch
+
+v1.5
+
+plan dont implement yet, new build method to created multiple versions of play to experiment. Maybe layout css and js is seperate from list of generated sketches
+
+implement do launcher play player option in url, no freeze of experiment, no on-screen settings panel ur URL param, 
+adjust assume 500 x 500 playback cells

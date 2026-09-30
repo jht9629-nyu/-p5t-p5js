@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>List</title>
+<meta name="description" content="Every sketch grouped by date; pick one to play it beside the list, or loop through them all. URL settings: loop, secs." />
+<link rel="stylesheet" href="../common.css" />
+<link rel="stylesheet" href="player.css" />
+</head>
+<body>
+<nav>
+  <header>
+    <h1>#p5t in p5.js</h1>
+    <div class="meta" id="count"></div>
+    <label><input type="checkbox" id="hide" /> Hide unconverted</label>
+    <label><input type="checkbox" id="loop" /> <span id="loop-label">Loop</span></label>
+    <div class="meta" id="status" aria-live="polite"></div>
+    <label><a href="../../">← All players</a></label>
+  </header>
+  <div id="list"></div>
+</nav>
+<main>
+  <div class="bar" id="bar"><span class="meta">Pick a sketch</span></div>
+  <div class="empty" id="view">Select a sketch from the list.</div>
+</main>
+<script src="../../sketches.js"></script>
+<script src="../common.js"></script>
+<script src="player.js"></script>
+</body>
+</html>

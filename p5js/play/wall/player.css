@@ -1,0 +1,6 @@
+html, body { margin: 0; height: 100%; background: #000; overflow: hidden; }
+#stage { position: absolute; left: 0; top: 0; display: grid; transform-origin: 0 0; }
+.cell { position: relative; overflow: hidden; background: #d0d0d0; }
+.cell iframe { position: absolute; left: 0; top: 0; border: 0; transform-origin: 0 0; }
+.cell iframe.loading { visibility: hidden; }
+body.no-labels .label { display: none; }
