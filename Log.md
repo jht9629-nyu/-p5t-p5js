@@ -225,3 +225,24 @@ _Time cost: about 2 minutes._
 ### Response
 
 Added `__pycache__/` to `.gitignore`, removed `tools/__pycache__` from the repo (the local file stays), added this entry, and committed Batch 4 with the rebuilt gallery.
+
+## 2026-09-29 ~21:45–21:58 EDT: Separate players from the sketch list
+
+_Time cost: about 12 minutes (planning about 4, building and testing about 8)._
+
+### Prompts
+
+> plan dont implement yet, new build method to created multiple versions of play to experiment. Maybe layout css and js is seperate from list of generated sketches
+
+> implement do launcher play player option in url, no freeze of experiment, no on-screen settings panel ur URL param,
+> adjust assume 500 x 500 playback cells
+
+### Response
+
+The layouts (players) are now plain, hand-edited files, separate from the generated sketch list:
+
+- **Generated:** `p5js/sketches.js` (the sketch list) and `p5js/play/players.js` (the list of players), written by `python3 tools/p5t.py gallery`.
+- **Players:** `p5js/play/wall/` and `p5js/play/list/`, each holding `index.html`, `player.js` and `player.css`. `play/common.js` holds the shared helpers. The `GALLERY` and `WALL` strings were removed from `p5t.py`, and `index-list.html` was removed.
+- **Launcher:** `p5js/index.html` lists the players. `?play=NAME` opens one directly and passes the other URL settings on to it, e.g. `?play=wall&cols=3&swap=8`.
+- **Wall:** 500 × 500 cells at zoom 1, 2 × 4 by default. Settings: `cols`, `rows`, `w`, `h`, `swap`, `zoom`, `labels`. Scrolling is turned off inside each cell.
+- **New experiments:** `python3 tools/p5t.py new-player NAME [--from wall]` copies a player.

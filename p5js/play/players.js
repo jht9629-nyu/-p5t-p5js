@@ -8,6 +8,6 @@ window.P5T_PLAYERS = [
  {
   "name": "wall",
   "title": "Wall",
-  "description": "A grid of sketches in random order; every few seconds one cell gets the next sketch. URL settings: cols, rows, w, h, swap, zoom, labels."
+  "description": "A grid of sketches in random order; every few seconds one cell gets the next sketch. URL settings: cols, rows, w, h, swap, zoom, labels, credit."
  }
 ];

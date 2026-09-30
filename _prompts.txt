@@ -52,3 +52,10 @@ plan dont implement yet, new build method to created multiple versions of play t
 
 implement do launcher play player option in url, no freeze of experiment, no on-screen settings panel ur URL param, 
 adjust assume 500 x 500 playback cells
+
+v1.6
+
+in wall, modify sketch tag to be: <index> <month><day> <sketchname>
+eg. 01 0511 LangstonsAnt
+also at a credit overlay in bottom flush right:
+#p5t-p5js 2026-09-29
