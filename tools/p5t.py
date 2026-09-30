@@ -181,6 +181,8 @@ GALLERY = r"""<!doctype html>
     <h1>#p5t in p5.js</h1>
     <div class="meta" id="count"></div>
     <label><input type="checkbox" id="hide" /> Hide unconverted</label>
+    <label><input type="checkbox" id="loop" /> Loop: play each sketch for 7 seconds</label>
+    <div class="meta" id="status" aria-live="polite"></div>
   </header>
   <div id="list"></div>
 </nav>
@@ -246,7 +248,40 @@ function show() {
   frame.id = 'view';
   frame.src = url;
   old.replaceWith(frame);
+  document.querySelector('a.item.sel')?.scrollIntoView({ block: 'center' });
+  if (loop.checked) scheduleNext();
 }
+
+// Loop mode: advance to the next converted sketch every 7 seconds, wrapping
+// at the end. Picking a sketch by hand while looping continues from there.
+const PLAYABLE = ITEMS.filter(i => i.done);
+const PLAY_MS = 7000;
+const loop = document.getElementById('loop');
+const status = document.getElementById('status');
+let timer = null;
+
+function currentIndex() {
+  const path = decodeURIComponent(location.hash.slice(1));
+  return PLAYABLE.findIndex(i => i.path === path);
+}
+
+function scheduleNext() {
+  clearTimeout(timer);
+  const k = currentIndex();
+  status.textContent = `Playing ${k + 1} of ${PLAYABLE.length}`;
+  timer = setTimeout(() => {
+    location.hash = PLAYABLE[(k + 1) % PLAYABLE.length].path;
+  }, PLAY_MS);
+}
+
+loop.addEventListener('change', () => {
+  clearTimeout(timer);
+  status.textContent = '';
+  if (!loop.checked) return;
+  if (currentIndex() < 0) location.hash = PLAYABLE[0].path; // show() takes over
+  else scheduleNext();
+});
+
 window.addEventListener('hashchange', show);
 show();
 </script>

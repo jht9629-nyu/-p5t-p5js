@@ -26,3 +26,9 @@ next batch
 v1.2
 
 All 159 sketches are now in p5js/, and the gallery lists every one as converted.
+
+v1.3
+
+Add a loop checkbox to gallery p5js/index.html
+to play each sketch for 7 seconds
+report "playing n of 159"
