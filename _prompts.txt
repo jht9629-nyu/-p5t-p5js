@@ -75,3 +75,14 @@ row 1: canvas, code
 row 2: code, canvas
 row 3: canvas, code
 row 4: code, canvas
+
+v1.8
+
+Branch "p5js" is not allowed to deploy to github-pages due to environment protection rules.
+
+Option 1: allow p5js to deploy (recommended, since that's the branch you work on)
+
+On GitHub, open jht9629-nyu/-p5t-p5js → Settings → Environments → github-pages.
+Under Deployment branches and tags, click Add deployment branch or tag rule and enter p5js.
+Re-run the failed workflow from the Actions tab.
+
