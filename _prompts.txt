@@ -59,3 +59,9 @@ in wall, modify sketch tag to be: <index> <month><day> <sketchname>
 eg. 01 0511 LangstonsAnt
 also at a credit overlay in bottom flush right:
 #p5t-p5js 2026-09-29
+
+v1.7
+
+create github workflow to deploy as github pages folder p5js
+
+https://jht9629-nyu.github.io/-p5t-p5js/
