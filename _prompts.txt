@@ -86,3 +86,9 @@ On GitHub, open jht9629-nyu/-p5t-p5js → Settings → Environments → github-p
 Under Deployment branches and tags, click Add deployment branch or tag rule and enter p5js.
 Re-run the failed workflow from the Actions tab.
 
+v1.9
+
+In p5js/index.html
+include link to source https://github.com/jht9629-nyu/-p5t-p5js
+
+add README.md to p5js/index.html 
