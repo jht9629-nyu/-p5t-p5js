@@ -92,3 +92,8 @@ In p5js/index.html
 include link to source https://github.com/jht9629-nyu/-p5t-p5js
 
 add README.md to p5js/index.html 
+
+v1.9
+
+updated p5js/index.html with text from README.md
+and position at top of the page

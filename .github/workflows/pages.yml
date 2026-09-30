@@ -2,10 +2,10 @@ name: Deploy p5js to GitHub Pages
 
 on:
   push:
-    branches: [p5js, main]
+    branches: [main]
     paths:
-      - "p5js/**"
-      - ".github/workflows/pages.yml"
+      - 'p5js/**'
+      - '.github/workflows/pages.yml'
   workflow_dispatch:
 
 permissions:
