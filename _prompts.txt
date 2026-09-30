@@ -65,3 +65,13 @@ v1.7
 create github workflow to deploy as github pages folder p5js
 
 https://jht9629-nyu.github.io/-p5t-p5js/
+
+v1.7
+
+create a new player in p5js/play like wall called wall-script
+that shows the source code in mono font in adjacent cell
+and alternate. 
+row 1: canvas, code
+row 2: code, canvas
+row 3: canvas, code
+row 4: code, canvas
