@@ -160,18 +160,21 @@ _Time cost: about 25 minutes (estimated from file timestamps; about 5 of those w
 Batch 3 is done: all 80 sketches are ported, and the gallery now shows 154 of 159 converted. All 80 load with no JavaScript errors, and the screenshots look right.
 
 **New shared helper library: `p5js/lib/p5t.js`**
+
 - **Why:** these sketches use Java int colours (`-1` for white, `#000000`, and even arithmetic on packed colours) and read or write every pixel with `get()`/`set()`/`pixels[]`. p5's versions don't use int colours and are far too slow for that.
 - **What it provides:** `jget`/`jset`/`jloadPixels`, `jcolor`/`jcolorInt`, the `jred`/`jhue`/`jbrightness` family, `jlerpColor`, `jfill`/`jstroke`/`jbackground`, `idiv` for Java integer division, and `jint` for Java's `(int)` cast. They follow Processing's rules, including which arguments count as a gray level and which as a packed colour.
 - **Keeping pixels and shapes in sync:** it works on an integer copy of the canvas, so sketches can mix pixel access with `circle()` or `text()` freely.
 - **Where it's used:** 44 of the 80 sketches use it. `tools/p5t.py` adds it to a sketch's `index.html` automatically when the code calls it.
 
 **How Java behaviour is preserved in the ports**
+
 - **Snapshot versus live pixels:** `loadPixels()` takes a snapshot and `get()` reads live pixels, as in Processing. The Game-of-Life-style sketches (life, CircleOfLife, BlueCircle) depend on the snapshot.
 - **Casts and division:** `(int)random(4)-2` and `int(random(4)-2)` give different ranges in Java, and each port keeps the one its original used. Java int division is kept, including MazeAdventure's `/96` that produces its blocky maze.
 - **Overflow:** Java int overflow is kept in the water ripples (WaterOne, WaterWater, WaterFinal, NotGreat), Mandlebrot and CaveExplorers.
 - **Window size:** the 40 or so sketches that sized their window with `frame.setSize()` in `draw()` now call `createCanvas()` in `setup()`.
 
 **Behaviour that's faithful but may look like a bug**
+
 - **MazeDraft** never wraps its x position, so after the first step every `set()` lands off the canvas and is ignored, just as in Processing.
 - **SunDown** turns the whole canvas one colour every few seconds. The "sun" radius jumps past the largest distance on the canvas, so that's correct.
 - **Colours with alpha set directly on pixels** (Mandlebrot, LavaFlow, ColorMoves) are shown at full opacity. That matches Processing's opaque window, though there was no real Processing render to compare against.
@@ -179,6 +182,7 @@ Batch 3 is done: all 80 sketches are ported, and the gallery now shows 154 of 15
 **Small deviations:** ClipSpiral uses a canvas clip rectangle, because p5 1.x has no rectangle `clip()`. RingOfNonFire no longer logs to the console every frame. Flocking's `d` field is renamed, because JS can't share a name between a field and a method.
 
 **Slow sketches (frame rates measured with the GPU on this Mac)**
+
 - **ParticleTrail2: 1.7 fps.** It draws 62,500 `text()` characters per frame.
 - **About 12 noise-per-pixel sketches: 8–18 fps.** These include LavaFlow, ColorNoise, MapGen, DessertIsland, Nova and Beach. Profiling shows 70–75% of the time is p5's `noise()`, and the helpers take about 5%.
 - **CaveExplorers: 11.7 fps.** It started at 1 fps because every particle's `text()` forced a full canvas reload; the library now reads single pixels in that case.
@@ -246,3 +250,10 @@ The layouts (players) are now plain, hand-edited files, separate from the genera
 - **Launcher:** `p5js/index.html` lists the players. `?play=NAME` opens one directly and passes the other URL settings on to it, e.g. `?play=wall&cols=3&swap=8`.
 - **Wall:** 500 × 500 cells at zoom 1, 2 × 4 by default. Settings: `cols`, `rows`, `w`, `h`, `swap`, `zoom`, `labels`. Scrolling is turned off inside each cell.
 - **New experiments:** `python3 tools/p5t.py new-player NAME [--from wall]` copies a player.
+
+# --
+
+2026-10-01 11:27:47
+
+- v1.10 added p5t - the orginal link
+  - https://github.com/madparker/-p5t"

@@ -1,91 +1,160 @@
 <!doctype html>
 <html lang="en">
-<head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>#p5t players</title>
-<script>
-  // ?play=NAME opens play/NAME/ straight away, passing the other settings on:
-  // index.html?play=wall&cols=3&swap=8  →  play/wall/?cols=3&swap=8
-  (() => {
-    const q = new URLSearchParams(location.search);
-    const name = q.get('play');
-    if (!name || !/^[\w-]+$/.test(name)) return;
-    q.delete('play');
-    const rest = q.toString();
-    location.replace(`play/${name}/${rest ? '?' + rest : ''}${location.hash}`);
-  })();
-</script>
-<style>
-  :root {
-    --bg: #f4f3ef; --panel: #ffffff; --ink: #1d1d1b; --muted: #7a776f;
-    --line: #dedbd2; --accent: #d6336c;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --bg: #151514; --panel: #1f1e1c; --ink: #ecebe6; --muted: #8f8b82;
-      --line: #33312d; --accent: #f06595;
-    }
-  }
-  * { box-sizing: border-box; }
-  body {
-    margin: 0; padding: 32px 16px; background: var(--bg); color: var(--ink);
-    font: 14px/1.5 ui-sans-serif, system-ui, -apple-system, sans-serif;
-  }
-  .wrap { max-width: 760px; margin: 0 auto; }
-  h1 { margin: 0 0 4px; font-size: 22px; }
-  .meta { color: var(--muted); font-size: 13px; }
-  ul { list-style: none; padding: 0; margin: 24px 0; display: grid; gap: 12px; }
-  li a { display: block; padding: 14px 16px; background: var(--panel);
-         border: 1px solid var(--line); border-radius: 8px; color: var(--ink);
-         text-decoration: none; }
-  li a:hover { border-color: var(--accent); }
-  li strong { color: var(--accent); font-size: 16px; }
-  li code, p code { font: 12px ui-monospace, monospace; color: var(--muted); }
-  li p { margin: 4px 0 0; color: var(--muted); }
-  .meta a { color: var(--accent); }
-  .readme ul { list-style: disc; display: block; margin: 4px 0; padding-left: 20px; }
-  .readme li a { display: inline; padding: 0; background: none; border: 0;
-                 color: var(--accent); text-decoration: underline; }
-</style>
-</head>
-<body>
-<div class="wrap">
-  <h1>#p5t in p5.js</h1>
-  <div class="meta readme">
-    <p>Collection of (mostly) tweetable sketches (some finished, some works in progress)</p>
-    <ul>
-      <li><a href="https://github.com/jht9629-nyu/-p5t-p5js">p5t-p5js</a></li>
-      <li>converted from processing using Claude AI by JHT</li>
-      <li>prompts documented here <a href="https://github.com/jht9629-nyu/-p5t-p5js/blob/main/_prompts.txt">_prompts</a></li>
-      <li>chat logged here <a href="https://github.com/jht9629-nyu/-p5t-p5js/blob/main/Log.md">Log</a></li>
-    </ul>
-  </div>
-  <div class="meta" id="count"></div>
-  <ul id="players"></ul>
-  <p class="meta">
-    Open a player directly with <code>?play=NAME</code>; any other settings pass
-    through to it, e.g. <code>?play=wall&amp;cols=3&amp;rows=3&amp;swap=8</code>.
-    Make a new player with <code>python3 tools/p5t.py new-player NAME --from wall</code>.
-  </p>
-</div>
-<script src="sketches.js"></script>
-<script src="play/players.js"></script>
-<script>
-  const sketches = window.P5T_SKETCHES || [];
-  document.getElementById('count').textContent =
-    `${sketches.filter(s => s.done).length} of ${sketches.length} sketches · p5.js ${window.P5T_P5_VERSION}`;
-  const ul = document.getElementById('players');
-  for (const p of window.P5T_PLAYERS || []) {
-    const li = document.createElement('li');
-    const a = Object.assign(document.createElement('a'), { href: `?play=${p.name}` });
-    const title = Object.assign(document.createElement('strong'), { textContent: p.title || p.name });
-    const code = Object.assign(document.createElement('code'), { textContent: ` ?play=${p.name}` });
-    const desc = Object.assign(document.createElement('p'), { textContent: p.description });
-    a.append(title, code, desc);
-    li.append(a);
-    ul.append(li);
-  }
-</script>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>#p5t players</title>
+    <script>
+      // ?play=NAME opens play/NAME/ straight away, passing the other settings on:
+      // index.html?play=wall&cols=3&swap=8  →  play/wall/?cols=3&swap=8
+      (() => {
+        const q = new URLSearchParams(location.search);
+        const name = q.get('play');
+        if (!name || !/^[\w-]+$/.test(name)) return;
+        q.delete('play');
+        const rest = q.toString();
+        location.replace(`play/${name}/${rest ? '?' + rest : ''}${location.hash}`);
+      })();
+    </script>
+    <style>
+      :root {
+        --bg: #f4f3ef;
+        --panel: #ffffff;
+        --ink: #1d1d1b;
+        --muted: #7a776f;
+        --line: #dedbd2;
+        --accent: #d6336c;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #151514;
+          --panel: #1f1e1c;
+          --ink: #ecebe6;
+          --muted: #8f8b82;
+          --line: #33312d;
+          --accent: #f06595;
+        }
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        padding: 32px 16px;
+        background: var(--bg);
+        color: var(--ink);
+        font:
+          14px/1.5 ui-sans-serif,
+          system-ui,
+          -apple-system,
+          sans-serif;
+      }
+      .wrap {
+        max-width: 760px;
+        margin: 0 auto;
+      }
+      h1 {
+        margin: 0 0 4px;
+        font-size: 22px;
+      }
+      .meta {
+        color: var(--muted);
+        font-size: 13px;
+      }
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 24px 0;
+        display: grid;
+        gap: 12px;
+      }
+      li a {
+        display: block;
+        padding: 14px 16px;
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        color: var(--ink);
+        text-decoration: none;
+      }
+      li a:hover {
+        border-color: var(--accent);
+      }
+      li strong {
+        color: var(--accent);
+        font-size: 16px;
+      }
+      li code,
+      p code {
+        font:
+          12px ui-monospace,
+          monospace;
+        color: var(--muted);
+      }
+      li p {
+        margin: 4px 0 0;
+        color: var(--muted);
+      }
+      .meta a {
+        color: var(--accent);
+      }
+      .readme ul {
+        list-style: disc;
+        display: block;
+        margin: 4px 0;
+        padding-left: 20px;
+      }
+      .readme li a {
+        display: inline;
+        padding: 0;
+        background: none;
+        border: 0;
+        color: var(--accent);
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>#p5t in p5.js</h1>
+      <div class="meta readme">
+        <p>Collection of (mostly) tweetable sketches (some finished, some works in progress)</p>
+        <ul>
+          <li><a href="https://github.com/jht9629-nyu/-p5t-p5js">p5t-p5js</a></li>
+          <li><a href="https://github.com/madparker/-p5t">p5t - the orginal</a></li>
+          <li>converted from processing using Claude AI by JHT</li>
+          <li>
+            prompts documented here
+            <a href="https://github.com/jht9629-nyu/-p5t-p5js/blob/main/_prompts.txt">_prompts</a>
+          </li>
+          <li>chat logged here <a href="https://github.com/jht9629-nyu/-p5t-p5js/blob/main/Log.md">Log</a></li>
+        </ul>
+      </div>
+      <div class="meta" id="count"></div>
+      <ul id="players"></ul>
+      <p class="meta">
+        Open a player directly with <code>?play=NAME</code>; any other settings pass through to it, e.g.
+        <code>?play=wall&amp;cols=3&amp;rows=3&amp;swap=8</code>. Make a new player with
+        <code>python3 tools/p5t.py new-player NAME --from wall</code>.
+      </p>
+    </div>
+    <script src="sketches.js"></script>
+    <script src="play/players.js"></script>
+    <script>
+      const sketches = window.P5T_SKETCHES || [];
+      document.getElementById('count').textContent =
+        `${sketches.filter((s) => s.done).length} of ${sketches.length} sketches · p5.js ${window.P5T_P5_VERSION}`;
+      const ul = document.getElementById('players');
+      for (const p of window.P5T_PLAYERS || []) {
+        const li = document.createElement('li');
+        const a = Object.assign(document.createElement('a'), { href: `?play=${p.name}` });
+        const title = Object.assign(document.createElement('strong'), { textContent: p.title || p.name });
+        const code = Object.assign(document.createElement('code'), { textContent: ` ?play=${p.name}` });
+        const desc = Object.assign(document.createElement('p'), { textContent: p.description });
+        a.append(title, code, desc);
+        li.append(a);
+        ul.append(li);
+      }
+    </script>
+  </body>
 </html>
