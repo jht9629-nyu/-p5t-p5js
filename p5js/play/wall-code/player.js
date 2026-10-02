@@ -3,16 +3,16 @@
 // SWAP seconds one row, in turn, gets the next sketch.
 // Override any setting from the URL, e.g. ?rows=3&swap=8&font=10.
 const S = P5T.params({
-  rows: 4,        // sketch + code pairs down
-  w: 500,         // canvas cell size in px; most sketches are 500 x 500
+  rows: 4, // sketch + code pairs down
+  w: 500, // canvas cell size in px; most sketches are 500 x 500
   h: 500,
-  cw: 500,        // code cell width in px
-  font: 11,       // code font size in px
-  swap: 5,        // seconds between swaps
-  zoom: 1,        // scale sketches inside their cell (0.9 = shrink 10%)
-  labels: true,   // show each sketch's tag bottom right over its code: <index> <MMDD> <name>
-  credit: '#p5t-p5js-2026-10-02',  // bottom-right overlay; ?credit= hides it
-  qr: 120,        // QR code size in px above the credit; ?qr=0 hides it
+  cw: 500, // code cell width in px
+  font: 11, // code font size in px
+  swap: 5, // seconds between swaps
+  zoom: 1, // scale sketches inside their cell (0.9 = shrink 10%)
+  labels: true, // show each sketch's tag bottom right over its code: <index> <MMDD> <name>
+  credit: '#p5t-p5js-2026-10-03', // bottom-right overlay; ?credit= hides it
+  qr: 120, // QR code size in px above the credit; ?qr=0 hides it
 });
 
 const stage = document.getElementById('stage');
@@ -22,8 +22,10 @@ document.body.classList.toggle('no-labels', !S.labels);
 if (S.credit || S.qr) {
   const credit = Object.assign(document.createElement('div'), { className: 'credit' });
   if (S.qr) {
-    const qr = Object.assign(document.createElement('img'),
-      { src: '../../qrcode/qrcode-p5t-p5js.png', alt: 'QR code' });
+    const qr = Object.assign(document.createElement('img'), {
+      src: '../../qrcode/qrcode-p5t-p5js.png',
+      alt: 'QR code',
+    });
     qr.style.width = qr.style.height = `${S.qr}px`;
     credit.append(qr);
   }
@@ -64,12 +66,13 @@ for (let i = 0; i < S.rows; i++) {
 }
 
 const draw = P5T.deck(P5T.PLAYABLE);
-const onWall = path => rows.some(r => r.path === path);
+const onWall = (path) => rows.some((r) => r.path === path);
 
 // Every sketch keeps its code in sketch.js next to its index.html.
-const source = url => fetch(url + 'sketch.js')
-  .then(r => (r.ok ? r.text() : Promise.reject(r.status)))
-  .catch(() => '// sketch.js could not be loaded\n// (serve this page over http, not file://)');
+const source = (url) =>
+  fetch(url + 'sketch.js')
+    .then((r) => (r.ok ? r.text() : Promise.reject(r.status)))
+    .catch(() => '// sketch.js could not be loaded\n// (serve this page over http, not file://)');
 
 // Load the new sketch hidden and swap it and its code in once both have
 // loaded, so the row never flashes blank.
@@ -82,15 +85,19 @@ function play(row, it) {
   frame.height = Math.round(S.h / S.zoom);
   frame.style.transform = `scale(${S.zoom})`;
   frame.tabIndex = -1;
-  frame.scrolling = 'no';   // sketch pages run a few px past their 500 x 500 canvas
-  const label = Object.assign(document.createElement('a'),
-    { className: 'label', href: url, target: '_blank', textContent: tag(it), title: it.path });
-  const loaded = new Promise(resolve =>
-    frame.addEventListener('load', resolve, { once: true }));
+  frame.scrolling = 'no'; // sketch pages run a few px past their 500 x 500 canvas
+  const label = Object.assign(document.createElement('a'), {
+    className: 'label',
+    href: url,
+    target: '_blank',
+    textContent: tag(it),
+    title: it.path,
+  });
+  const loaded = new Promise((resolve) => frame.addEventListener('load', resolve, { once: true }));
   Promise.all([source(url), loaded]).then(([text]) => {
-    if (row.path !== it.path) return;   // a newer sketch has taken this row
+    if (row.path !== it.path) return; // a newer sketch has taken this row
     // Remove the old sketch around the new frame; moving an iframe reloads it.
-    [...row.el.children].forEach(c => c !== frame && c.remove());
+    [...row.el.children].forEach((c) => c !== frame && c.remove());
     row.side.querySelector('.label')?.remove();
     row.side.append(label);
     frame.classList.remove('loading');
@@ -101,7 +108,7 @@ function play(row, it) {
   row.el.append(frame);
 }
 
-rows.forEach(r => play(r, draw(onWall)));
+rows.forEach((r) => play(r, draw(onWall)));
 
 // Replace rows in turn, so each sketch stays up for rows * swap seconds.
 let turn = 0;
