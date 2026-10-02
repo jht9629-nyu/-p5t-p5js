@@ -13,6 +13,6 @@ window.P5T_PLAYERS = [
  {
   "name": "wall-code",
   "title": "Wall Code",
-  "description": "Like Wall, with each sketch's sketch.js source in mono font beside it; sides alternate row by row. URL settings: rows, w, h, cw, font, swap, zoom, labels, credit."
+  "description": "Like Wall, with each sketch's sketch.js source in mono font beside it; sides alternate row by row. URL settings: rows, w, h, cw, font, swap, zoom, labels, credit, qr."
  }
 ];

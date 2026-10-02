@@ -121,3 +121,18 @@ v1.13
 move qrcode folder to p5js 
 and adjust qrcode image reference
 needed since github pages served from p5js
+
+v1.14
+
+in new folder tools-js
+create a node js version of tools
+
+tools/p5t.py
+184 lines
+
+tools-js/p5t.mjs
+218 lines
+
+append chat since last entry
+to Log.md with date and time stamp
+with approximate time cost
