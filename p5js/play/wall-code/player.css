@@ -11,8 +11,10 @@ body.no-labels .label { display: none; }
   color: #fff; background: rgba(0, 0, 0, .45); border-radius: 3px;
   pointer-events: none;
 }
+.code-cell { flex: none; position: relative; }
+.code-cell .label { left: auto; right: 6px; }
 .code {
-  flex: none; margin: 0; padding: 10px 12px; overflow: hidden;
+  width: 100%; height: 100%; margin: 0; padding: 10px 12px; overflow: hidden;
   font: var(--code-font, 11px)/1.4 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   color: #ddd; background: #111; tab-size: 2; white-space: pre;
 }

@@ -10,7 +10,7 @@ const S = P5T.params({
   font: 11,       // code font size in px
   swap: 5,        // seconds between swaps
   zoom: 1,        // scale sketches inside their cell (0.9 = shrink 10%)
-  labels: true,   // show each sketch's tag in its corner: <index> <MMDD> <name>
+  labels: true,   // show each sketch's tag bottom right over its code: <index> <MMDD> <name>
   credit: '#p5t-p5js 2026-09-29',  // bottom-right overlay; ?credit= hides it
 });
 
@@ -35,6 +35,8 @@ function tag(it) {
 }
 
 // One row per sketch: a canvas cell and a code cell, sides swapped on even rows.
+// The code cell wraps the <pre> so the label can sit over it without being
+// wiped when the code text is replaced.
 const rows = [];
 for (let i = 0; i < S.rows; i++) {
   const line = document.createElement('div');
@@ -43,12 +45,15 @@ for (let i = 0; i < S.rows; i++) {
   const el = document.createElement('div');
   el.className = 'cell';
   el.style.width = `${S.w}px`;
+  const side = document.createElement('div');
+  side.className = 'code-cell';
+  side.style.width = `${S.cw}px`;
   const code = document.createElement('pre');
   code.className = 'code';
-  code.style.width = `${S.cw}px`;
-  line.append(...(i % 2 ? [code, el] : [el, code]));
+  side.append(code);
+  line.append(...(i % 2 ? [side, el] : [el, side]));
   stage.append(line);
-  rows.push({ el, code, path: null });
+  rows.push({ el, side, code, path: null });
 }
 
 const draw = P5T.deck(P5T.PLAYABLE);
@@ -79,7 +84,8 @@ function play(row, it) {
     if (row.path !== it.path) return;   // a newer sketch has taken this row
     // Remove the old sketch around the new frame; moving an iframe reloads it.
     [...row.el.children].forEach(c => c !== frame && c.remove());
-    row.el.append(label);
+    row.side.querySelector('.label')?.remove();
+    row.side.append(label);
     frame.classList.remove('loading');
     row.code.textContent = text;
     row.code.scrollTop = 0;
