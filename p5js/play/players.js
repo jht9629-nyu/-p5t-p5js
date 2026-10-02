@@ -11,8 +11,8 @@ window.P5T_PLAYERS = [
   "description": "A grid of sketches in random order; every few seconds one cell gets the next sketch. URL settings: cols, rows, w, h, swap, zoom, labels, credit."
  },
  {
-  "name": "wall-script",
-  "title": "Wall Script",
+  "name": "wall-code",
+  "title": "Wall Code",
   "description": "Like Wall, with each sketch's sketch.js source in mono font beside it; sides alternate row by row. URL settings: rows, w, h, cw, font, swap, zoom, labels, credit."
  }
 ];
