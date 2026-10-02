@@ -23,7 +23,7 @@ if (S.credit || S.qr) {
   const credit = Object.assign(document.createElement('div'), { className: 'credit' });
   if (S.qr) {
     const qr = Object.assign(document.createElement('img'),
-      { src: '../../../qrcode/qrcode-p5t-p5js.png', alt: 'QR code' });
+      { src: '../../qrcode/qrcode-p5t-p5js.png', alt: 'QR code' });
     qr.style.width = qr.style.height = `${S.qr}px`;
     credit.append(qr);
   }
