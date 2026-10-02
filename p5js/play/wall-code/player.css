@@ -10,7 +10,9 @@ body.no-labels .label { display: none; }
   font: 12px/1.4 ui-sans-serif, system-ui, -apple-system, sans-serif;
   color: #fff; background: rgba(0, 0, 0, .45); border-radius: 3px;
   pointer-events: none;
+  display: flex; flex-direction: column; align-items: flex-end; gap: 4px;
 }
+.credit img { display: block; background: #fff; }
 .code-cell { flex: none; position: relative; }
 .code-cell .label { left: auto; right: 6px; }
 .code {

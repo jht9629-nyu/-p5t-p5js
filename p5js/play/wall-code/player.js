@@ -11,16 +11,23 @@ const S = P5T.params({
   swap: 5,        // seconds between swaps
   zoom: 1,        // scale sketches inside their cell (0.9 = shrink 10%)
   labels: true,   // show each sketch's tag bottom right over its code: <index> <MMDD> <name>
-  credit: '#p5t-p5js 2026-09-29',  // bottom-right overlay; ?credit= hides it
+  credit: '#p5t-p5js-2026-10-02',  // bottom-right overlay; ?credit= hides it
+  qr: 120,        // QR code size in px above the credit; ?qr=0 hides it
 });
 
 const stage = document.getElementById('stage');
 stage.style.setProperty('--code-font', `${S.font}px`);
 document.body.classList.toggle('no-labels', !S.labels);
 
-if (S.credit) {
-  const credit = Object.assign(document.createElement('div'),
-    { className: 'credit', textContent: S.credit });
+if (S.credit || S.qr) {
+  const credit = Object.assign(document.createElement('div'), { className: 'credit' });
+  if (S.qr) {
+    const qr = Object.assign(document.createElement('img'),
+      { src: '../../../qrcode/qrcode-p5t-p5js.png', alt: 'QR code' });
+    qr.style.width = qr.style.height = `${S.qr}px`;
+    credit.append(qr);
+  }
+  if (S.credit) credit.append(Object.assign(document.createElement('div'), { textContent: S.credit }));
   stage.append(credit);
 }
 

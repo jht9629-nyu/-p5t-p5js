@@ -103,4 +103,16 @@ v1.10
 rename p5js/play/wall-script p5js/play/wall-code
 and adjust name in code and ui
 
+v1.11
+
+Adjust p5js/play/wall-code
+to bottom left label 
+to show bottom right over the sketch.js text
+
+v1.12
+
+in p5js/play/wall-code
+display image qrcode/qrcode-p5t-p5js.png
+above lower right label text #p5t-p5js-2026-09-29
+change label to #p5t-p5js-2026-10-02
 
