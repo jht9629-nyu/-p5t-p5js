@@ -11,3 +11,5 @@ out
 *.mov
 
 __pycache__/
+.claude/settings.local.json
+Log.md.state

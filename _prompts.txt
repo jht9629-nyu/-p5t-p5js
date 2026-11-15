@@ -136,3 +136,8 @@ tools-js/p5t.mjs
 append chat since last entry
 to Log.md with date and time stamp
 with approximate time cost
+
+v1.15
+
+p5js/lib/p5t.js
+p5js/ArtSketch/06_28_2020/sketch_final/index.html
