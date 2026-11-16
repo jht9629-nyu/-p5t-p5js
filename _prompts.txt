@@ -198,3 +198,4 @@ v1.20
 in p5 editor getting
 Error: Multiple infinite loops detected. Stopping execution
 running ArtSketch/05_19_2021/Mandlebrot
+has // noprotect

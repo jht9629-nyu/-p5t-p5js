@@ -892,3 +892,63 @@ I added braces to all of them. There are no more loops left that would trigger t
 Nothing is committed yet. The script is at `/private/tmp/claude-501/-Users-jht2-Documents-projects-repos--p5t-p5js/2e14c6c4-5051-4142-ada7-e7335e5597c3/scratchpad/brace.mjs` if you want to run it on future ports.
 
 *Time: 1m 00s · Cost: $0.2891 (input 20, output 5.5k, cache write 10.3k, cache read 485.8k) · session $0.5691*
+
+---
+
+## User (11/15/2026, 10:21:44 PM)
+
+```
+in p5 editor getting
+Error: Multiple infinite loops detected. Stopping execution
+running ArtSketch/05_19_2021/Mandlebrot
+```
+
+## Assistant
+
+
+
+*Time: 8s · Cost: $0.1438 (input 8, output 395, cache write 13.1k, cache read 155.3k) · session $0.1438*
+
+---
+
+## User (11/15/2026, 10:21:53 PM)
+
+```
+[Request interrupted by user]
+```
+
+## Assistant
+
+
+
+*Time: 22s · Cost: $0.0000 (input 0, output 0, cache write 0, cache read 0) · session $0.1438*
+
+---
+
+## User (11/15/2026, 10:22:16 PM)
+
+```
+in p5 editor getting
+Error: Multiple infinite loops detected. Stopping execution
+running ArtSketch/05_19_2021/Mandlebrot
+has // noprotect
+```
+
+## Assistant
+
+Found it: the editor checks for `noprotect` in **index.html**, not sketch.js. Let me confirm the exact pattern.
+
+Your `// noprotect` comment does nothing in the current p5 web editor. It only turns off loop protection when **index.html** has `<!-- noprotect -->` on its own line. A comment in sketch.js is ignored.
+
+**Why it fails:** with protection still on, the editor breaks any loop that runs longer than 100 ms. Mandlebrot does up to 480×480×99 iterations per frame, so its row and column loops both go over that limit. When two loops trip it within a second, you get "Multiple infinite loops detected. Stopping execution."
+
+**Fix:** I added `<!-- noprotect -->` as the first line of [index.html](p5js/ArtSketch/05_19_2021/Mandlebrot/index.html). In the online editor, add the same line at the top of the sketch's index.html. I haven't run it in the editor. The editor's source also has a switch that adds or removes that same line for you, so a loop-protection setting in the editor may work too.
+
+Also:
+- Your [Log.md:859](Log.md#L859) still says to put `// noprotect` at the top of the sketch. That advice is now out of date.
+- Other heavy pixel-by-pixel ports (like PixelBased) may need the same line in their index.html.
+- I saved this to memory so future ports put the comment in index.html.
+
+I haven't committed anything.
+
+*Time: 1m 02s · Cost: $0.2822 (input 20, output 5.7k, cache write 11.6k, cache read 382.0k) · session $0.4260*
