@@ -1459,3 +1459,36 @@ To check them, I uploaded all 10 a second time and each one reported `same`. Tha
 58 of the 156 ArtSketch sketches are now in the editor, and 98 are left. The new links are saved in [p5js/p5editor-map.json](p5js/p5editor-map.json). Nothing is committed yet.
 
 *Time: 2m 05s · Cost: $0.2929 (input 16, output 2.9k, cache write 20.7k, cache read 348.9k) · session $0.2929*
+
+---
+
+## User (11/16/2026, 12:15:34 AM)
+
+```
+save the next 10 sketches to p5 editor
+```
+
+## Assistant
+
+This batch runs from 08_01 Miami to 08_11 CovidCases, right after 07_31. The dry run looks right, so I'm uploading them now and then running a second pass to check.
+
+I saved the next 10 sketches to the p5 editor, and all 10 uploaded successfully. They're in date order and start right after the last batch ended (07_31).
+
+| Sketch | Editor link |
+|---|---|
+| matt-parker-08_01-Miami | https://editor.p5js.org/jht9629-nyu/sketches/lomU-Etxt |
+| matt-parker-08_02-RainbowFlag | https://editor.p5js.org/jht9629-nyu/sketches/cGvcf1HkU |
+| matt-parker-08_03-NightPond | https://editor.p5js.org/jht9629-nyu/sketches/TvygEpWFi |
+| matt-parker-08_04-ColorTiles | https://editor.p5js.org/jht9629-nyu/sketches/fcw9m_HKJ |
+| matt-parker-08_05-RoseGarden | https://editor.p5js.org/jht9629-nyu/sketches/pJ1ydwBw4 |
+| matt-parker-08_06-Cave | https://editor.p5js.org/jht9629-nyu/sketches/O89S_O20V |
+| matt-parker-08_07-ColorVolcano | https://editor.p5js.org/jht9629-nyu/sketches/ic0BuYMfR |
+| matt-parker-08_08-Covid | https://editor.p5js.org/jht9629-nyu/sketches/cBhYvma_R |
+| matt-parker-08_09-Spider_Man | https://editor.p5js.org/jht9629-nyu/sketches/d0fh_gkLP |
+| matt-parker-08_11-CovidCases | https://editor.p5js.org/jht9629-nyu/sketches/6QdozLlq3 |
+
+To check them, I uploaded all 10 a second time and each one reported `same`. That means the editor copies match the local files.
+
+68 of the 156 ArtSketch sketches are now in the editor, and 88 are left. The new links are saved in [p5js/p5editor-map.json](p5js/p5editor-map.json). Nothing is committed yet.
+
+*Time: 1m 50s · Cost: $0.0845 (input 8, output 1.6k, cache write 2.8k, cache read 154.8k) · session $0.3774*
