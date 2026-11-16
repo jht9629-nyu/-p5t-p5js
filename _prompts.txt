@@ -218,3 +218,19 @@ previous sketch have been deleted from editor
 v1.23
 
 save a few more sketches to p5 editor
+
+v1.24
+
+save a few more sketches to p5 editor
+
+v1.25
+
+The side-by-side images, sorted by difference, are in
+open /private/tmp/claude-501/-Users-jht2-Documents-projects-repos--p5t-p5js/cdca2d24-c2ea-4fe2-b8d4-6c7b77b8a784/scratchpad/sheet.html
+
+https://editor.p5js.org/jht9629-nyu/sketches/AopVkuWww
+matt-parker-09_08-ColorNoise
+
+sketch that use jset etc. appear in top corner of canvas
+not taking up full screen
+see /Users/jht2/Desktop/Screenshot\ 2026-11-15\ at\ 11.16.29 PM.png 

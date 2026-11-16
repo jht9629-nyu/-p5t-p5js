@@ -44,12 +44,14 @@ let _pxDirty = false; // buffer changed since it was written to the canvas
 let _pxStaleReads = 0; // single-pixel reads since the last jsync()
 
 function jcreateCanvas(w, h) {
-  pixelDensity(1);
   // Reading pixels back every frame is much faster from a CPU-backed canvas.
   // The context made here is the one p5 gets when it calls getContext('2d').
   const elt = document.createElement('canvas');
   elt.getContext('2d', { willReadFrequently: true });
   const renderer = createCanvas(w, h, P2D, elt);
+  // p5 2.x keeps pixel density on the renderer, and createCanvas() makes a new
+  // one at devicePixelRatio, so pixelDensity(1) has to come after it.
+  pixelDensity(1);
   _pxStale = true;
   _pxDirty = false;
   return renderer;

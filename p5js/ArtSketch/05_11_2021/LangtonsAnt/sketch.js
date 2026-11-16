@@ -11,8 +11,8 @@ let a = s / 2,
   b = s / 2;
 
 function setup() {
-  pixelDensity(1);
   createCanvas(s, s);
+  pixelDensity(1); // after createCanvas(): p5 2.x resets density per canvas
   clear();
   //   background(0);
   //   background(255);

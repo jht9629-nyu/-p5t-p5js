@@ -1086,3 +1086,68 @@ All 10 uploads reported success and are recorded in [p5js/p5editor-map.json](p5j
 The uploader skips sketches already in the map, so I can upload all the remaining sketches in one run if you want.
 
 *Time: 1m 05s · Cost: $0.0957 (input 8, output 1.6k, cache write 3.2k, cache read 192.0k) · session $0.6817*
+
+---
+
+## User (11/15/2026, 10:58:28 PM)
+
+```
+save a few more sketches to p5 editor
+```
+
+## Assistant
+
+Now list remaining ArtSketch sketches not in the map.
+
+I saved 10 more ArtSketch sketches to the p5 editor, the earliest ones from late June to early July 2020. That makes 38 of the 156 uploaded, with 118 left.
+
+| p5 editor name | Link |
+|---|---|
+| matt-parker-06_28-sketch_1 | [6qnB6wKcJ](https://editor.p5js.org/jht9629-nyu/sketches/6qnB6wKcJ) |
+| matt-parker-06_28-sketch_2 | [KitwPp777](https://editor.p5js.org/jht9629-nyu/sketches/KitwPp777) |
+| matt-parker-06_29-Aurora | [229mgvaUF](https://editor.p5js.org/jht9629-nyu/sketches/229mgvaUF) |
+| matt-parker-07_02-sketch_200701a | [ueeTNGcPm](https://editor.p5js.org/jht9629-nyu/sketches/ueeTNGcPm) |
+| matt-parker-07_03-string | [NPokgCe5N](https://editor.p5js.org/jht9629-nyu/sketches/NPokgCe5N) |
+| matt-parker-07_04-Star | [s4VFvi00Q](https://editor.p5js.org/jht9629-nyu/sketches/s4VFvi00Q) |
+| matt-parker-07_05-Wipe | [Jx3r264x_](https://editor.p5js.org/jht9629-nyu/sketches/Jx3r264x_) |
+| matt-parker-07_06-Ranges | [hxuiCBsRj](https://editor.p5js.org/jht9629-nyu/sketches/hxuiCBsRj) |
+| matt-parker-07_07-Pattern | [Oe3Q6gjBr](https://editor.p5js.org/jht9629-nyu/sketches/Oe3Q6gjBr) |
+| matt-parker-07_08-Game | [pBVF2_qmU](https://editor.p5js.org/jht9629-nyu/sketches/pBVF2_qmU) |
+
+All 10 uploads reported success and are recorded in [p5js/p5editor-map.json](p5js/p5editor-map.json). I haven't opened them in the editor to check they run. Nothing is committed.
+
+**Name clash to decide on:** I skipped `07_24_2020/Spiral` because it would get the same name as the nested `07_22_2020/07_24_2020/Spiral`, which is already uploaded as `matt-parker-07_24-Spiral`. Both would end up in the editor with identical names. If you want both, I can add a suffix to the second one.
+
+*Time: 1m 13s · Cost: $0.2818 (input 12, output 2.3k, cache write 23.1k, cache read 256.8k) · session $0.2818*
+
+---
+
+## User (11/15/2026, 11:18:49 PM)
+
+```
+sketch that use jset etc. appear in top corner of canvas
+not taking up full screen
+see /Users/jht2/Desktop/Screenshot\ 2026-11-15\ at\ 11.16.29 PM.png
+```
+
+## Assistant
+
+Classic pixelDensity symptom (exactly ¼ of canvas filled → retina density 2). Let me find jset.
+
+Published lib matches local. So the issue is in p5 2.3.4's `createCanvas` with a supplied canvas element — let me check its source.
+
+LangtonsAnt has the same bug (raw `pixels[]` indexing with density reset to 2). Fixing both:
+
+Let me verify in a headless browser at devicePixelRatio 2.
+
+I fixed it. When I ran it in headless Chrome at 2× (retina) density, ColorNoise fills its whole 500×500 canvas and LangtonsAnt gets a 480×480 canvas; I only looked at the ColorNoise screenshot. It isn't live in the p5 web editor yet, because the editor loads `p5t.js` from GitHub Pages.
+
+**Cause:** in p5.js 2.x, each canvas keeps its own pixel density, and `createCanvas()` starts the new canvas at the screen's density (2 on your Mac). [p5t.js](p5js/lib/p5t.js) called `pixelDensity(1)` *before* `createCanvas()`, so the setting was dropped. The canvas ended up 1000×1000 real pixels while `jset` only wrote 500×500 of them. That's the top-left quarter in your screenshot.
+
+**Changes:**
+- [p5t.js](p5js/lib/p5t.js#L47-L57): `jcreateCanvas()` now calls `pixelDensity(1)` after `createCanvas()`, with a comment explaining why. This fixes every sketch that uses `jget`/`jset`, without editing the sketches.
+- [LangtonsAnt/sketch.js](p5js/ArtSketch/05_11_2021/LangtonsAnt/sketch.js#L14-L15): same bug. It reads `pixels[]` directly instead of using the lib, so I moved its `pixelDensity(1)` after `createCanvas()` too.
+
+**To make it live:** push `p5js/lib/p5t.js` to GitHub Pages, then reload the editor sketches. Your `bin/publish.sh` probably does this. LangtonsAnt's copy in the editor also needs to be re-saved. Nothing is committed or pushed yet; tell me if you want me to commit it as v1.25 and publish.
+
+*Time: 55s · Cost: $0.4359 (input 28, output 4.7k, cache write 27.2k, cache read 622.9k) · session $0.4359*
