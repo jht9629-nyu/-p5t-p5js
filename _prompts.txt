@@ -324,3 +324,9 @@ save the next 20 sketches to p5 editor
 dont re-upload to verify
 
 Only 18 sketches were left
+
+v1.38
+
+create list of sketches in p5js/sketches.js
+that are not in p5js/p5editor-map.json
+and plan now to add

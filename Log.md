@@ -1752,3 +1752,118 @@ Only 18 sketches were left, so I saved those 18 instead of 20. All of them uploa
 The new links are saved in [p5js/p5editor-map.json](p5js/p5editor-map.json). I haven't committed anything.
 
 *Time: 1m 16s · Cost: $0.2876 (input 14, output 2.9k, cache write 20.9k, cache read 307.6k) · session $0.2876*
+
+---
+
+## User (11/16/2026, 12:22:32 PM)
+
+```
+create list of sketches in p5js/sketches.js
+that are not in p5js/p5editor-map.json
+and plan now to add
+```
+
+## Assistant
+
+Only 3 missing. Let me check how the uploader names sketches and whether it handles non-ArtSketch paths.
+
+Three sketches in [p5js/sketches.js](p5js/sketches.js) aren't in [p5js/p5editor-map.json](p5js/p5editor-map.json). That's 159 sketches against 156 map entries, and every sketch under ArtSketch is already in the editor.
+
+| Folder | Files | Editor name it would get |
+|---|---|---|
+| `p5js/Rose` | index.html, sketch.js, style.css | `Rose` |
+| `p5js/Samples/Move3DShape` | index.html, sketch.js, style.css | `Samples/Move3DShape` |
+| `p5js/Samples/PixelBased` | index.html, sketch.js, style.css | `Samples/PixelBased` |
+
+Every entry in the map matches a sketch in `sketches.js`, so the map has no leftover entries.
+
+**No risk of duplicates:** Rose and Samples/PixelBased were uploaded once early on (IDs `Z6_qE7onE` and `2n-DodMQD`), and those entries were lost when the map was reset. I checked both IDs and the editor returns 404 for them, while a known sketch returns 200. So the old copies are deleted, and uploading now creates exactly one copy of each.
+
+**Plan to add them:**
+
+1. **Decide on names.** The uploader only gives the `matt-parker-MM_DD-Name` format to sketches under ArtSketch. These three would be named by their path, as in the table. If you want them to match the others (say `matt-parker-Rose`), I'd change `sketchName()` in [tools-js/p5t-upload.mjs:154](tools-js/p5t-upload.mjs#L154) first.
+2. **Dry run:**
+   `node tools-js/p5t-upload.mjs upload p5js/Rose p5js/Samples/Move3DShape p5js/Samples/PixelBased --dry-run`
+   This checks the names and that no file reaches outside its folder.
+3. **Upload:** run the same command without `--dry-run`. If the saved login has expired, run `node tools-js/p5t-upload.mjs login` first. The uploader adds the editor's two header comment lines and its default style.css to the uploaded copy, as it did for the others.
+4. **No re-upload to check:** I'd confirm the three new entries in the map and stop there, the same as v1.36 and v1.37.
+5. **Afterwards:** all 159 of 159 sketches will be in the map. Then commit as v1.38.
+
+Do you want to keep the path-style names, or change them before I upload?
+
+*Time: 33s · Cost: $0.3020 (input 16, output 3.0k, cache write 22.3k, cache read 322.3k) · session $0.3020*
+
+---
+
+## User (11/16/2026, 1:07:58 PM)
+
+```
+keep path style names
+```
+
+## Assistant
+
+`playwright-core` isn't installed right now (`tools-js/node_modules` is missing), so I'll install it from the lockfile.
+
+The dry run looks right. Uploading now.
+
+The saved editor login is gone (it was probably cleared along with `node_modules`). I'm opening the sign-in window now.
+
+The three uploads are waiting on a sign-in, so nothing has been uploaded yet.
+
+1. A Chrome window is open now. Please sign in to the p5.js editor there as **jht9629-nyu**. The window closes by itself once you're signed in.
+2. When it closes, I'll upload `p5js/Rose`, `p5js/Samples/Move3DShape` and `p5js/Samples/PixelBased`, with their path-style names.
+
+The dry run before that was clean: it would create the three sketches as "Rose", "Samples/Move3DShape" and "Samples/PixelBased", each with its three files. I had to reinstall `playwright-core` for the uploader first (`npm ci` in `tools-js`), because its `node_modules` folder was missing.
+
+*Time: 26s · Cost: $0.1035 (input 14, output 1.4k, cache write 2.2k, cache read 292.3k) · session $0.4054*
+
+---
+
+## User (11/16/2026, 1:10:49 PM)
+
+```
+try again
+```
+
+## Assistant
+
+The `whoami` check failed only because the sign-in window is still holding the browser profile. I'm checking whether that login process is still running.
+
+The first sign-in window is still open and waiting. I'll close it and open a new one.
+
+That failure notice is from the first sign-in window, which I closed on purpose. It doesn't affect the new one.
+
+A new Chrome window is open now. Please sign in to the p5.js editor there as **jht9629-nyu**. The window closes by itself once you're signed in, and then the three sketches upload straight away. You have 5 minutes to sign in. I'll report the new editor links when the upload finishes.
+
+*Time: 19s · Cost: $0.0924 (input 10, output 1.1k, cache write 3.6k, cache read 205.6k) · session $0.4978*
+
+---
+
+## User (11/16/2026, 1:12:26 PM)
+
+```
+<task-notification>
+<task-id>bthagyfau</task-id>
+<tool-use-id>toolu_01TKL7aTzerqR7onr11sNdY9</tool-use-id>
+<output-file>/private/tmp/claude-502/-Users-jht2-Documents-projects--2026-madparker--p5t-p5js/a4d5522c-aafb-4b5f-898a-7f774d125f51/tasks/bthagyfau.output</output-file>
+<status>completed</status>
+<summary>Background command "Sign in, then upload the three sketches" completed (exit code 0)</summary>
+</task-notification>
+```
+
+## Assistant
+
+All 159 sketches are now in the p5.js editor. You signed in as jht9629-nyu and the last three uploaded with their path-style names:
+
+| Sketch | Editor link |
+|---|---|
+| Rose | https://editor.p5js.org/jht9629-nyu/sketches/-p0HQn4EP |
+| Samples/Move3DShape | https://editor.p5js.org/jht9629-nyu/sketches/nD7tZL1_m |
+| Samples/PixelBased | https://editor.p5js.org/jht9629-nyu/sketches/4zKw44vi8 |
+
+[p5js/p5editor-map.json](p5js/p5editor-map.json) now has 159 entries, one for every sketch in `sketches.js`. As in v1.36 and v1.37, I didn't re-upload to check them.
+
+Nothing is committed yet. Should I commit this as v1.38?
+
+*Time: 6s · Cost: $0.0431 (input 6, output 595, cache write 1.2k, cache read 108.7k) · session $0.5409*
