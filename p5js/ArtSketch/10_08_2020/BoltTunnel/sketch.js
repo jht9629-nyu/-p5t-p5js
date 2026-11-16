@@ -20,7 +20,7 @@ function setup() {
 function draw() {
   translate(-width / 2, -height / 2); // Processing P3D origin is the top-left corner
   f += f > n * 60 ? -n * 12 : 4;
-  for (k = 0; k < 3; k++)
+  for (k = 0; k < 3; k++) {
     for (j = n; j > 0; ) {
       p = n + sin(j / 9) * 50;
       l = j-- * 9 - f + k * n * 24;
@@ -29,6 +29,7 @@ function draw() {
       for (; i > 0; i -= 0.6) vertex(p + sin(i) * n, p + cos(i) * n, l);
       endShape(CLOSE);
     }
+  }
 }
 
 // ---- Original Processing source: #p5t/ArtSketch/10_08_2020/BoltTunnel/BoltTunnel.pde

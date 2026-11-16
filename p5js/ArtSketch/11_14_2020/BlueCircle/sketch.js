@@ -11,14 +11,16 @@ function setup() {
 
 function draw() {
   const pixels = jloadPixels();
-  for (x = 0; ++x < 479; )
+  for (x = 0; ++x < 479; ) {
     for (y = 0; ++y < 479; ) {
       t = 0;
-      for (a = x - 1; a < x + 2; a++)
+      for (a = x - 1; a < x + 2; a++) {
         for (b = y - 1; b < y + 2; ) t += jred(pixels[a + b++ * 480]) > 0 ? 1 : 0;
+      }
       t = t == 3 ? -1 : t != 4 ? 0 : jcolor(jred(jget(x, y)) - 99, 255, 255);
       jset(x, y, jcolorInt(t));
     }
+  }
   jsync();
 }
 //#p5t

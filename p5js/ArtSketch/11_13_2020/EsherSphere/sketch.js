@@ -17,7 +17,7 @@ function draw() {
   p++;
   // The loop updates run after each body, so every pixel uses the values
   // worked out for the pixel before it.
-  for (j = 0; j < w; j++, y = (2 * j) / w - 1)
+  for (j = 0; j < w; j++, y = (2 * j) / w - 1) {
     for (
       i = 0;
       i < w;
@@ -34,6 +34,7 @@ function draw() {
           ? jcolor((i + (j % 50)) % (idiv(p, 2) % n))
           : jcolorInt(z & (w + p))
       );
+  }
   jsync();
 }
 //#p5t

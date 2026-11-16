@@ -28,12 +28,13 @@ function tick() {
   jset(b, a, jcolor(idiv(f, p) % c, c, c));
   n = n == 5 ? Math.trunc(random(9)) : ++n % 9;
   i = 8;
-  for (x = a - 1; x < a + 2; x++)
+  for (x = a - 1; x < a + 2; x++) {
     for (y = b - 1; y < b + 2; y++, i--)
       if (i == n) {
         a = x;
         b = y;
       }
+  }
 }
 //#p5t
 

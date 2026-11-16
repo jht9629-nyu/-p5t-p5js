@@ -12,10 +12,11 @@ function setup() {
 function draw() {
   f++;
   s++;
-  for (x = 0; x < c; x++)
+  for (x = 0; x < c; x++) {
     for (y = 0; y < c; y++)
       // (x+f)/96 and y/96 are int divisions, which makes the blocky maze.
       jset(x, y, jcolor(round(noise(idiv(x + f, 96), idiv(y, 96))) * 255, 0, 0));
+  }
   o += key == 'a' ? -2 : key == 'd' ? 2 : 0;
   p += key == 'w' ? -2 : key == 's' ? 2 : 0;
   if (jred(jget((o = (o + c) % c), (p = (p + c) % c))) > 0) s = 0;

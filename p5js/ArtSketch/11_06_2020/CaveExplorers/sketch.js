@@ -34,8 +34,9 @@ function setup() {
 
 function draw() {
   // color(gray) * c is Java int multiplication of a packed color.
-  for (; x++ < c && c > 0; )
+  for (; x++ < c && c > 0; ) {
     for (y = 0; y++ < c; ) jset(x, y, Math.imul(jcolor(noise(x / 99, y / 99) * 2), c));
+  }
   jsync(); // write the pixels before p5 draws on top
   while (c < 480) p[c++] = new P();
   for (const o of p) o.d();

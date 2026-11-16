@@ -188,3 +188,13 @@ function draw() {
       else jset(x, y, (jget(x, y) + 9) | 0); } }
   jsync();
 }
+
+v1.19
+
+add braces to all of them
+
+v1.20
+
+in p5 editor getting
+Error: Multiple infinite loops detected. Stopping execution
+running ArtSketch/05_19_2021/Mandlebrot

@@ -12,11 +12,12 @@ function setup() {
 }
 
 function draw() {
-  for (x = 0; x < n; x++)
+  for (x = 0; x < n; x++) {
     for (y = 0; y < n; y++) {
       c = jred(jcolor(noise((x + 0) / 99, y / 99) * n)) > f ? a : b;
       jset(x, y, c);
     }
+  }
   f += 4;
   if (f > n * 0.9) {
     f = 0;

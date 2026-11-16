@@ -11,7 +11,7 @@ function setup() {
 
 function draw() {
   m = x = 0;
-  for (; x < n; x++)
+  for (; x < n; x++) {
     for (y = 0; y < n; y++) {
       t = Math.trunc(jred(jget(x, y)));
       if (c > 0 ? t > 0 : t < 255) {
@@ -22,6 +22,7 @@ function draw() {
         m++;
       }
     }
+  }
   if (m == n * n) {
     t = o;
     o = p;

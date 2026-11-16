@@ -19,7 +19,7 @@ function setup() {
 
 function draw() {
   translate(-width / 2, -height / 2); // Processing P3D origin is the top-left corner
-  for (x = -8; x++ < 16; )
+  for (x = -8; x++ < 16; ) {
     for (y = -8; y++ < 16; ) {
       push();
       translate(x * c + c, y * c + c, (f + 0.5) * n);
@@ -31,6 +31,7 @@ function draw() {
       }
       pop();
     }
+  }
   f = f > 1 ? 0.005 : f + 0.005;
 }
 //#p5t

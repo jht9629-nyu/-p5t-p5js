@@ -24,13 +24,14 @@ function draw() {
   background(0); // clear()
   text('✈\n\n◙◡◙◡◙', o, c);
   text('☀☁', c, a);
-  for (y = c * 2; y < b; y += a)
+  for (y = c * 2; y < b; y += a) {
     for (x = 0; x < b; x += a) {
       text('⌗', x, 135);
       p = c * cos((y + f) / a);
       if (y % c < 1 && p < 0) text('⇰', (o + y) % b, y + p);
       text('~', x, y + cos(f / c) * a);
     }
+  }
 }
 
 // ---- Original Processing source: #p5t/ArtSketch/08_25_2020/CharTrain/CharTrain.pde

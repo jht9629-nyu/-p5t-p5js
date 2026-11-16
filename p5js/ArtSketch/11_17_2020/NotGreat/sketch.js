@@ -14,7 +14,7 @@ function setup() {
 
 function draw() {
   f++;
-  for (y = 0; ++y < w - 1 && f > 1; )
+  for (y = 0; ++y < w - 1 && f > 1; ) {
     for (x = 0; ++x < w - 1; ) {
       a = b[(i = x + y * w)] += dist(x, y, 240, f % w) < 4 ? w : 0;
       b[i] = p = 0;
@@ -22,6 +22,7 @@ function draw() {
       b[i] -= a;
       jset(x, y, jcolor(idiv(b[i], 2), 0, 0));
     }
+  }
   t = n;
   n = b;
   b = t;

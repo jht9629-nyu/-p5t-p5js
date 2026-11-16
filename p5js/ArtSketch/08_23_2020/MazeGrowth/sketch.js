@@ -18,15 +18,17 @@ function draw() {
     circle(250, 250, 500);
   }
   m = x = 0;
-  for (; x < 500; x++)
+  for (; x < 500; x++) {
     for (y = 0; y < 500; y++) {
       t = 0;
-      for (a = x - 1; a < x + 2; a++)
+      for (a = x - 1; a < x + 2; a++) {
         for (b = y - 1; b < y + 2; b++) t += jget(a, b) == o ? 0 : 1;
+      }
       t = t == 3 ? p : t != 4 ? o : 0;
       if (t < 0) jset(x, y, t);
       else m++;
     }
+  }
   jsync();
 }
 

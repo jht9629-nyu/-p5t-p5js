@@ -12,9 +12,10 @@ function setup() {
 function draw() {
   f++;
   s++;
-  for (x = 0; x < c; x++)
+  for (x = 0; x < c; x++) {
     for (y = 0; y < c; y++)
       jset(x, y, jcolorInt(round(noise((x + f) * 0.01, y / 99)) * 255));
+  }
   o += key == 'a' ? -2 : key == 'd' ? 2 : 0;
   p += key == 'w' ? -2 : key == 's' ? 2 : 0;
   if (jred(jget((o = (o + c) % c), (p = (p + c) % c))) > 0) s = 0;

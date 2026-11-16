@@ -10,7 +10,7 @@ function setup() {
 }
 
 function draw() {
-  for (x = m = 0; x++ < n; )
+  for (x = m = 0; x++ < n; ) {
     for (y = 0; y < n; ) {
       if (f < 2) {
         c = Math.trunc(dist(x, y, 250, 250));
@@ -21,6 +21,7 @@ function draw() {
         jset(floor(random(4)) - 2 + x, floor(random(4)) - 2 + y, o);
       else m++;
     }
+  }
   f++;
   if (m <= n) {
     c = o;

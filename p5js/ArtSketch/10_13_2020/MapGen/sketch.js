@@ -13,7 +13,7 @@ function setup() {
 }
 
 function draw() {
-  for (x = 0; x < n; x++)
+  for (x = 0; x < n; x++) {
     for (y = 0; y < n; ) {
       z = noise(x / 99, y / 99, f / 199);
       c =
@@ -29,6 +29,7 @@ function draw() {
       for (b = 0; b < 1; b += 0.1) c = z > b && z < b + 0.005 ? jlerpColor(c, 0, 0.3) : c;
       jset(x, y++, c);
     }
+  }
   f++;
   jsync();
 }

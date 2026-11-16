@@ -11,7 +11,7 @@ function setup() {
 
 function draw() {
   f++;
-  for (x = 0; x < c; x++)
+  for (x = 0; x < c; x++) {
     for (i = 0; i < 9; i += 2) {
       a = i * 48;
       b = (i + 1) * 48;
@@ -20,6 +20,7 @@ function draw() {
       for (y = a + 1; y < b; y++) jset(x, y, jcolorInt(jget(x, y - 1), 254));
       for (y = z; y >= b; y--) jset(x, y, jcolorInt(jget(x, y - 1)));
     }
+  }
   jsync();
 }
 //#p5t

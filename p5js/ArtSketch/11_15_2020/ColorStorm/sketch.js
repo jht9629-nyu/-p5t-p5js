@@ -15,7 +15,9 @@ function draw() {
     jset(n - 1, n - 1, (o = p));
     jset(9, 9, (p = jcolor(random(n), n, n)));
   }
-  for (m = x = 0; x < n; x++) for (y = 0; y < n; y++) m += c(o) + c(p);
+  for (m = x = 0; x < n; x++) {
+    for (y = 0; y < n; y++) m += c(o) + c(p);
+  }
   jsync();
 }
 

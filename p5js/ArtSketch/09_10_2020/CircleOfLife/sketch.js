@@ -11,11 +11,12 @@ function setup() {
 
 function draw() {
   const pixels = jloadPixels();
-  for (x = 1; x < 499; x++)
+  for (x = 1; x < 499; x++) {
     for (y = 1; y < 499; ) {
       t = 0;
-      for (a = x - 1; a < x + 2; a++)
+      for (a = x - 1; a < x + 2; a++) {
         for (b = y - 1; b < y + 2; ) t = jint(t + jred(pixels[a + b++ * 500]) / 255);
+      }
       let d = dist(99, 99, x, y);
       t =
         d > f && d < f + 0.2
@@ -27,6 +28,7 @@ function draw() {
           : jget(x, y);
       jset(x, y++, t);
     }
+  }
   if (f-- < 0) f = 599;
   jsync();
 }

@@ -11,14 +11,16 @@ function setup() {
 }
 
 function draw() {
-  for (x = 1; ++x < 479; )
+  for (x = 1; ++x < 479; ) {
     for (y = 1; ++y < 479; ) {
       t = 0;
-      for (a = x - 1; a < x + 2; a++)
+      for (a = x - 1; a < x + 2; a++) {
         for (b = y - 1; b < y + 2; ) t += jred(jget(a, b++)) > 0 ? 1 : 0;
+      }
       t = t == 3 ? -1 : t != 4 ? 0 : jcolor(255, jred(jget(x, y)) - 9, 0);
       jset(x, y, jcolorInt(t));
     }
+  }
   jsync(); // write the pixels before p5 draws on top
   circle(random(480), random(480), 75);
   jsync();

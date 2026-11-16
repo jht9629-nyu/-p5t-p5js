@@ -16,7 +16,7 @@ function draw() {
     l[i] += 2;
     l[i++] %= n;
   }
-  for (x = 0; x < n; x++)
+  for (x = 0; x < n; x++) {
     for (y = 0; y < n; )
       // y++ happens before the color is worked out, so it reads the pixel below.
       jset(
@@ -26,6 +26,7 @@ function draw() {
           ? -1716703
           : jlerpColor(jget(x, y), -14567533, noise(x, y) / 9)
       );
+  }
   jsync();
 }
 //#p5t

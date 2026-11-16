@@ -21,7 +21,7 @@ function draw() {
   }
   f += 0.2;
   x = m = 0;
-  for (; x < 480; x++)
+  for (; x < 480; x++) {
     for (y = 0; y < 480; y++) {
       a = noise(x / 9, y / 9) + sin(x / 9) + cos(y / 9);
       c = jget(x, y);
@@ -30,6 +30,7 @@ function draw() {
         m++;
       }
     }
+  }
   jsync();
 }
 

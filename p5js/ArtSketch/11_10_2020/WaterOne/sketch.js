@@ -25,13 +25,14 @@ function draw() {
 // Named tick, not step: p5 2.x has a global step().
 function tick() {
   b[240 * w + 240] += w * w;
-  for (y = 0; ++y < w - 1; )
+  for (y = 0; ++y < w - 1; ) {
     for (x = 0; ++x < w - 1; ) {
       i = x + y * w;
       // Java int sum (wraps), then a float multiply cast back with int()
       b[i] = jint(((n[i + 1] + n[i - 1] + n[x + (y + 1) * w] + n[x + (y - 1) * w]) | 0) * 0.5 - b[i]);
       jset(x, y, b[i]);
     }
+  }
   t = n;
   n = b;
   b = t;

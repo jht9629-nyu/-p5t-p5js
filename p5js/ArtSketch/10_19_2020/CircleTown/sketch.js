@@ -25,7 +25,9 @@ function draw() {
 // Named tick, not step: p5 2.x has a global step().
 function tick() {
   f++;
-  for (x = 0; x < c; x++) for (y = 0; y < c; y++) jset(x, y, jcolorInt(jget(x + 1, y)));
+  for (x = 0; x < c; x++) {
+    for (y = 0; y < c; y++) jset(x, y, jcolorInt(jget(x + 1, y)));
+  }
 
   jsync(); // write the pixels before p5 draws on top
   fill(f % c, c, c);

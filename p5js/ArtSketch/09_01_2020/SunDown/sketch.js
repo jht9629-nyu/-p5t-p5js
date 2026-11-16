@@ -16,7 +16,7 @@ function setup() {
 
 function draw() {
   f -= 0.75;
-  for (x = 0; x < n; x++)
+  for (x = 0; x < n; x++) {
     for (y = 0; y < n; y++) {
       d = dist(x, y, a, b);
       c =
@@ -29,6 +29,7 @@ function draw() {
             );
       jset(x, y, c);
     }
+  }
   if (f < -50) {
     f = l * 1.5;
     a = l;

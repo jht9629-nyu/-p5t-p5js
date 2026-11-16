@@ -22,11 +22,12 @@ function draw() {
   if (f > 99 || f < 9) d *= -1;
   fill(0, 9);
   rect(-5, -5, 490, 490);
-  for (x = 0; x <= n; x += 16)
+  for (x = 0; x <= n; x += 16) {
     for (y = 0; y <= n; y += 16) {
       stroke(50, 99, 99, 18);
       line(x, y, 240 + sin(a) * f, 240 + cos(a) * f);
     }
+  }
 }
 //#p5t
 

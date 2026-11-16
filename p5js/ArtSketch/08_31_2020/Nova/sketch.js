@@ -14,7 +14,7 @@ function setup() {
 
 function draw() {
   f++;
-  for (x = 0; x < n; x++)
+  for (x = 0; x < n; x++) {
     for (y = 0; y < n; y++) {
       d = dist(x, y, a, b);
       c = -1;
@@ -22,6 +22,7 @@ function draw() {
         c = jcolor(jred(jget(x, y)) - noise(x / 9, y / 9) * 5 - random(5));
       jset(x, y, c);
     }
+  }
   if (f > n) {
     f = 0;
     a = random(99, 400);

@@ -14,11 +14,12 @@ function draw() {
   jfill((x = (f % 2) - 1), 2); // -1 is white, 0 is black
   rect(-1, -1, 490, 490);
   f = f > n ? (f % 2) - 1 : f + 2;
-  for (; x < n; x++)
+  for (; x < n; x++) {
     for (y = 0; y < n; y++) {
       let d = dist(x, y, 240, 240);
       if (d > f && d < f + 9) jset(x, y, jcolor(idiv(f + y, 6) % 59, 99, 49));
     }
+  }
   jsync();
 }
 //#p5t

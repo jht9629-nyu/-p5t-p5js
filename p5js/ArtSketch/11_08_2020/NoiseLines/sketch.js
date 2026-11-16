@@ -11,7 +11,7 @@ function draw() {
   colorMode(HSB, 99);
   fill(0, 1);
   rect(0, 0, 480, 480);
-  for (x = 9; x < n; x += 10)
+  for (x = 9; x < n; x += 10) {
     for (y = 9; y < n; y += 20) {
       a = noise(x / 99, (y + f) / 99);
       push();
@@ -21,6 +21,7 @@ function draw() {
       line(0, 0, 9, 9);
       pop();
     }
+  }
 }
 //#p5t
 

@@ -16,16 +16,17 @@ function draw() {
     jset(239, 1, a);
     jset(240, 478, a);
   }
-  for (m = x = 0; x++ < 480; )
+  for (m = x = 0; x++ < 480; ) {
     for (y = 0; y++ < 480; )
-      if (jget(x, y) == a)
+      if (jget(x, y) == a) {
         for (j = 0; j++ < 1 - (x % 2) + 1; )
           jset(
             x + Math.trunc(random(-2, 2)) * 2,
             y + Math.trunc(random(-2, 2)),
             a
           );
-      else m++;
+      } else m++;
+  }
   jsync();
 }
 //#p5t

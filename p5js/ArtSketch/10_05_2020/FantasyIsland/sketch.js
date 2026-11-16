@@ -21,7 +21,7 @@ function draw() {
   }
   f += 0.02;
   x = m = 0;
-  for (; x < 480; x++)
+  for (; x < 480; x++) {
     for (y = 0; y < 480; y++) {
       a = noise(x / n, y / n);
       c = jget(x, y);
@@ -30,6 +30,7 @@ function draw() {
       }
       m += jhue(c) < 1 ? 1 : 0;
     }
+  }
   jsync();
 }
 //#p5t

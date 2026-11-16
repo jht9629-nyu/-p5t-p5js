@@ -32,7 +32,7 @@ function tick() {
   }
   jset(a, b, jcolor(f++ % w, w, w));
   i = 0;
-  for (x = a - 1; x < a + 2; x++)
+  for (x = a - 1; x < a + 2; x++) {
     for (y = b - 1; y < b + 2; y++) {
       n = noise(x / w, y / w);
       if (jred(jget(x, y)) < 1 && n > i) {
@@ -41,6 +41,7 @@ function tick() {
         i = n;
       }
     }
+  }
 }
 //#p5t
 

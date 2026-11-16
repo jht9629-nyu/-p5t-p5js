@@ -12,7 +12,7 @@ function setup() {
 
 function draw() {
   m = 0;
-  for (x = 0; x < 480; x++)
+  for (x = 0; x < 480; x++) {
     for (y = 0; y < 480; y++) {
       if (dist(x, y, 420, 420) < 50) jset(x, y, p);
       jset(470, 470, o);
@@ -22,6 +22,7 @@ function draw() {
         jget(x, y) == p ? p : o
       );
     }
+  }
   jsync();
 }
 //#p5t

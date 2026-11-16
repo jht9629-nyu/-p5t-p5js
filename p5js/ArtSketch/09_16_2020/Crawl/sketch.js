@@ -10,7 +10,7 @@ function setup() {
 }
 
 function draw() {
-  for (m = x = 0; x < n; x++)
+  for (m = x = 0; x < n; x++) {
     for (y = 0; y < n; y++)
       if (jred(jget(x, y)) > 0) {
         for (b = 0; b < 99; b++) {
@@ -20,6 +20,7 @@ function draw() {
         }
         jset(x, y, k);
       } else m++;
+  }
   if (m >= n * n) {
     jsync(); // write the pixels before p5 draws on top
     background(0); // clear()

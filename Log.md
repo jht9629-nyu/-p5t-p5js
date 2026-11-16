@@ -861,3 +861,34 @@ Want me to add braces to all of them?
 I also saved a note to my memory for this project: brace nested loops when porting sketches.
 
 *Time: 36s · Cost: $0.2800 (input 14, output 3.2k, cache write 19.5k, cache read 299.2k) · session $0.2800*
+
+---
+
+## User (11/15/2026, 10:18:19 PM)
+
+```
+<ide_opened_file>The user opened the file /Users/jht2/Documents/projects/repos/-p5t-p5js/_prompts.txt in the IDE. This may or may not be related to the current task.</ide_opened_file>
+add braces to all of them
+```
+
+## Assistant
+
+Dry run parsed cleanly on 39 files. Applying and reviewing the diff:
+
+Braces are correct, but a few cases need cosmetic cleanup (one-liners and `}` / `else` split). Let me find them all.
+
+I added braces to all of them. There are no more loops left that would trigger the `_LP0 is not defined` error, but I haven't run any of the sketches in the p5 editor.
+
+**Changes:** 38 ArtSketch sketches plus the earlier PixelBased fix, 39 files in all. I used a small script that reads each file's actual code structure, so it only touched real loops and skipped the original Processing source kept in comments. It braced 44 loops whose body was another loop, including ones nested inside an `if` or `else`.
+
+**Two more than my earlier list:** [CircleTown](p5js/ArtSketch/10_19_2020/CircleTown/sketch.js) and [ColorStorm](p5js/ArtSketch/11_15_2020/ColorStorm/sketch.js) had both loops on one line, which my earlier search missed. I split them over separate lines.
+
+**One extra brace:** in [CowSpots](p5js/ArtSketch/10_26_2020/CowSpots/sketch.js) and [ColorMerge](p5js/ArtSketch/10_27_2020/ColorMerge/sketch.js), the `if` whose body is a loop also got braces, so those read `} else m++;`.
+
+**Checks:**
+- Every changed file still parses as valid JavaScript.
+- Running the script again finds nothing left to change.
+
+Nothing is committed yet. The script is at `/private/tmp/claude-501/-Users-jht2-Documents-projects-repos--p5t-p5js/2e14c6c4-5051-4142-ada7-e7335e5597c3/scratchpad/brace.mjs` if you want to run it on future ports.
+
+*Time: 1m 00s · Cost: $0.2891 (input 20, output 5.5k, cache write 10.3k, cache read 485.8k) · session $0.5691*

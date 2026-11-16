@@ -15,7 +15,7 @@ function setup() {
 function draw() {
   jcolorMode(HSB, h);
   noStroke();
-  for (x = 0; x < h * 2; x++)
+  for (x = 0; x < h * 2; x++) {
     for (y = 0; y < h * 2; ) {
       if (f < 1) s[i] = sin(x / b - y / b) * cos(x / b + y / b) * h;
       else {
@@ -24,6 +24,7 @@ function draw() {
       }
       i = x + y++ * h;
     }
+  }
   f += 0.2;
   jsync();
 }
