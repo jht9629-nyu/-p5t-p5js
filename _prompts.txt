@@ -234,3 +234,23 @@ matt-parker-09_08-ColorNoise
 sketch that use jset etc. appear in top corner of canvas
 not taking up full screen
 see /Users/jht2/Desktop/Screenshot\ 2026-11-15\ at\ 11.16.29 PM.png 
+
+v1.26
+
+need to add version param to 
+    <script src="https://jht9629-nyu.github.io/-p5t-p5js/lib/p5t.js?v=1"></script>
+in p5js/ArtSketch/09_08_2020/ColorNoise/index.html
+to pick up revised p5t.js
+
+how to make browers load most recent lib/p5t.js
+without editing all the index.html for all the sketches
+
+The browser's 10-minute window. To skip it while testing, 
+do a hard reload (Cmd+Shift+R), 
+or open DevTools → Network and tick "Disable cache".
+
+v1.27
+
+as a precaution add
+<!-- noprotect -->
+to all index.html for sketches that use jset

@@ -1151,3 +1151,86 @@ I fixed it. When I ran it in headless Chrome at 2× (retina) density, ColorNoise
 **To make it live:** push `p5js/lib/p5t.js` to GitHub Pages, then reload the editor sketches. Your `bin/publish.sh` probably does this. LangtonsAnt's copy in the editor also needs to be re-saved. Nothing is committed or pushed yet; tell me if you want me to commit it as v1.25 and publish.
 
 *Time: 55s · Cost: $0.4359 (input 28, output 4.7k, cache write 27.2k, cache read 622.9k) · session $0.4359*
+
+---
+
+## User (11/15/2026, 11:26:59 PM)
+
+```
+need to add version param to 
+    <script src="https://jht9629-nyu.github.io/-p5t-p5js/lib/p5t.js?v=1"></script>
+in p5js/ArtSketch/09_08_2020/ColorNoise/index.html
+to pick up revised p5t.js
+```
+
+## Assistant
+
+The change is already in your working tree. Line 5 of [index.html](p5js/ArtSketch/09_08_2020/ColorNoise/index.html#L5) now reads:
+
+```html
+<script src="https://jht9629-nyu.github.io/-p5t-p5js/lib/p5t.js?v=1"></script>
+```
+
+That's the only line that changed in that file.
+
+The revised p5t.js (commit `880cb65`, v1.25) is already on `origin/main`, so GitHub Pages should be serving it. The `?v=1` makes the URL different from the one the browser cached, so it will fetch the new copy.
+
+ColorNoise is the only `index.html` in the repo that has the version parameter so far. Other sketches loading p5t.js may still use their cached copy. The next time you revise p5t.js, change it to `?v=2`, and so on.
+
+Nothing is committed yet; this change and `_prompts.txt` are still uncommitted.
+
+*Time: 12s · Cost: $0.1604 (input 8, output 990, cache write 13.6k, cache read 157.6k) · session $0.1604*
+
+---
+
+## User (11/15/2026, 11:28:51 PM)
+
+```
+how to make browers load most recent lib/p5t.js
+without editing all the index.html for all the sketches
+```
+
+## Assistant
+
+You don't need to edit the index.html files. GitHub Pages already limits how long browsers cache p5t.js. I checked the headers it sends for the file:
+
+```
+cache-control: max-age=600
+etag: "6afa850b-246f"
+```
+
+A browser keeps its copy for at most 10 minutes. After that it asks the server whether the file changed. If it did, the browser downloads the new version; if not, it keeps using its copy. So every sketch loads the latest p5t.js within about 10 minutes of a deploy, with no `?v=` parameter.
+
+What you're seeing is the delay between pushing and the new file reaching the browser:
+
+1. **The Pages deploy.** After you push to `main`, the Pages build takes a minute or two. Check that it finished with `curl -sI https://jht9629-nyu.github.io/-p5t-p5js/lib/p5t.js | grep last-modified`, or in the repo's Actions tab.
+2. **The browser's 10-minute window.** To skip it while testing, do a hard reload (Cmd+Shift+R), or open DevTools → Network and tick "Disable cache".
+3. **The p5 web editor.** Its preview runs in an iframe, so a hard reload of the editor page may not refresh the preview's cached copy. Use DevTools with "Disable cache" ticked, or wait out the 10 minutes.
+
+The `?v=1` in ColorNoise does no harm but isn't needed. You can drop it for consistency with the other sketches, or keep it as a way to force a fresh load right away for that one sketch.
+
+*Time: 10s · Cost: $0.0421 (input 6, output 858, cache write 923, cache read 87.9k) · session $0.2025*
+
+---
+
+## User (11/15/2026, 11:35:15 PM)
+
+```
+as a precaution add
+<!-- noprotect -->
+to all index.html for sketches that use jset
+```
+
+## Assistant
+
+Let me see how the existing one places it.
+
+I added `<!-- noprotect -->` to the top of 43 more `index.html` files, so every sketch that uses jset now has it.
+
+- **Where:** 42 sketches under `p5js/ArtSketch/` plus `p5js/Samples/PixelBased`. I put the comment on line 1, above `<!doctype html>`, the same way [Mandlebrot/index.html](p5js/ArtSketch/05_19_2021/Mandlebrot/index.html) already had it.
+- **Skipped:** `Mandlebrot`, which already had the line, and `p5js/lib`, which has no `index.html`.
+- **Checked:** a re-scan found no jset sketch whose `index.html` is still missing the line.
+
+`git diff --stat` shows 45 files changed. Two of those are your own edits to `Log.md` and `_prompts.txt`. I haven't committed anything.
+
+*Time: 16s · Cost: $0.1833 (input 10, output 1.4k, cache write 14.3k, cache read 200.8k) · session $0.1833*
