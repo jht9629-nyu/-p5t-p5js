@@ -500,3 +500,67 @@ With seeding, CaveAdventure is now pixel-identical to the old version (0.00%). T
 I'll review the results when the run finishes.
 
 *Time: 46s · Cost: $0.2923 (input 12, output 3.9k, cache write 6.5k, cache read 806.5k) · session $4.1072*
+
+---
+
+## User (11/15/2026, 9:06:18 PM)
+
+```
+<task-notification>
+<task-id>b9hs36wyz</task-id>
+<tool-use-id>toolu_018jwJzNcNsPGGRG1EjbBtVx</tool-use-id>
+<output-file>/private/tmp/claude-501/-Users-jht2-Documents-projects-repos--p5t-p5js/cdca2d24-c2ea-4fe2-b8d4-6c7b77b8a784/tasks/b9hs36wyz.output</output-file>
+<status>completed</status>
+<summary>Background command "S=/private/tmp/claude-501/-Users-jht2-Documents-projects-repos--p5t-p5js/cdca2d24-c2ea-4fe2-b8d4-6c7b77b8a784/scratchpad; cd $S/harness; rm -rf $S/out-old $S/out-new; ROOT=/Users/jht2/Documents/projects/repos/-p5t-p5js/p5js node run.mjs $S/out-new 60 $(cat $S/rels.txt) &gt; $S/new.log 2&gt;&amp;1 &amp; ROOT=$S/old/p5js node run.mjs $S/out-old 60 $(cat $S/rels.txt) &gt; $S/old.log 2&gt;&amp;1; wait; node sheet.mjs $S/out-old $S/out-new $S/sheet.html; node -e "const r=require('$S/diffs.json');const b={'&lt;1':0,'1-10':0,'10-40':0,'&gt;40':0,other:0};for(const x of r){const p=x.pct;typeof p!=='number'?b.other++:p&lt;1?b['&lt;1']++:p&lt;10?b['1-10']++:p&lt;40?b['10-40']++:b['&gt;40']++}console.log(b);console.log(r.filter(x=&gt;typeof x.pct!=='number'||x.pct&gt;=1).map(x=&gt;x.n.replace('.png','').replace(/^ArtSketch__/,'')+' '+x.pct).join('\n'))"; grep -v '"errors":\[\]' $S/new.log $S/old.log | cut -c1-200" completed (exit code 0)</summary>
+</task-notification>
+```
+
+## Assistant
+
+With seeding, 151 of 159 match the old version within 1%, and none differ by more than 29%. I'm looking at the 8 that still differ, starting with the biggest four:
+
+`git status` now reports no changes, which is unexpected after all these edits. I'm checking right away:
+
+Nothing is lost. While I was testing, you committed the work as `d0f664a v1.15` on branch `p5jslib2.0`. I'm checking that the commit includes my later edits:
+
+The port is finished. All 159 sketches run on p5 2.3.4 with no errors, and 151 of them look the same as the 1.11.12 version (under 1% of pixels differ at frame 60). Everything is already in your `v1.15` commit (`d0f664a`) on branch `p5jslib2.0`, including my last edits.
+
+**What changed in this round:**
+- **The 44 sketches that use `p5t.js`** now use `jcreateCanvas`, call `jsync()` at the end of `draw()`, and use `jcolorMode` where they set a color mode. Nine of them also call `jsync()` before p5 draws on top of their pixels. In CaveExplorers that happens after every `text()`, because each particle reads the pixel the previous one drew.
+- **`step` clashed with p5 2.x**, which defines its own global `step()`. The 12 sketches that declared `function step()` failed to start with "Cannot redefine property: step". I renamed theirs to `tick()`. It was the only name that clashed among the 886 globals p5 2.x adds.
+- **`preload()` is replaced by an async `setup()`** in ColorSpace and CovidCases. CovidCases also needed `loadTable(url, ',')`, because in 2.x the second argument is the separator and `'csv'` would have been read as one.
+- **Headers:** the 158 generated sketch headers now say 2.3.4. Running both tools again changes nothing.
+
+**How I checked:** I ran every sketch headless to frame 60 under the old commit and the new code, with `noise` and `random` seeded the same in both, and compared the screenshots. The seeding matters because unseeded `noise()` starts differently in 2.x.
+- 151 of 159 differ by less than 1%.
+- **Finale (29%)** is a cellular automaton. It matches the old version through frame 5, then a tiny circle-edge difference grows over the remaining frames.
+- **SpaceValley (26%)** is a WEBGL mesh, and 2.x cuts its left edge slightly differently.
+- **ColorDrain (15%)** looks the same in the side-by-side images.
+- **CircleClock** draws the current time, so it always differs.
+- **The other four differ by 1–2%:** WebGL edge details and CovidCases' live data.
+
+The side-by-side images, sorted by difference, are in `/private/tmp/claude-501/-Users-jht2-Documents-projects-repos--p5t-p5js/cdca2d24-c2ea-4fe2-b8d4-6c7b77b8a784/scratchpad/sheet.html`.
+
+**Before it works on the live site or in the web editor:**
+- **Push first.** The 45 sketches that use the library load `p5t.js` from GitHub Pages, which still serves the old version, so they'll fail until the new one is pushed. That includes the web editor and opening sketches locally.
+- **Then check three sketches in the web editor:** CaveAdventure (pixels), ColorSpace (WEBGL with a font) and a plain one.
+- **Watch four WEBGL sketches in a real browser:** WireWorld, ColorSpiral, DownTheSpiral and SpaceValley. They ran about 1.7 times slower in the headless test. The headless browser draws WebGL without the GPU, so with one this may not show.
+
+I haven't added a v1.15 entry to `Log.md`. Want me to write it?
+
+*Time: 1m 03s · Cost: $0.4321 (input 18, output 4.9k, cache write 8.0k, cache read 1353.1k) · session $4.5393*
+
+---
+
+## User (11/15/2026, 9:07:53 PM)
+
+```
+<ide_opened_file>The user opened the file /Users/jht2/Documents/projects/repos/-p5t-p5js/p5js/ArtSketch/09_08_2020/ColorNoise/index.html in the IDE. This may or may not be related to the current task.</ide_opened_file>
+no
+```
+
+## Assistant
+
+I'll leave `Log.md` as it is.
+
+*Time: 1s · Cost: $0.0456 (input 4, output 17, cache write 1.3k, cache read 173.5k) · session $4.5848*
