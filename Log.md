@@ -990,3 +990,36 @@ ArtSketch sketches now get saved to the p5 editor with names like `matt-parker-M
 Every upload reported success and the links are recorded in [p5js/p5editor-map.json](p5js/p5editor-map.json). I haven't opened them in the editor to check that they run. Nothing is committed.
 
 *Time: 1m 01s · Cost: $0.3661 (input 16, output 4.3k, cache write 25.6k, cache read 371.8k) · session $0.3661*
+
+---
+
+## User (11/15/2026, 10:38:43 PM)
+
+```
+update p5 editor save logic 
+to name each sketch like so matt-parker-MM_NN-SketchName
+reset p5editor-map.json to save a few sketches over again
+previous sketch have been deleted from editor
+```
+
+## Assistant
+
+Every ArtSketch upload is now named `matt-parker-MM_DD-SketchName`, and I re-uploaded the same 7 sketches as new sketches in the editor.
+
+**What changed:** [tools-js/p5t-upload.mjs](tools-js/p5t-upload.mjs) now always adds the sketch's folder name after the date, so names are unique even when a date folder holds several sketches.
+
+**Map reset:** I cleared [p5js/p5editor-map.json](p5js/p5editor-map.json) completely before uploading. Rose and Samples/PixelBased are no longer in it. If you deleted those from the editor too, nothing else is needed; if you didn't, running the upload again for them will create a second copy of each.
+
+| p5 editor name | Link |
+|---|---|
+| matt-parker-05_11-LangtonsAnt | [SzpF8TGe4](https://editor.p5js.org/jht9629-nyu/sketches/SzpF8TGe4) |
+| matt-parker-05_17-SnailShell | [1KXpj3bCe](https://editor.p5js.org/jht9629-nyu/sketches/1KXpj3bCe) |
+| matt-parker-05_19-Mandlebrot | [zal5XgYS-](https://editor.p5js.org/jht9629-nyu/sketches/zal5XgYS-) |
+| matt-parker-06_28-sketch_final | [qCnALUL54](https://editor.p5js.org/jht9629-nyu/sketches/qCnALUL54) |
+| matt-parker-07_01-Knit | [W5udAFlQk](https://editor.p5js.org/jht9629-nyu/sketches/W5udAFlQk) |
+| matt-parker-09_11-Rings | [OH4-niZQK](https://editor.p5js.org/jht9629-nyu/sketches/OH4-niZQK) |
+| matt-parker-11_15-ColorStorm | [sS9vSRDfM](https://editor.p5js.org/jht9629-nyu/sketches/sS9vSRDfM) |
+
+All 7 uploads reported success; I haven't opened them in the editor to check they run. Nothing is committed.
+
+*Time: 33s · Cost: $0.0962 (input 6, output 2.2k, cache write 3.7k, cache read 112.6k) · session $0.4623*

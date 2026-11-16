@@ -199,3 +199,19 @@ in p5 editor getting
 Error: Multiple infinite loops detected. Stopping execution
 running ArtSketch/05_19_2021/Mandlebrot
 has // noprotect
+
+v1.21
+
+update p5 editor save logic 
+to name each sketch like so matt-parker-05_11
+ie. matt-parker-MM_NN, where MM is month and NN is day 
+from the folder name containing the sketch
+save a few more sketches to p5 editor
+
+v1.22
+
+update p5 editor save logic 
+to name each sketch like so matt-parker-MM_NN-SketchName
+reset p5editor-map.json to save a few sketches over again
+previous sketch have been deleted from editor
+

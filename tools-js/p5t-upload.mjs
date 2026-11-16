@@ -145,29 +145,17 @@ function readSketch(folder) {
   return { abs, files, skipped, outside };
 }
 
-// ArtSketch sketches (Matt Parker's originals) are named matt-parker-MM_DD from
-// the date folder (MM_DD_YYYY or MM_DD_YY). When a date folder holds more than one
-// sketch, the sketch's own folder name is appended: matt-parker-05_17-SnailShell.
+// ArtSketch sketches (Matt Parker's originals) are named matt-parker-MM_DD-SketchName
+// from the date folder (MM_DD_YYYY or MM_DD_YY) and the sketch's own folder name,
+// e.g. ArtSketch/05_11_2021/LangtonsAnt -> matt-parker-05_11-LangtonsAnt.
 // Other sketches keep their path under p5js/ as the name.
 const NAME_PREFIX = 'matt-parker-';
-
-function countSketches(dir) {
-  let n = 0;
-  for (const ent of fs.readdirSync(dir, { withFileTypes: true })) {
-    if (!ent.isDirectory() || ent.name.startsWith('.')) continue;
-    const sub = path.join(dir, ent.name);
-    n += fs.existsSync(path.join(sub, 'index.html')) ? 1 : countSketches(sub);
-  }
-  return n;
-}
 
 function sketchName(folder) {
   const rel = path.relative(sketchRoot, path.resolve(repoRoot, folder)).split(path.sep);
   const m = rel[0] === 'ArtSketch' && rel[1] && rel[1].match(/^(\d\d)_(\d\d)_\d\d(?:\d\d)?$/);
   if (!m) return rel.join('/');
-  const base = `${NAME_PREFIX}${m[1]}_${m[2]}`;
-  const dateDir = path.join(sketchRoot, rel[0], rel[1]);
-  return countSketches(dateDir) > 1 ? `${base}-${rel[rel.length - 1]}` : base;
+  return `${NAME_PREFIX}${m[1]}_${m[2]}-${rel[rel.length - 1]}`;
 }
 
 function newProjectPayload(name, files) {
