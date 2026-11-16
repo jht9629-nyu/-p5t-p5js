@@ -261,3 +261,13 @@ p5js/ArtSketch/11_17_2020/NotGreat/index.html
 
 when sketch with <!-- noprotect --> save to p5 editor
 is index.html update to have <!-- noprotect -->
+
+v1.29
+
+for save to p5 editor
+include as first two lines comments:
+// http link to sketch  
+// nane of sketch
+eg.
+// https://editor.p5js.org/jht9629-nyu/sketches/Oe3Q6gjBr
+// matt-parker-07_07-Pattern

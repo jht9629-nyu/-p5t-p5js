@@ -160,6 +160,19 @@ function sketchName(folder) {
   return `${NAME_PREFIX}${m[1]}_${m[2]}-${rel[rel.length - 1]}`;
 }
 
+// The editor copy of sketch.js starts with two comment lines naming where it lives:
+//   // https://editor.p5js.org/jht9629-nyu/sketches/Oe3Q6gjBr
+//   // matt-parker-07_07-Pattern
+// Only the uploaded copy gets them; the local file stays as the generator wrote it.
+const HEADER_FILE = 'sketch.js';
+const OLD_HEADER = new RegExp(`^// ${EDITOR.replace(/[.]/g, '\\.')}/\\S*\\n//[^\\n]*\\n`);
+
+function withHeader(files, url, name) {
+  return files.map((f) => f.name !== HEADER_FILE ? f : {
+    ...f, content: `// ${url}\n// ${name}\n` + f.content.replace(OLD_HEADER, ''),
+  });
+}
+
 function newProjectPayload(name, files) {
   const rootId = objectId();
   const items = files.map((f) => {
@@ -281,34 +294,38 @@ async function cmdUpload(folders) {
 
     for (const [i, job] of jobs.entries()) {
       if (i) await page.waitForTimeout(PAUSE_MS);
-      let id;
-      if (job.existing) {
-        id = job.existing.id;
-        const got = await apiJson(page, 'GET', `/editor/${user}/projects/${id}`);
-        if (got.status !== 200) {
-          console.log(`FAIL read ${job.key} (${id}): ${got.status} ${got.text}`);
-          continue;
-        }
-        const project = got.json;
-        const changed = applyUpdate(project, job.name, job.files);
-        if (!changed) {
-          console.log(`same  ${job.key}  ${job.existing.url}`);
-          continue;
-        }
-        const put = await apiJson(page, 'PUT', `/editor/projects/${id}`, project);
-        if (put.status !== 200) {
-          console.log(`FAIL update ${job.key}: ${put.status} ${put.text}`);
-          continue;
-        }
-      } else {
+      let id = job.existing && job.existing.id;
+      let created = false;
+      if (!id) {
+        // Create first to learn the id, then update below so sketch.js gets its header.
         const post = await apiJson(page, 'POST', '/editor/projects', newProjectPayload(job.name, job.files));
         id = post.json && (post.json.id || post.json._id);
         if (!id) {
           console.log(`FAIL create ${job.key}: ${post.status} ${post.text || JSON.stringify(post.json).slice(0, 300)}`);
           continue;
         }
+        created = true;
       }
       const url = `${EDITOR}/${user}/sketches/${id}`;
+      const got = await apiJson(page, 'GET', `/editor/${user}/projects/${id}`);
+      if (got.status !== 200) {
+        console.log(`FAIL read ${job.key} (${id}): ${got.status} ${got.text}`);
+        if (!created) continue;
+      } else {
+        const project = got.json;
+        const changed = applyUpdate(project, job.name, withHeader(job.files, url, job.name));
+        if (!changed && !created) {
+          console.log(`same  ${job.key}  ${url}`);
+          continue;
+        }
+        if (changed) {
+          const put = await apiJson(page, 'PUT', `/editor/projects/${id}`, project);
+          if (put.status !== 200) {
+            console.log(`FAIL update ${job.key}: ${put.status} ${put.text}`);
+            if (!created) continue;
+          }
+        }
+      }
       map[job.key] = { id, name: job.name, url, updatedAt: new Date().toISOString() };
       saveMap(map); // after each sketch, so a crash loses nothing
       console.log(`ok    ${job.key}  ${url}`);

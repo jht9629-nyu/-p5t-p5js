@@ -1278,3 +1278,47 @@ To check, I saved a copy of every sketch's `index.html` and `style.css` in the s
 Nothing is committed yet. The changes are the two generators plus the 43 `index.html` edits from before.
 
 *Time: 24s · Cost: $0.1467 (input 12, output 2.4k, cache write 5.4k, cache read 271.9k) · session $0.4708*
+
+---
+
+## User (11/15/2026, 11:45:11 PM)
+
+```
+for save to p5 editor
+include as first two lines comments:
+// http link to sketch  
+// nane of sketch
+eg.
+// https://editor.p5js.org/jht9629-nyu/sketches/Oe3Q6gjBr
+// matt-parker-07_07-Pattern
+```
+
+## Assistant
+
+Header logic is in. Next I'm testing the regex and the header function on their own, without contacting the editor.
+
+I changed the uploader [tools-js/p5t-upload.mjs](tools-js/p5t-upload.mjs) so the `sketch.js` it saves to the p5 editor starts with the two comment lines:
+
+```js
+// https://editor.p5js.org/jht9629-nyu/sketches/Oe3Q6gjBr
+// matt-parker-07_07-Pattern
+```
+
+**How it works**
+- **Updating a sketch already in `p5editor-map.json`:** the two lines are added to `sketch.js` before it's compared with the editor copy. The next upload of each of the 38 mapped sketches will show `update` once. After that it shows `same`.
+- **New sketch:** the editor only gives a sketch its link when the sketch is created. So the uploader now creates the sketch, then immediately updates it with the header.
+- **Your local files don't change.** Only the copy sent to the editor gets the header. This is on purpose: `p5t.mjs` rewrites `sketch.js` from the Processing source, so a header saved locally would be wiped out.
+- If `sketch.js` already starts with an `// https://editor.p5js.org/...` line and a name line, those two lines are replaced rather than added again.
+
+**Testing so far**
+- I ran the header function on its own. It produced the two lines exactly as in your example, running it twice didn't double them, and `index.html` was left alone.
+- A `--dry-run` of `p5js/ArtSketch/07_07_2020/Pattern` still plans correctly.
+- I have **not** done a real upload, so the change hasn't been tried against the editor. To try it on one sketch:
+
+  ```
+  node tools-js/p5t-upload.mjs upload p5js/ArtSketch/07_07_2020/Pattern
+  ```
+
+Nothing is committed yet.
+
+*Time: 41s · Cost: $0.3732 (input 16, output 4.0k, cache write 27.2k, cache read 381.0k) · session $0.3732*
