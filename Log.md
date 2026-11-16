@@ -1387,3 +1387,38 @@ To check, I uploaded Pattern and ColorStorm a second time. Both reported `same`,
 The upload updated the timestamps in [p5js/p5editor-map.json](p5js/p5editor-map.json). That file and [tools-js/p5t-upload.mjs](tools-js/p5t-upload.mjs) are changed but not committed.
 
 *Time: 1m 42s · Cost: $0.0901 (input 8, output 1.1k, cache write 3.9k, cache read 182.6k) · session $0.5465*
+
+---
+
+## User (11/15/2026, 11:57:55 PM)
+
+```
+save the next 10 sketches to p5 editor
+```
+
+## Assistant
+
+"Next 10" here means the first 10 ArtSketch sketches, in date order, that aren't in the map yet. I'll list them and do a dry run first.
+
+The dry run looks right, and these 10 pick up just after 07_08 Game. Uploading them now.
+
+I saved the next 10 sketches to the p5 editor. I took them in date order from where the saved list left off (after 07_08 Game), and all 10 succeeded.
+
+| Sketch | Editor link |
+|---|---|
+| matt-parker-07_09-HSBNoise | https://editor.p5js.org/jht9629-nyu/sketches/qssv4zIay |
+| matt-parker-07_10-Warp | https://editor.p5js.org/jht9629-nyu/sketches/vsdIp8sww |
+| matt-parker-07_11-SquishSquash | https://editor.p5js.org/jht9629-nyu/sketches/KQX34Do6x |
+| matt-parker-07_13-Iris | https://editor.p5js.org/jht9629-nyu/sketches/LYn4BrfITY |
+| matt-parker-07_14-Towers | https://editor.p5js.org/jht9629-nyu/sketches/51qckQJsE |
+| matt-parker-07_15-Whack | https://editor.p5js.org/jht9629-nyu/sketches/V_cWhWr95 |
+| matt-parker-07_16-Multiverse | https://editor.p5js.org/jht9629-nyu/sketches/TozqrNHIT |
+| matt-parker-07_17-ColorCity | https://editor.p5js.org/jht9629-nyu/sketches/s_nTD2zk1 |
+| matt-parker-07_18-Fans | https://editor.p5js.org/jht9629-nyu/sketches/7ESgGHwjs |
+| matt-parker-07_19-sketch_200718a | https://editor.p5js.org/jht9629-nyu/sketches/atJyaCbzt |
+
+This was the first real run of the new create-then-update step for new sketches. I uploaded all 10 a second time and every one reported `same`, so each editor copy has the two comment lines in `sketch.js` and the default `style.css`.
+
+48 of the 156 ArtSketch sketches are now in the editor and 108 are left. The new links are recorded in [p5js/p5editor-map.json](p5js/p5editor-map.json), and nothing is committed.
+
+*Time: 1m 55s · Cost: $0.1279 (input 10, output 1.9k, cache write 4.7k, cache read 260.0k) · session $0.6743*

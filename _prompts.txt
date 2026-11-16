@@ -288,3 +288,10 @@ v1.31
 
 re-save sketches to p5 editor 
 for new comment lines and default style.css changes
+
+v1.32
+
+save the next 10 sketches to p5 editor
+
+48 of the 156 ArtSketch sketches are now in the editor and 
+108 are left. 
