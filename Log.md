@@ -1492,3 +1492,38 @@ To check them, I uploaded all 10 a second time and each one reported `same`. Tha
 68 of the 156 ArtSketch sketches are now in the editor, and 88 are left. The new links are saved in [p5js/p5editor-map.json](p5js/p5editor-map.json). Nothing is committed yet.
 
 *Time: 1m 50s · Cost: $0.0845 (input 8, output 1.6k, cache write 2.8k, cache read 154.8k) · session $0.3774*
+
+---
+
+## User (11/16/2026, 12:21:16 AM)
+
+```
+save the next 10 sketches to p5 editor
+```
+
+## Assistant
+
+Now find the next 10 ArtSketch folders not yet in the map, in date order.
+
+Next batch is 08_12 Landscape through 08_21 Pinwheels. Dry run first:
+
+I saved the next 10 sketches to the p5 editor, and all 10 uploaded successfully. This batch runs from 08_12 Landscape to 08_21 Pinwheels, picking up right after 08_11 CovidCases.
+
+| Sketch | Editor link |
+|---|---|
+| matt-parker-08_12-Landscape | https://editor.p5js.org/jht9629-nyu/sketches/5ZlzF453b |
+| matt-parker-08_13-LavaFlow | https://editor.p5js.org/jht9629-nyu/sketches/CQ7QLnBlN |
+| matt-parker-08_14-CircleClock | https://editor.p5js.org/jht9629-nyu/sketches/lswuHsJnx |
+| matt-parker-08_15-Fleur | https://editor.p5js.org/jht9629-nyu/sketches/VBjv-a2pV |
+| matt-parker-08_16-Pattern | https://editor.p5js.org/jht9629-nyu/sketches/LS1ZyAkEE |
+| matt-parker-08_17-LavaLamp | https://editor.p5js.org/jht9629-nyu/sketches/H1RP64ChY |
+| matt-parker-08_18-SpaceValley | https://editor.p5js.org/jht9629-nyu/sketches/swmcFAivC |
+| matt-parker-08_19-ColorSpread | https://editor.p5js.org/jht9629-nyu/sketches/7WhSnuiTN |
+| matt-parker-08_20-Concussion | https://editor.p5js.org/jht9629-nyu/sketches/01VI_6i4k |
+| matt-parker-08_21-Pinwheels | https://editor.p5js.org/jht9629-nyu/sketches/6WArDkYaZ |
+
+To check them, I uploaded all 10 a second time and each one reported `same`, so the editor copies match the local files.
+
+78 of the 156 ArtSketch sketches are now in the editor, and 78 are left. The new links are saved in [p5js/p5editor-map.json](p5js/p5editor-map.json). I haven't committed anything.
+
+*Time: 2m 05s · Cost: $0.2954 (input 16, output 2.8k, cache write 21.3k, cache read 346.2k) · session $0.2954*
