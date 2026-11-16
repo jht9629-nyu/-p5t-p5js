@@ -13,3 +13,6 @@ out
 __pycache__/
 .claude/settings.local.json
 Log.md.state
+
+tools-js/node_modules/
+tools-js/.p5profile/

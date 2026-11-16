@@ -156,4 +156,35 @@ start with:
 
 v1.16
 
-    <script src="https://jht9629-nyu.github.io/-p5t-p5js/lib/p5t.js"></script>
+<script src="https://jht9629-nyu.github.io/-p5t-p5js/lib/p5t.js"></script>
+
+https://github.com/molab-itp/p5mirrorLib
+https://github.com/molab-itp/p5mirrorLib#crud
+
+show alternatives and trade off 
+to upload all sketches to p5js editor 
+account jht9629-nyu
+
+detail Browser automation option
+
+v1.17
+
+lets try option C2 with a few sketches
+
+v1.18
+
+running Samples/PixelBased in p5 editor getting
+_LP0 is not defined
+appears to be something to do with p5 editor 
+loop protection. here's the code giving the error:
+
+function draw() {
+  t++;
+  jloadPixels(); // loadPixels(); the snapshot isn't used
+  var _LP1 = Date.now(); for (x = 1; x < 499; x++)
+    { if (Date.now() - _LP1 > 100) { window.loopProtect.hit(16); break; } for (y = 1; y < 499; y++)
+      { if (Date.now() - _LP0 > 100) { window.loopProtect.hit(17); break; } if (t % 499 == y) jset(x, y, jcolor(random(99), 99, 99));
+      // Adding 9 to the int color brightens blue, carrying into green and red.
+      else jset(x, y, (jget(x, y) + 9) | 0); } }
+  jsync();
+}

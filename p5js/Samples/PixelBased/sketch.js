@@ -13,11 +13,15 @@ function setup() {
 function draw() {
   t++;
   jloadPixels(); // loadPixels(); the snapshot isn't used
-  for (x = 1; x < 499; x++)
-    for (y = 1; y < 499; y++)
+  // Braces are required: the p5 editor's loop protection breaks on a
+  // brace-less loop whose body is another loop (_LP0 is not defined).
+  for (x = 1; x < 499; x++) {
+    for (y = 1; y < 499; y++) {
       if (t % 499 == y) jset(x, y, jcolor(random(99), 99, 99));
       // Adding 9 to the int color brightens blue, carrying into green and red.
       else jset(x, y, (jget(x, y) + 9) | 0);
+    }
+  }
   jsync();
 }
 
