@@ -37,8 +37,12 @@ const LIB_USE = new RegExp(
 // Scratch copies left next to the real sketch; not ported.
 const SKIP_FILES = new Set(['BAK.pde', 'Temop.pde']);
 
+// Sketches calling jset get <!-- noprotect --> so the p5 web editor's loop
+// protection does not stop their long pixel loops (it ignores // noprotect in sketch.js).
+const NOPROTECT_USE = /\bjset\b/;
+
 // Laid out like the p5.js web editor's default index.html (tools/p5js-v2-index.html).
-const indexHtml = ({ title, p5Url, libs }) => `<!doctype html>
+const indexHtml = ({ title, p5Url, libs, noprotect }) => `${noprotect}<!doctype html>
 <html lang="en">
   <head>
     <script src="${p5Url}"></script>
@@ -161,8 +165,9 @@ export function writeSketch(relDir, body) {
 export function writeHtml(relDir, code) {
   const out = path.join(OUT, relDir);
   const libs = LIB_USE.test(code) ? `    <script src="${LIB_URL}"></script>\n` : '';
+  const noprotect = NOPROTECT_USE.test(code) ? '<!-- noprotect -->\n' : '';
   fs.writeFileSync(path.join(out, 'index.html'),
-    indexHtml({ title: escapeHtml(path.posix.basename(relDir)), p5Url: P5_URL, libs }));
+    indexHtml({ title: escapeHtml(path.posix.basename(relDir)), p5Url: P5_URL, libs, noprotect }));
   fs.writeFileSync(path.join(out, 'style.css'), STYLE_CSS);
 }
 

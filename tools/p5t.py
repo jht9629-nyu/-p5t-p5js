@@ -40,8 +40,12 @@ LIB_USE = re.compile(
 # Scratch copies left next to the real sketch; not ported.
 SKIP_FILES = {"BAK.pde", "Temop.pde"}
 
+# Sketches calling jset get <!-- noprotect --> so the p5 web editor's loop
+# protection does not stop their long pixel loops (it ignores // noprotect in sketch.js).
+NOPROTECT_USE = re.compile(r"\bjset\b")
+
 # Laid out like the p5.js web editor's default index.html (tools/p5js-v2-index.html).
-INDEX_HTML = """<!doctype html>
+INDEX_HTML = """{noprotect}<!doctype html>
 <html lang="en">
   <head>
     <script src="{p5_url}"></script>
@@ -122,8 +126,9 @@ def write_html(rel, code):
     """Write p5js/<rel>/index.html and style.css; code is the sketch's own JS."""
     out = OUT / rel
     libs = f'    <script src="{LIB_URL}"></script>\n' if LIB_USE.search(code) else ""
+    noprotect = "<!-- noprotect -->\n" if NOPROTECT_USE.search(code) else ""
     (out / "index.html").write_text(
-        INDEX_HTML.format(title=html.escape(Path(rel).name), p5_url=P5_URL, libs=libs)
+        INDEX_HTML.format(title=html.escape(Path(rel).name), p5_url=P5_URL, libs=libs, noprotect=noprotect)
     )
     (out / "style.css").write_text(STYLE_CSS)
 

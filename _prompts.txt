@@ -254,3 +254,10 @@ v1.27
 as a precaution add
 <!-- noprotect -->
 to all index.html for sketches that use jset
+
+v1.28
+
+p5js/ArtSketch/11_17_2020/NotGreat/index.html
+
+when sketch with <!-- noprotect --> save to p5 editor
+is index.html update to have <!-- noprotect -->

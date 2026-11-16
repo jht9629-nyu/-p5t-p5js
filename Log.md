@@ -1234,3 +1234,47 @@ I added `<!-- noprotect -->` to the top of 43 more `index.html` files, so every 
 `git diff --stat` shows 45 files changed. Two of those are your own edits to `Log.md` and `_prompts.txt`. I haven't committed anything.
 
 *Time: 16s · Cost: $0.1833 (input 10, output 1.4k, cache write 14.3k, cache read 200.8k) · session $0.1833*
+
+---
+
+## User (11/15/2026, 11:39:07 PM)
+
+```
+when sketch with <!-- noprotect --> save to p5 editor
+is index.html update to have <!-- noprotect -->
+```
+
+## Assistant
+
+Yes. When you upload, [p5t-upload.mjs:127-137](tools-js/p5t-upload.mjs#L127-L137) reads `index.html` from disk exactly as it is, so the `<!-- noprotect -->` line goes up with it:
+
+- **New sketch:** the file is sent as-is when the editor sketch is created.
+- **Sketch already listed in `p5editor-map.json`:** [p5t-upload.mjs:169-180](tools-js/p5t-upload.mjs#L169-L180) compares each local file with the copy in the editor and sends any that differ. The 43 files I just changed will therefore show as `update` (not `same`) the next time you upload them, and the editor's `index.html` will get the line.
+
+The 43 files are only changed locally so far. The editor copies stay as they are until you run `upload` on those folders.
+
+**Catch:** the generator would wipe the line out. `node tools-js/p5t.mjs html`, and the Python version `tools/p5t.py html`, rewrite every sketch's `index.html` from a template without `<!-- noprotect -->` ([p5t.mjs:41](tools-js/p5t.mjs#L41), [p5t.py:44](tools/p5t.py#L44)). Running either one would remove the line from all 43 sketches, and the next upload would push the versions without it.
+
+I can change both generators to add the line whenever the sketch's code uses jset, the same way they already decide whether to add the library `<script>` tag. Want me to do that?
+
+*Time: 17s · Cost: $0.1408 (input 12, output 1.6k, cache write 8.0k, cache read 227.4k) · session $0.3241*
+
+---
+
+## User (11/15/2026, 11:40:09 PM)
+
+```
+yes
+```
+
+## Assistant
+
+Now I'll check it by regenerating the HTML and comparing against the current files, using a snapshot so nothing is lost.
+
+I updated both HTML generators: [tools-js/p5t.mjs](tools-js/p5t.mjs) and [tools/p5t.py](tools/p5t.py). They now put `<!-- noprotect -->` at the top of `index.html` for any sketch whose code uses `jset`, the same way they already add the p5t.js `<script>` line.
+
+To check, I saved a copy of every sketch's `index.html` and `style.css` in the scratchpad, then ran `node tools-js/p5t.mjs html` and `python3 tools/p5t.py html`. Each tool regenerated 159 sketches, and the output matched the saved copy exactly both times. All 44 jset sketches still have the line, so regenerating no longer removes it.
+
+Nothing is committed yet. The changes are the two generators plus the 43 `index.html` edits from before.
+
+*Time: 24s · Cost: $0.1467 (input 12, output 2.4k, cache write 5.4k, cache read 271.9k) · session $0.4708*
