@@ -1596,3 +1596,77 @@ I saved the next 10 sketches to the p5 editor and all 10 uploaded without errors
 98 of the 156 ArtSketch sketches are now in the editor, and 58 are left. The next one is 09_16 Crawl. The new links are saved in [p5js/p5editor-map.json](p5js/p5editor-map.json). I haven't committed anything.
 
 *Time: 1m 21s · Cost: $0.2949 (input 18, output 3.1k, cache write 19.4k, cache read 393.7k) · session $0.2949*
+
+---
+
+## User (11/16/2026, 12:50:04 AM)
+
+```
+save the next 20 sketches to p5 editor
+```
+
+## Assistant
+
+I need the exact command used before; let me check the upload script's usage.
+
+*Time: 24s · Cost: $0.2142 (input 10, output 1.4k, cache write 18.1k, cache read 206.7k) · session $0.2142*
+
+---
+
+## User (11/16/2026, 12:50:28 AM)
+
+```
+[Request interrupted by user for tool use]
+```
+
+## Assistant
+
+
+
+*Time: 6s · Cost: $0.0000 (input 0, output 0, cache write 0, cache read 0) · session $0.2142*
+
+---
+
+## User (11/16/2026, 12:50:34 AM)
+
+```
+save the next 20 sketches to p5 editor
+dont re-upload to verify
+```
+
+## Assistant
+
+The previous upload was interrupted mid-run, so I'm checking what got saved before I continue.
+
+Nothing was saved and no upload is still running. Starting the 20 again:
+
+I saved the next 20 sketches to the p5 editor, and all 20 uploaded without errors. This batch runs from 09_16 Crawl to 10_06 NoiseCircles. As you asked, I didn't upload them a second time to check them.
+
+| Sketch | Editor link |
+|---|---|
+| matt-parker-09_16-Crawl | https://editor.p5js.org/jht9629-nyu/sketches/tIb_sQwhL |
+| matt-parker-09_17-ParticleTrail2 | https://editor.p5js.org/jht9629-nyu/sketches/F_CMlzDz0 |
+| matt-parker-09_18-Flock | https://editor.p5js.org/jht9629-nyu/sketches/RyoyLpZs- |
+| matt-parker-09_19-Herd | https://editor.p5js.org/jht9629-nyu/sketches/16fjJQcFt |
+| matt-parker-09_20-Bonk | https://editor.p5js.org/jht9629-nyu/sketches/qcQZapbFc |
+| matt-parker-09_21-Crowd | https://editor.p5js.org/jht9629-nyu/sketches/q0dayD41M |
+| matt-parker-09_22-OrthoFlower | https://editor.p5js.org/jht9629-nyu/sketches/xL0zqoMZi |
+| matt-parker-09_23-SpiralWorm | https://editor.p5js.org/jht9629-nyu/sketches/g8x29CXUH |
+| matt-parker-09_25-ColorLines | https://editor.p5js.org/jht9629-nyu/sketches/M4jkjaA-q |
+| matt-parker-09_26-SlowSpread | https://editor.p5js.org/jht9629-nyu/sketches/O_-KQ41rS |
+| matt-parker-09_27-CommetCross | https://editor.p5js.org/jht9629-nyu/sketches/hKjGglluN |
+| matt-parker-09_28-InfintityAndBeyond | https://editor.p5js.org/jht9629-nyu/sketches/ikxmKse4A |
+| matt-parker-09_29-Blend | https://editor.p5js.org/jht9629-nyu/sketches/5pUt4RrnY |
+| matt-parker-09_30-MiddleSeq | https://editor.p5js.org/jht9629-nyu/sketches/qkbGJlxdf |
+| matt-parker-10_01-DisplayPattern | https://editor.p5js.org/jht9629-nyu/sketches/Osdli3t_C |
+| matt-parker-10_02-RingOfNonFire | https://editor.p5js.org/jht9629-nyu/sketches/4q5Aq4BYB |
+| matt-parker-10_03-LineSwitch | https://editor.p5js.org/jht9629-nyu/sketches/GnhRS-rB9 |
+| matt-parker-10_04-RedStar | https://editor.p5js.org/jht9629-nyu/sketches/1l5lG8iUk |
+| matt-parker-10_05-FantasyIsland | https://editor.p5js.org/jht9629-nyu/sketches/WCwnXkfXD |
+| matt-parker-10_06-NoiseCircles | https://editor.p5js.org/jht9629-nyu/sketches/BOenJtbnc |
+
+You may have some duplicate sketches in your editor account. My first attempt was stopped partway through, and it recorded none of its uploads in the map. If it had already created any sketches in the editor before it stopped, those copies are still there, most likely 09_16 Crawl. If you see two copies of a sketch, delete the one whose link isn't in the table above.
+
+118 of the 156 ArtSketch sketches are now in the editor, and 38 are left. The next one is 10_07. The new links are saved in [p5js/p5editor-map.json](p5js/p5editor-map.json). I haven't committed anything.
+
+*Time: 1m 08s · Cost: $0.1144 (input 8, output 2.5k, cache write 4.4k, cache read 146.5k) · session $0.3286*
