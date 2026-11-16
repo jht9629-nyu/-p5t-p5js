@@ -153,3 +153,7 @@ start with:
 1. (b) Load it from GitHub Pages 
 2. leave sound out
 3. explicit jsync()
+
+v1.16
+
+    <script src="https://jht9629-nyu.github.io/-p5t-p5js/lib/p5t.js"></script>
