@@ -1915,3 +1915,65 @@ I changed the save script, and Rose, Move3DShape and PixelBased are re-saved in 
 As before, I didn't re-upload to check them. Nothing is committed yet; should I commit this as v1.39?
 
 *Time: 26s · Cost: $0.1249 (input 12, output 2.0k, cache write 3.5k, cache read 288.3k) · session $0.7146*
+
+---
+
+## User (11/16/2026, 1:26:01 PM)
+
+```
+identify the sketches the use keyboard or mouse input
+```
+
+## Assistant
+
+Five of them use only `key` and no `keyPressed`, so I'm checking how those read input. I'm also checking the p5t library for its own input handling.
+
+Next I'll check the original Processing files for any input the port might have missed.
+
+Both the ports and the original Processing files give the same 7 sketches.
+
+7 of the 159 sketches take input: one uses the mouse and six use the keyboard. None uses both. The other 152 just run on their own, with no mouse or key handling in either the p5.js port or the original `.pde` file. The original Processing files under `#p5t/` give exactly the same 7.
+
+| Sketch | Input | Controls |
+|---|---|---|
+| [ArtSketch/07_15_2020/Whack](p5js/ArtSketch/07_15_2020/Whack/sketch.js) | Mouse | Move the pointer over the red circle before it fades. Reads `mouseX`/`mouseY`; no click needed. |
+| [ArtSketch/07_08_2020/Game](p5js/ArtSketch/07_08_2020/Game/sketch.js) | Keys | `a` moves left, `d` moves right |
+| [ArtSketch/07_29_2020/ClockGame](p5js/ArtSketch/07_29_2020/ClockGame/sketch.js) | Keys | Press any key except `a` when the gray hand passes the white one. This is the only one with a `keyPressed()` function. |
+| [ArtSketch/08_28_2020/WASD](p5js/ArtSketch/08_28_2020/WASD/sketch.js) | Keys | `w` `a` `s` `d` move the score to catch the falling star |
+| [ArtSketch/09_15_2020/Snake](p5js/ArtSketch/09_15_2020/Snake/sketch.js) | Keys | `w` `a` `s` `d` steer the snake |
+| [ArtSketch/10_16_2020/CaveAdventure](p5js/ArtSketch/10_16_2020/CaveAdventure/sketch.js) | Keys | `w` `a` `s` `d` move; the counter resets when you touch a wall |
+| [ArtSketch/10_17_2020/MazeAdventure](p5js/ArtSketch/10_17_2020/MazeAdventure/sketch.js) | Keys | `w` `a` `s` `d`, same as CaveAdventure |
+
+**For the six keyboard sketches:**
+- All of them except ClockGame read p5's global `key`, which holds the last key pressed. So movement continues until you press a different key, the same as in the Processing originals.
+- In the p5.js editor and the gallery, keys only reach the sketch after you click the canvas once to give it focus.
+
+The v1.39 change (the `matt-parker-` names) is still uncommitted.
+
+*Time: 27s · Cost: $0.1689 (input 14, output 2.6k, cache write 5.2k, cache read 373.8k) · session $0.8834*
+
+---
+
+## User (11/16/2026, 1:27:31 PM)
+
+```
+provide the p5 editor links for these 7 sketches
+```
+
+## Assistant
+
+Here are the p5.js editor links for the 7 sketches that take input, from [p5js/p5editor-map.json](p5js/p5editor-map.json):
+
+| Editor name | Input | Link |
+|---|---|---|
+| matt-parker-07_15-Whack | Mouse | https://editor.p5js.org/jht9629-nyu/sketches/V_cWhWr95 |
+| matt-parker-07_08-Game | Keys `a` `d` | https://editor.p5js.org/jht9629-nyu/sketches/pBVF2_qmU |
+| matt-parker-07_29-ClockGame | Any key except `a` | https://editor.p5js.org/jht9629-nyu/sketches/54WTmJ8Ck |
+| matt-parker-08_28-WASD | Keys `w` `a` `s` `d` | https://editor.p5js.org/jht9629-nyu/sketches/G76HABt9m |
+| matt-parker-09_15-Snake | Keys `w` `a` `s` `d` | https://editor.p5js.org/jht9629-nyu/sketches/LO5j6pdxY |
+| matt-parker-10_16-CaveAdventure | Keys `w` `a` `s` `d` | https://editor.p5js.org/jht9629-nyu/sketches/LoaDTc232 |
+| matt-parker-10_17-MazeAdventure | Keys `w` `a` `s` `d` | https://editor.p5js.org/jht9629-nyu/sketches/1DuQrws03 |
+
+For the six keyboard sketches, click the canvas once after pressing Play, or the keys won't reach the sketch.
+
+*Time: 8s · Cost: $0.0495 (input 6, output 837, cache write 763, cache read 133.1k) · session $0.9329*

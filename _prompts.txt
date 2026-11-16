@@ -338,3 +338,16 @@ that don't have folder named MM_NN with matt-parker-SketchName
 eg. matt-parker-Rose
 re-save the 3 sketches that need this
 
+v1.40
+
+identify the sketches the use keyboard or mouse input
+
+provide the p5 editor links for these 7 sketches
+
+matt-parker-07_15-Whack	Mouse	https://editor.p5js.org/jht9629-nyu/sketches/V_cWhWr95
+matt-parker-07_08-Game	Keys a d	https://editor.p5js.org/jht9629-nyu/sketches/pBVF2_qmU
+matt-parker-07_29-ClockGame	Any key except a	https://editor.p5js.org/jht9629-nyu/sketches/54WTmJ8Ck
+matt-parker-08_28-WASD	Keys w a s d	https://editor.p5js.org/jht9629-nyu/sketches/G76HABt9m
+matt-parker-09_15-Snake	Keys w a s d	https://editor.p5js.org/jht9629-nyu/sketches/LO5j6pdxY
+matt-parker-10_16-CaveAdventure	Keys w a s d	https://editor.p5js.org/jht9629-nyu/sketches/LoaDTc232
+matt-parker-10_17-MazeAdventure	Keys w a s d	https://editor.p5js.org/jht9629-nyu/sketches/1DuQrws03
