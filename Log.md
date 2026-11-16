@@ -1322,3 +1322,45 @@ I changed the uploader [tools-js/p5t-upload.mjs](tools-js/p5t-upload.mjs) so the
 Nothing is committed yet.
 
 *Time: 41s · Cost: $0.3732 (input 16, output 4.0k, cache write 27.2k, cache read 381.0k) · session $0.3732*
+
+---
+
+## User (11/15/2026, 11:51:32 PM)
+
+```
+update save to p5 editor to use
+p5 editor default style.css:
+html, body {
+  margin: 0;
+  padding: 0;
+}
+canvas {
+  display: block;
+}
+```
+
+## Assistant
+
+The local `style.css` centers the canvas on a gray background. That's for the local gallery, so I'll swap in the editor default only in the uploaded copy.
+
+The uploader now saves the p5 editor's default `style.css` with each sketch, exactly as you gave it:
+
+```css
+html, body {
+  margin: 0;
+  padding: 0;
+}
+canvas {
+  display: block;
+}
+```
+
+I made the change in [tools-js/p5t-upload.mjs](tools-js/p5t-upload.mjs). The function that adds the two-line header to `sketch.js` is now called `editorFiles`, and it also swaps in this `style.css`.
+
+- **Local files don't change.** Your local `style.css` still centers the canvas on a gray background for the gallery, and only the uploaded copy gets the default. As with the header, a local change would be undone the next time `p5t.mjs html` rewrites `style.css`.
+- **What you'll see on the next upload:** each sketch already in the editor will show `update` once, because both `sketch.js` and `style.css` differ from the editor copy. After that it shows `same`.
+- **What I checked:** the script passes a syntax check, and a `--dry-run` of the Pattern sketch still plans correctly. I haven't done a real upload yet.
+
+Nothing is committed.
+
+*Time: 16s · Cost: $0.0831 (input 8, output 1.5k, cache write 2.2k, cache read 174.0k) · session $0.4564*

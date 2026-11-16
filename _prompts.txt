@@ -271,3 +271,18 @@ include as first two lines comments:
 eg.
 // https://editor.p5js.org/jht9629-nyu/sketches/Oe3Q6gjBr
 // matt-parker-07_07-Pattern
+
+v1.30
+
+update save to p5 editor to use
+p5 editor default style.css:
+html, body {
+  margin: 0;
+  padding: 0;
+}
+canvas {
+  display: block;
+}
+
+
+re-save sketches to p5 editor 

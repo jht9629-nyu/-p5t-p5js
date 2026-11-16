@@ -167,9 +167,25 @@ function sketchName(folder) {
 const HEADER_FILE = 'sketch.js';
 const OLD_HEADER = new RegExp(`^// ${EDITOR.replace(/[.]/g, '\\.')}/\\S*\\n//[^\\n]*\\n`);
 
-function withHeader(files, url, name) {
-  return files.map((f) => f.name !== HEADER_FILE ? f : {
-    ...f, content: `// ${url}\n// ${name}\n` + f.content.replace(OLD_HEADER, ''),
+// The editor copy of style.css is the p5 editor's own default; the local one
+// centers the canvas on a gray page for the gallery.
+const EDITOR_STYLE_CSS = `html, body {
+  margin: 0;
+  padding: 0;
+}
+canvas {
+  display: block;
+}
+`;
+
+// Files as they should appear in the editor: sketch.js with its header, default style.css.
+function editorFiles(files, url, name) {
+  return files.map((f) => {
+    if (f.name === HEADER_FILE) {
+      return { ...f, content: `// ${url}\n// ${name}\n` + f.content.replace(OLD_HEADER, '') };
+    }
+    if (f.name === 'style.css') return { ...f, content: EDITOR_STYLE_CSS };
+    return f;
   });
 }
 
@@ -313,7 +329,7 @@ async function cmdUpload(folders) {
         if (!created) continue;
       } else {
         const project = got.json;
-        const changed = applyUpdate(project, job.name, withHeader(job.files, url, job.name));
+        const changed = applyUpdate(project, job.name, editorFiles(job.files, url, job.name));
         if (!changed && !created) {
           console.log(`same  ${job.key}  ${url}`);
           continue;
