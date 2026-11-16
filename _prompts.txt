@@ -330,3 +330,11 @@ v1.38
 create list of sketches in p5js/sketches.js
 that are not in p5js/p5editor-map.json
 and plan now to add
+
+v1.39
+
+adjust p5 editor save script to prefix file sketches
+that don't have folder named MM_NN with matt-parker-SketchName
+eg. matt-parker-Rose
+re-save the 3 sketches that need this
+

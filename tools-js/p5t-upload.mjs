@@ -148,7 +148,8 @@ function readSketch(folder) {
 // ArtSketch sketches (Matt Parker's originals) are named matt-parker-MM_DD-SketchName
 // from the date folder (MM_DD_YYYY or MM_DD_YY) and the sketch's own folder name,
 // e.g. ArtSketch/05_11_2021/LangtonsAnt -> matt-parker-05_11-LangtonsAnt.
-// Other sketches keep their path under p5js/ as the name.
+// Sketches with no date folder get matt-parker-SketchName, e.g. Rose -> matt-parker-Rose,
+// Samples/PixelBased -> matt-parker-PixelBased.
 const NAME_PREFIX = 'matt-parker-';
 
 function sketchName(folder) {
@@ -156,8 +157,9 @@ function sketchName(folder) {
   // nearest date folder above the sketch (handles nested ones like 07_22_2020/07_24_2020/Spiral)
   const m = rel[0] === 'ArtSketch' && rel.slice(1, -1).reverse()
     .map((s) => s.match(/^(\d\d)_(\d\d)_\d\d(?:\d\d)?$/)).find(Boolean);
-  if (!m) return rel.join('/');
-  return `${NAME_PREFIX}${m[1]}_${m[2]}-${rel[rel.length - 1]}`;
+  const base = rel[rel.length - 1];
+  if (!m) return `${NAME_PREFIX}${base}`;
+  return `${NAME_PREFIX}${m[1]}_${m[2]}-${base}`;
 }
 
 // The editor copy of sketch.js starts with two comment lines naming where it lives:

@@ -1883,3 +1883,35 @@ yes
 I committed this as v1.38 (`7d25540`) on branch `p5jslib2.0`. It includes the updated `p5js/p5editor-map.json`, `_prompts.txt` and `Log.md`, and nothing is left uncommitted. I haven't pushed it.
 
 *Time: 9s · Cost: $0.0487 (input 8, output 495, cache write 664, cache read 167.4k) · session $0.5896*
+
+---
+
+## User (11/16/2026, 1:16:46 PM)
+
+```
+adjust p5 editor save script to prefix file sketches
+that don't have folder named MM_NN with matt-parker-SketchName
+eg. matt-parker-Rose
+re-save the 3 sketches that need this
+```
+
+## Assistant
+
+Updates rename the sketch and rewrite its header comment, so the existing sketches keep their URLs. I'm changing the naming fallback now.
+
+The names are right, and ArtSketch names are unchanged. Re-saving the three now.
+
+I changed the save script, and Rose, Move3DShape and PixelBased are re-saved in the editor with the new names. Their links stayed the same:
+
+| Sketch | New editor name | Link |
+|---|---|---|
+| Rose | matt-parker-Rose | https://editor.p5js.org/jht9629-nyu/sketches/-p0HQn4EP |
+| Samples/Move3DShape | matt-parker-Move3DShape | https://editor.p5js.org/jht9629-nyu/sketches/nD7tZL1_m |
+| Samples/PixelBased | matt-parker-PixelBased | https://editor.p5js.org/jht9629-nyu/sketches/4zKw44vi8 |
+
+- **The script change:** in [tools-js/p5t-upload.mjs:154](tools-js/p5t-upload.mjs#L154), a sketch with no date folder is now named `matt-parker-` plus its own folder name. The `Samples/` part is dropped, so the name is `matt-parker-PixelBased`. ArtSketch names don't change: LangtonsAnt still comes out as `matt-parker-05_11-LangtonsAnt` in a dry run.
+- **The re-save:** the header comment at the top of each editor `sketch.js` now shows the new name. The three entries in [p5js/p5editor-map.json](p5js/p5editor-map.json) have the new names too.
+
+As before, I didn't re-upload to check them. Nothing is committed yet; should I commit this as v1.39?
+
+*Time: 26s · Cost: $0.1249 (input 12, output 2.0k, cache write 3.5k, cache read 288.3k) · session $0.7146*
