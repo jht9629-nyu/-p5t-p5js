@@ -1364,3 +1364,26 @@ I made the change in [tools-js/p5t-upload.mjs](tools-js/p5t-upload.mjs). The fun
 Nothing is committed.
 
 *Time: 16s · Cost: $0.0831 (input 8, output 1.5k, cache write 2.2k, cache read 174.0k) · session $0.4564*
+
+---
+
+## User (11/15/2026, 11:53:25 PM)
+
+```
+re-save sketches to p5 editor 
+for new comment lines and default style.css changes
+```
+
+## Assistant
+
+I'll re-upload all 38 sketches listed in `p5editor-map.json`. With the 2-second pause between sketches, this should take a few minutes.
+
+All 38 uploads succeeded. To confirm the editor now matches, I'll upload one sketch again. It should report `same`.
+
+I re-saved all 38 sketches listed in `p5editor-map.json` to the p5 editor, and every one uploaded without errors. In the editor copies, `sketch.js` now begins with the link and name comment lines, and `style.css` is the editor's default.
+
+To check, I uploaded Pattern and ColorStorm a second time. Both reported `same`, which means the editor copies already match what the uploader sends. Example: https://editor.p5js.org/jht9629-nyu/sketches/Oe3Q6gjBr
+
+The upload updated the timestamps in [p5js/p5editor-map.json](p5js/p5editor-map.json). That file and [tools-js/p5t-upload.mjs](tools-js/p5t-upload.mjs) are changed but not committed.
+
+*Time: 1m 42s · Cost: $0.0901 (input 8, output 1.1k, cache write 3.9k, cache read 182.6k) · session $0.5465*
