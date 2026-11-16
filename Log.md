@@ -952,3 +952,41 @@ Also:
 I haven't committed anything.
 
 *Time: 1m 02s · Cost: $0.2822 (input 20, output 5.7k, cache write 11.6k, cache read 382.0k) · session $0.4260*
+
+---
+
+## User (11/15/2026, 10:30:15 PM)
+
+```
+update p5 editor save logic 
+to name each sketch like so matt-parker-05_11
+ie. matt-parker-MM_NN, where MM is month and NN is day 
+from the folder name containing the sketch
+save a few more sketches to p5 editor
+```
+
+## Assistant
+
+Naming checks out. The existing Mandlebrot sketch gets renamed in place. Uploading for real:
+
+ArtSketch sketches now get saved to the p5 editor with names like `matt-parker-MM_DD`, and I uploaded 7 sketches with the new names.
+
+**What changed:** the naming logic in [tools-js/p5t-upload.mjs](tools-js/p5t-upload.mjs) now reads the month and day from the date folder (`05_11_2021` becomes `matt-parker-05_11`). Folders with a two-digit year, like `05_17_21`, work too. Sketches outside ArtSketch, such as Rose and Samples/PixelBased, keep their old path-style names.
+
+**Decision for you:** five date folders hold more than one sketch (05_13, 05_17, 05_20, 06_28, 07_22). For those, I add the sketch's folder name so the names don't clash, for example `matt-parker-05_17-SnailShell`. If you'd rather number them (`-1`, `-2`) or keep the bare date even when names repeat, that's a one-line change.
+
+**Uploaded:**
+
+| Sketch | p5 editor name | Link |
+|---|---|---|
+| 05_11_2021/LangtonsAnt | matt-parker-05_11 | [Hqxk1C4sT](https://editor.p5js.org/jht9629-nyu/sketches/Hqxk1C4sT) |
+| 05_17_21/SnailShell | matt-parker-05_17-SnailShell | [H-AwpL25x](https://editor.p5js.org/jht9629-nyu/sketches/H-AwpL25x) |
+| 05_19_2021/Mandlebrot | matt-parker-05_19 (renamed from its old name) | [ydvOuNdFa](https://editor.p5js.org/jht9629-nyu/sketches/ydvOuNdFa) |
+| 06_28_2020/sketch_final | matt-parker-06_28-sketch_final | [6b38LB1Vf](https://editor.p5js.org/jht9629-nyu/sketches/6b38LB1Vf) |
+| 07_01_2020/Knit | matt-parker-07_01 | [sJ5ziXZue](https://editor.p5js.org/jht9629-nyu/sketches/sJ5ziXZue) |
+| 09_11_2020/Rings | matt-parker-09_11 | [mTdu3EsnI](https://editor.p5js.org/jht9629-nyu/sketches/mTdu3EsnI) |
+| 11_15_2020/ColorStorm | matt-parker-11_15 | [eySSWS9go](https://editor.p5js.org/jht9629-nyu/sketches/eySSWS9go) |
+
+Every upload reported success and the links are recorded in [p5js/p5editor-map.json](p5js/p5editor-map.json). I haven't opened them in the editor to check that they run. Nothing is committed.
+
+*Time: 1m 01s · Cost: $0.3661 (input 16, output 4.3k, cache write 25.6k, cache read 371.8k) · session $0.3661*
