@@ -5,17 +5,53 @@
     "url": "https://editor.p5js.org/jht9629-nyu/sketches/SzpF8TGe4",
     "updatedAt": "2026-11-16T03:38:57.417Z"
   },
+  "p5js/ArtSketch/05_13_2021/MazeDraft": {
+    "id": "-1WBzHrfO",
+    "name": "matt-parker-05_13-MazeDraft",
+    "url": "https://editor.p5js.org/jht9629-nyu/sketches/-1WBzHrfO",
+    "updatedAt": "2026-11-16T03:44:00.313Z"
+  },
+  "p5js/ArtSketch/05_13_2021/MazeFinal": {
+    "id": "xggX2Qi29",
+    "name": "matt-parker-05_13-MazeFinal",
+    "url": "https://editor.p5js.org/jht9629-nyu/sketches/xggX2Qi29",
+    "updatedAt": "2026-11-16T03:44:02.440Z"
+  },
   "p5js/ArtSketch/05_17_21/SnailShell": {
     "id": "1KXpj3bCe",
     "name": "matt-parker-05_17-SnailShell",
     "url": "https://editor.p5js.org/jht9629-nyu/sketches/1KXpj3bCe",
     "updatedAt": "2026-11-16T03:38:59.504Z"
   },
+  "p5js/ArtSketch/05_17_21/SnailShellFinal": {
+    "id": "6KNw9YWkj",
+    "name": "matt-parker-05_17-SnailShellFinal",
+    "url": "https://editor.p5js.org/jht9629-nyu/sketches/6KNw9YWkj",
+    "updatedAt": "2026-11-16T03:50:56.915Z"
+  },
   "p5js/ArtSketch/05_19_2021/Mandlebrot": {
     "id": "zal5XgYS-",
     "name": "matt-parker-05_19-Mandlebrot",
     "url": "https://editor.p5js.org/jht9629-nyu/sketches/zal5XgYS-",
     "updatedAt": "2026-11-16T03:39:01.604Z"
+  },
+  "p5js/ArtSketch/05_20_2021/MazeMaker": {
+    "id": "7R428xmHa",
+    "name": "matt-parker-05_20-MazeMaker",
+    "url": "https://editor.p5js.org/jht9629-nyu/sketches/7R428xmHa",
+    "updatedAt": "2026-11-16T03:44:04.530Z"
+  },
+  "p5js/ArtSketch/05_20_2021/MazeMaker2": {
+    "id": "W-JA5WYhG",
+    "name": "matt-parker-05_20-MazeMaker2",
+    "url": "https://editor.p5js.org/jht9629-nyu/sketches/W-JA5WYhG",
+    "updatedAt": "2026-11-16T03:44:06.631Z"
+  },
+  "p5js/ArtSketch/05_20_2021/MazeMaker3": {
+    "id": "rhfiDKZQS",
+    "name": "matt-parker-05_20-MazeMaker3",
+    "url": "https://editor.p5js.org/jht9629-nyu/sketches/rhfiDKZQS",
+    "updatedAt": "2026-11-16T03:44:08.750Z"
   },
   "p5js/ArtSketch/06_28_2020/sketch_final": {
     "id": "qCnALUL54",
@@ -29,11 +65,101 @@
     "url": "https://editor.p5js.org/jht9629-nyu/sketches/W5udAFlQk",
     "updatedAt": "2026-11-16T03:39:05.771Z"
   },
+  "p5js/ArtSketch/07_12_2020/Round": {
+    "id": "6I67CfIAT",
+    "name": "matt-parker-07_12-Round",
+    "url": "https://editor.p5js.org/jht9629-nyu/sketches/6I67CfIAT",
+    "updatedAt": "2026-11-16T03:50:59.069Z"
+  },
+  "p5js/ArtSketch/07_22_2020/07_24_2020/Spiral": {
+    "id": "S0WX2HLd6",
+    "name": "matt-parker-07_24-Spiral",
+    "url": "https://editor.p5js.org/jht9629-nyu/sketches/S0WX2HLd6",
+    "updatedAt": "2026-11-16T03:44:12.916Z"
+  },
+  "p5js/ArtSketch/07_22_2020/Peek": {
+    "id": "q4fdjRXyQ",
+    "name": "matt-parker-07_22-Peek",
+    "url": "https://editor.p5js.org/jht9629-nyu/sketches/q4fdjRXyQ",
+    "updatedAt": "2026-11-16T03:44:10.833Z"
+  },
+  "p5js/ArtSketch/07_27_2020/Coral": {
+    "id": "YXUvGQ5OA",
+    "name": "matt-parker-07_27-Coral",
+    "url": "https://editor.p5js.org/jht9629-nyu/sketches/YXUvGQ5OA",
+    "updatedAt": "2026-11-16T03:51:01.152Z"
+  },
+  "p5js/ArtSketch/08_10_2020/Settling": {
+    "id": "GZPwxlJ4i",
+    "name": "matt-parker-08_10-Settling",
+    "url": "https://editor.p5js.org/jht9629-nyu/sketches/GZPwxlJ4i",
+    "updatedAt": "2026-11-16T03:51:03.245Z"
+  },
+  "p5js/ArtSketch/08_23_2020/MazeGrowth": {
+    "id": "C11ce8WLk",
+    "name": "matt-parker-08_23-MazeGrowth",
+    "url": "https://editor.p5js.org/jht9629-nyu/sketches/C11ce8WLk",
+    "updatedAt": "2026-11-16T03:44:15.003Z"
+  },
+  "p5js/ArtSketch/08_25_2020/CharTrain": {
+    "id": "VLuVSNoQY",
+    "name": "matt-parker-08_25-CharTrain",
+    "url": "https://editor.p5js.org/jht9629-nyu/sketches/VLuVSNoQY",
+    "updatedAt": "2026-11-16T03:51:05.351Z"
+  },
+  "p5js/ArtSketch/09_08_2020/ColorNoise": {
+    "id": "AopVkuWww",
+    "name": "matt-parker-09_08-ColorNoise",
+    "url": "https://editor.p5js.org/jht9629-nyu/sketches/AopVkuWww",
+    "updatedAt": "2026-11-16T03:51:07.481Z"
+  },
+  "p5js/ArtSketch/09_10_2020/CircleOfLife": {
+    "id": "w0y82c6cQ",
+    "name": "matt-parker-09_10-CircleOfLife",
+    "url": "https://editor.p5js.org/jht9629-nyu/sketches/w0y82c6cQ",
+    "updatedAt": "2026-11-16T03:44:17.094Z"
+  },
   "p5js/ArtSketch/09_11_2020/Rings": {
     "id": "OH4-niZQK",
     "name": "matt-parker-09_11-Rings",
     "url": "https://editor.p5js.org/jht9629-nyu/sketches/OH4-niZQK",
     "updatedAt": "2026-11-16T03:39:07.850Z"
+  },
+  "p5js/ArtSketch/09_24_2020/distress": {
+    "id": "5me_wC0a9",
+    "name": "matt-parker-09_24-distress",
+    "url": "https://editor.p5js.org/jht9629-nyu/sketches/5me_wC0a9",
+    "updatedAt": "2026-11-16T03:51:09.597Z"
+  },
+  "p5js/ArtSketch/10_08_2020/BoltTunnel": {
+    "id": "BPXQBPa3U",
+    "name": "matt-parker-10_08-BoltTunnel",
+    "url": "https://editor.p5js.org/jht9629-nyu/sketches/BPXQBPa3U",
+    "updatedAt": "2026-11-16T03:51:11.692Z"
+  },
+  "p5js/ArtSketch/10_17_2020/MazeAdventure": {
+    "id": "1DuQrws03",
+    "name": "matt-parker-10_17-MazeAdventure",
+    "url": "https://editor.p5js.org/jht9629-nyu/sketches/1DuQrws03",
+    "updatedAt": "2026-11-16T03:44:19.209Z"
+  },
+  "p5js/ArtSketch/10_23_2020/ColorRotate": {
+    "id": "1TSnMwDUJ",
+    "name": "matt-parker-10_23-ColorRotate",
+    "url": "https://editor.p5js.org/jht9629-nyu/sketches/1TSnMwDUJ",
+    "updatedAt": "2026-11-16T03:51:13.783Z"
+  },
+  "p5js/ArtSketch/11_06_2020/CaveExplorers": {
+    "id": "U9IbSZiu4",
+    "name": "matt-parker-11_06-CaveExplorers",
+    "url": "https://editor.p5js.org/jht9629-nyu/sketches/U9IbSZiu4",
+    "updatedAt": "2026-11-16T03:51:15.868Z"
+  },
+  "p5js/ArtSketch/11_14_2020/BlueCircle": {
+    "id": "0uW9-3N81",
+    "name": "matt-parker-11_14-BlueCircle",
+    "url": "https://editor.p5js.org/jht9629-nyu/sketches/0uW9-3N81",
+    "updatedAt": "2026-11-16T03:44:21.275Z"
   },
   "p5js/ArtSketch/11_15_2020/ColorStorm": {
     "id": "sS9vSRDfM",

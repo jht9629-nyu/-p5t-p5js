@@ -215,3 +215,6 @@ to name each sketch like so matt-parker-MM_NN-SketchName
 reset p5editor-map.json to save a few sketches over again
 previous sketch have been deleted from editor
 
+v1.23
+
+save a few more sketches to p5 editor

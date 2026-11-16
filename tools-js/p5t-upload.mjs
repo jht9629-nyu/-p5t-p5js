@@ -153,7 +153,9 @@ const NAME_PREFIX = 'matt-parker-';
 
 function sketchName(folder) {
   const rel = path.relative(sketchRoot, path.resolve(repoRoot, folder)).split(path.sep);
-  const m = rel[0] === 'ArtSketch' && rel[1] && rel[1].match(/^(\d\d)_(\d\d)_\d\d(?:\d\d)?$/);
+  // nearest date folder above the sketch (handles nested ones like 07_22_2020/07_24_2020/Spiral)
+  const m = rel[0] === 'ArtSketch' && rel.slice(1, -1).reverse()
+    .map((s) => s.match(/^(\d\d)_(\d\d)_\d\d(?:\d\d)?$/)).find(Boolean);
   if (!m) return rel.join('/');
   return `${NAME_PREFIX}${m[1]}_${m[2]}-${rel[rel.length - 1]}`;
 }

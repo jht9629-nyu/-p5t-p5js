@@ -1023,3 +1023,66 @@ Every ArtSketch upload is now named `matt-parker-MM_DD-SketchName`, and I re-upl
 All 7 uploads reported success; I haven't opened them in the editor to check they run. Nothing is committed.
 
 *Time: 33s · Cost: $0.0962 (input 6, output 2.2k, cache write 3.7k, cache read 112.6k) · session $0.4623*
+
+---
+
+## User (11/15/2026, 10:43:41 PM)
+
+```
+save a few more sketches to p5 editor
+```
+
+## Assistant
+
+I saved 11 more ArtSketch sketches to the p5 editor, so 18 are up now. I chose ones from dates with several sketches, plus four with nested loops that I changed in v1.19.
+
+**One naming fix:** a few sketches sit inside a second date folder. Spiral, for example, is at `07_22_2020/07_24_2020/Spiral`. The name now comes from the date folder closest to the sketch, so it's `matt-parker-07_24-Spiral` rather than `07_22`. The change is in [tools-js/p5t-upload.mjs](tools-js/p5t-upload.mjs).
+
+| p5 editor name | Link |
+|---|---|
+| matt-parker-05_13-MazeDraft | [-1WBzHrfO](https://editor.p5js.org/jht9629-nyu/sketches/-1WBzHrfO) |
+| matt-parker-05_13-MazeFinal | [xggX2Qi29](https://editor.p5js.org/jht9629-nyu/sketches/xggX2Qi29) |
+| matt-parker-05_20-MazeMaker | [7R428xmHa](https://editor.p5js.org/jht9629-nyu/sketches/7R428xmHa) |
+| matt-parker-05_20-MazeMaker2 | [W-JA5WYhG](https://editor.p5js.org/jht9629-nyu/sketches/W-JA5WYhG) |
+| matt-parker-05_20-MazeMaker3 | [rhfiDKZQS](https://editor.p5js.org/jht9629-nyu/sketches/rhfiDKZQS) |
+| matt-parker-07_22-Peek | [q4fdjRXyQ](https://editor.p5js.org/jht9629-nyu/sketches/q4fdjRXyQ) |
+| matt-parker-07_24-Spiral | [S0WX2HLd6](https://editor.p5js.org/jht9629-nyu/sketches/S0WX2HLd6) |
+| matt-parker-08_23-MazeGrowth | [C11ce8WLk](https://editor.p5js.org/jht9629-nyu/sketches/C11ce8WLk) |
+| matt-parker-09_10-CircleOfLife | [w0y82c6cQ](https://editor.p5js.org/jht9629-nyu/sketches/w0y82c6cQ) |
+| matt-parker-10_17-MazeAdventure | [1DuQrws03](https://editor.p5js.org/jht9629-nyu/sketches/1DuQrws03) |
+| matt-parker-11_14-BlueCircle | [0uW9-3N81](https://editor.p5js.org/jht9629-nyu/sketches/0uW9-3N81) |
+
+All 11 uploads reported success and are recorded in [p5js/p5editor-map.json](p5js/p5editor-map.json). I haven't opened them in the editor to check they run. Nothing is committed.
+
+*Time: 1m 11s · Cost: $0.1238 (input 10, output 2.3k, cache write 3.7k, cache read 240.9k) · session $0.5861*
+
+---
+
+## User (11/15/2026, 10:50:45 PM)
+
+```
+save a few more sketches to p5 editor
+```
+
+## Assistant
+
+I saved 10 more ArtSketch sketches to the p5 editor, spread across the dates from May 2021 back to November 2020. That makes 28 of the 156 uploaded, with 128 left.
+
+| p5 editor name | Link |
+|---|---|
+| matt-parker-05_17-SnailShellFinal | [6KNw9YWkj](https://editor.p5js.org/jht9629-nyu/sketches/6KNw9YWkj) |
+| matt-parker-07_12-Round | [6I67CfIAT](https://editor.p5js.org/jht9629-nyu/sketches/6I67CfIAT) |
+| matt-parker-07_27-Coral | [YXUvGQ5OA](https://editor.p5js.org/jht9629-nyu/sketches/YXUvGQ5OA) |
+| matt-parker-08_10-Settling | [GZPwxlJ4i](https://editor.p5js.org/jht9629-nyu/sketches/GZPwxlJ4i) |
+| matt-parker-08_25-CharTrain | [VLuVSNoQY](https://editor.p5js.org/jht9629-nyu/sketches/VLuVSNoQY) |
+| matt-parker-09_08-ColorNoise | [AopVkuWww](https://editor.p5js.org/jht9629-nyu/sketches/AopVkuWww) |
+| matt-parker-09_24-distress | [5me_wC0a9](https://editor.p5js.org/jht9629-nyu/sketches/5me_wC0a9) |
+| matt-parker-10_08-BoltTunnel | [BPXQBPa3U](https://editor.p5js.org/jht9629-nyu/sketches/BPXQBPa3U) |
+| matt-parker-10_23-ColorRotate | [1TSnMwDUJ](https://editor.p5js.org/jht9629-nyu/sketches/1TSnMwDUJ) |
+| matt-parker-11_06-CaveExplorers | [U9IbSZiu4](https://editor.p5js.org/jht9629-nyu/sketches/U9IbSZiu4) |
+
+All 10 uploads reported success and are recorded in [p5js/p5editor-map.json](p5js/p5editor-map.json). I haven't opened them in the editor to check they run. Nothing is committed.
+
+The uploader skips sketches already in the map, so I can upload all the remaining sketches in one run if you want.
+
+*Time: 1m 05s · Cost: $0.0957 (input 8, output 1.6k, cache write 3.2k, cache read 192.0k) · session $0.6817*
