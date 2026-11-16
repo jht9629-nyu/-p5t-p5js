@@ -1670,3 +1670,85 @@ You may have some duplicate sketches in your editor account. My first attempt wa
 118 of the 156 ArtSketch sketches are now in the editor, and 38 are left. The next one is 10_07. The new links are saved in [p5js/p5editor-map.json](p5js/p5editor-map.json). I haven't committed anything.
 
 *Time: 1m 08s · Cost: $0.1144 (input 8, output 2.5k, cache write 4.4k, cache read 146.5k) · session $0.3286*
+
+---
+
+## User (11/16/2026, 1:02:00 AM)
+
+```
+save the next 20 sketches to p5 editor
+dont re-upload to verify
+```
+
+## Assistant
+
+I saved the next 20 sketches to the p5 editor, and all 20 uploaded without errors. This batch runs from 10_07 WiggleCave to 10_29 ColorPortal. As you asked, I didn't upload them a second time to check them.
+
+| Sketch | Editor link |
+|---|---|
+| matt-parker-10_07-WiggleCave | https://editor.p5js.org/jht9629-nyu/sketches/GaBmZG42g |
+| matt-parker-10_09-LineColor | https://editor.p5js.org/jht9629-nyu/sketches/mcUV4WB41 |
+| matt-parker-10_10-Beach | https://editor.p5js.org/jht9629-nyu/sketches/yx3lGOO49 |
+| matt-parker-10_11-DessertIsland | https://editor.p5js.org/jht9629-nyu/sketches/nTYLTyntu |
+| matt-parker-10_12-ColorMoves | https://editor.p5js.org/jht9629-nyu/sketches/d8DkFLngS |
+| matt-parker-10_13-MapGen | https://editor.p5js.org/jht9629-nyu/sketches/DN9sM-lCE |
+| matt-parker-10_14-Wormies | https://editor.p5js.org/jht9629-nyu/sketches/068bK9gUm |
+| matt-parker-10_15-Tired | https://editor.p5js.org/jht9629-nyu/sketches/0pF0A9RIv |
+| matt-parker-10_16-CaveAdventure | https://editor.p5js.org/jht9629-nyu/sketches/LoaDTc232 |
+| matt-parker-10_18-RainbowTunnel | https://editor.p5js.org/jht9629-nyu/sketches/nZuCdiiwn |
+| matt-parker-10_19-CircleTown | https://editor.p5js.org/jht9629-nyu/sketches/kByEfwb-O |
+| matt-parker-10_20-NoiseShift | https://editor.p5js.org/jht9629-nyu/sketches/xGXMhpWFI |
+| matt-parker-10_21-ColorSpace | https://editor.p5js.org/jht9629-nyu/sketches/Cttx3oxYo |
+| matt-parker-10_22-StainedGlassTunnel | https://editor.p5js.org/jht9629-nyu/sketches/GavhOMDdK |
+| matt-parker-10_24-DepthRot | https://editor.p5js.org/jht9629-nyu/sketches/7qQ3fLBSx |
+| matt-parker-10_25-Opening | https://editor.p5js.org/jht9629-nyu/sketches/ggyJmcyjU |
+| matt-parker-10_26-CowSpots | https://editor.p5js.org/jht9629-nyu/sketches/YXy_etBBQ |
+| matt-parker-10_27-ColorMerge | https://editor.p5js.org/jht9629-nyu/sketches/_2zIW2YfD |
+| matt-parker-10_28-ClipSpiral | https://editor.p5js.org/jht9629-nyu/sketches/1vlcwZ2va |
+| matt-parker-10_29-ColorPortal | https://editor.p5js.org/jht9629-nyu/sketches/l2CTqeUay |
+
+138 of the 156 ArtSketch sketches are now in the editor, and 18 are left, so one more batch will finish them. The new links are saved in [p5js/p5editor-map.json](p5js/p5editor-map.json). I haven't committed anything.
+
+*Time: 1m 00s · Cost: $0.0824 (input 6, output 1.8k, cache write 3.2k, cache read 106.6k) · session $0.4110*
+
+---
+
+## User (11/16/2026, 1:07:19 AM)
+
+```
+save the next 20 sketches to p5 editor
+dont re-upload to verify
+```
+
+## Assistant
+
+Now list the ArtSketch folders not yet in the map.
+
+Only 18 remain, so this batch finishes them. Uploading.
+
+Only 18 sketches were left, so I saved those 18 instead of 20. All of them uploaded without errors, and that finishes the set: all 156 ArtSketch sketches are now in the editor. As you asked, I didn't upload them again to check them.
+
+| Sketch | Editor link |
+|---|---|
+| matt-parker-10_30-ColorWheel | https://editor.p5js.org/jht9629-nyu/sketches/_TYEtAvfA |
+| matt-parker-10_31-ColorDrain | https://editor.p5js.org/jht9629-nyu/sketches/pAA4G44vg |
+| matt-parker-11_01-EyesInTheDark | https://editor.p5js.org/jht9629-nyu/sketches/oFzZo_gYl |
+| matt-parker-11_02-SquareDown | https://editor.p5js.org/jht9629-nyu/sketches/ymzgRgT6k |
+| matt-parker-11_03-DontPanic | https://editor.p5js.org/jht9629-nyu/sketches/fnGP84eXE |
+| matt-parker-11_04-Grouper | https://editor.p5js.org/jht9629-nyu/sketches/PndwAmiJ9 |
+| matt-parker-11_05-RainbowBall | https://editor.p5js.org/jht9629-nyu/sketches/H7LIJZAxO |
+| matt-parker-11_07-Flocking | https://editor.p5js.org/jht9629-nyu/sketches/2N2Ft29be |
+| matt-parker-11_08-NoiseLines | https://editor.p5js.org/jht9629-nyu/sketches/ZdksarxaK |
+| matt-parker-11_09-krispr | https://editor.p5js.org/jht9629-nyu/sketches/Ni1ShTydd |
+| matt-parker-11_10-WaterOne | https://editor.p5js.org/jht9629-nyu/sketches/E1oessv36 |
+| matt-parker-11_11-WaterWater | https://editor.p5js.org/jht9629-nyu/sketches/_KmJpVPRY |
+| matt-parker-11_12-WaterFinal | https://editor.p5js.org/jht9629-nyu/sketches/mOMHTzRsF |
+| matt-parker-11_13-EsherSphere | https://editor.p5js.org/jht9629-nyu/sketches/-LkmrJopO |
+| matt-parker-11_16-OpenAir | https://editor.p5js.org/jht9629-nyu/sketches/1jNK0j_mJ |
+| matt-parker-11_17-NotGreat | https://editor.p5js.org/jht9629-nyu/sketches/0HSLQEziN |
+| matt-parker-11_18-Finale | https://editor.p5js.org/jht9629-nyu/sketches/7ANMVLJXF |
+| matt-parker-11_19-PlusOne | https://editor.p5js.org/jht9629-nyu/sketches/E6cPNXasi |
+
+The new links are saved in [p5js/p5editor-map.json](p5js/p5editor-map.json). I haven't committed anything.
+
+*Time: 1m 16s · Cost: $0.2876 (input 14, output 2.9k, cache write 20.9k, cache read 307.6k) · session $0.2876*

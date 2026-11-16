@@ -318,7 +318,9 @@ dont re-upload to verify
 
 98 of the 156 ArtSketch sketches are now in the editor
 
-v1.36
+v1.37
 
 save the next 20 sketches to p5 editor
 dont re-upload to verify
+
+Only 18 sketches were left

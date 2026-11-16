@@ -671,11 +671,65 @@
     "url": "https://editor.p5js.org/jht9629-nyu/sketches/BOenJtbnc",
     "updatedAt": "2026-11-16T05:51:29.835Z"
   },
+  "p5js/ArtSketch/10_07_2020/WiggleCave": {
+    "id": "GaBmZG42g",
+    "name": "matt-parker-10_07-WiggleCave",
+    "url": "https://editor.p5js.org/jht9629-nyu/sketches/GaBmZG42g",
+    "updatedAt": "2026-11-16T06:02:06.741Z"
+  },
   "p5js/ArtSketch/10_08_2020/BoltTunnel": {
     "id": "BPXQBPa3U",
     "name": "matt-parker-10_08-BoltTunnel",
     "url": "https://editor.p5js.org/jht9629-nyu/sketches/BPXQBPa3U",
     "updatedAt": "2026-11-16T04:54:45.044Z"
+  },
+  "p5js/ArtSketch/10_09_2020/LineColor": {
+    "id": "mcUV4WB41",
+    "name": "matt-parker-10_09-LineColor",
+    "url": "https://editor.p5js.org/jht9629-nyu/sketches/mcUV4WB41",
+    "updatedAt": "2026-11-16T06:02:09.038Z"
+  },
+  "p5js/ArtSketch/10_10_2020/Beach": {
+    "id": "yx3lGOO49",
+    "name": "matt-parker-10_10-Beach",
+    "url": "https://editor.p5js.org/jht9629-nyu/sketches/yx3lGOO49",
+    "updatedAt": "2026-11-16T06:02:11.301Z"
+  },
+  "p5js/ArtSketch/10_11_2020/DessertIsland": {
+    "id": "nTYLTyntu",
+    "name": "matt-parker-10_11-DessertIsland",
+    "url": "https://editor.p5js.org/jht9629-nyu/sketches/nTYLTyntu",
+    "updatedAt": "2026-11-16T06:02:13.637Z"
+  },
+  "p5js/ArtSketch/10_12_2020/ColorMoves": {
+    "id": "d8DkFLngS",
+    "name": "matt-parker-10_12-ColorMoves",
+    "url": "https://editor.p5js.org/jht9629-nyu/sketches/d8DkFLngS",
+    "updatedAt": "2026-11-16T06:02:15.876Z"
+  },
+  "p5js/ArtSketch/10_13_2020/MapGen": {
+    "id": "DN9sM-lCE",
+    "name": "matt-parker-10_13-MapGen",
+    "url": "https://editor.p5js.org/jht9629-nyu/sketches/DN9sM-lCE",
+    "updatedAt": "2026-11-16T06:02:18.184Z"
+  },
+  "p5js/ArtSketch/10_14_2020/Wormies": {
+    "id": "068bK9gUm",
+    "name": "matt-parker-10_14-Wormies",
+    "url": "https://editor.p5js.org/jht9629-nyu/sketches/068bK9gUm",
+    "updatedAt": "2026-11-16T06:02:20.390Z"
+  },
+  "p5js/ArtSketch/10_15_2020/Tired": {
+    "id": "0pF0A9RIv",
+    "name": "matt-parker-10_15-Tired",
+    "url": "https://editor.p5js.org/jht9629-nyu/sketches/0pF0A9RIv",
+    "updatedAt": "2026-11-16T06:02:22.696Z"
+  },
+  "p5js/ArtSketch/10_16_2020/CaveAdventure": {
+    "id": "LoaDTc232",
+    "name": "matt-parker-10_16-CaveAdventure",
+    "url": "https://editor.p5js.org/jht9629-nyu/sketches/LoaDTc232",
+    "updatedAt": "2026-11-16T06:02:24.993Z"
   },
   "p5js/ArtSketch/10_17_2020/MazeAdventure": {
     "id": "1DuQrws03",
@@ -683,17 +737,167 @@
     "url": "https://editor.p5js.org/jht9629-nyu/sketches/1DuQrws03",
     "updatedAt": "2026-11-16T04:54:47.190Z"
   },
+  "p5js/ArtSketch/10_18_2020/RainbowTunnel": {
+    "id": "nZuCdiiwn",
+    "name": "matt-parker-10_18-RainbowTunnel",
+    "url": "https://editor.p5js.org/jht9629-nyu/sketches/nZuCdiiwn",
+    "updatedAt": "2026-11-16T06:02:27.308Z"
+  },
+  "p5js/ArtSketch/10_19_2020/CircleTown": {
+    "id": "kByEfwb-O",
+    "name": "matt-parker-10_19-CircleTown",
+    "url": "https://editor.p5js.org/jht9629-nyu/sketches/kByEfwb-O",
+    "updatedAt": "2026-11-16T06:02:29.747Z"
+  },
+  "p5js/ArtSketch/10_20_2020/NoiseShift": {
+    "id": "xGXMhpWFI",
+    "name": "matt-parker-10_20-NoiseShift",
+    "url": "https://editor.p5js.org/jht9629-nyu/sketches/xGXMhpWFI",
+    "updatedAt": "2026-11-16T06:02:31.983Z"
+  },
+  "p5js/ArtSketch/10_21_2020/ColorSpace": {
+    "id": "Cttx3oxYo",
+    "name": "matt-parker-10_21-ColorSpace",
+    "url": "https://editor.p5js.org/jht9629-nyu/sketches/Cttx3oxYo",
+    "updatedAt": "2026-11-16T06:02:34.210Z"
+  },
+  "p5js/ArtSketch/10_22_2020/StainedGlassTunnel": {
+    "id": "GavhOMDdK",
+    "name": "matt-parker-10_22-StainedGlassTunnel",
+    "url": "https://editor.p5js.org/jht9629-nyu/sketches/GavhOMDdK",
+    "updatedAt": "2026-11-16T06:02:36.521Z"
+  },
   "p5js/ArtSketch/10_23_2020/ColorRotate": {
     "id": "1TSnMwDUJ",
     "name": "matt-parker-10_23-ColorRotate",
     "url": "https://editor.p5js.org/jht9629-nyu/sketches/1TSnMwDUJ",
     "updatedAt": "2026-11-16T04:54:49.344Z"
   },
+  "p5js/ArtSketch/10_24_2020/DepthRot": {
+    "id": "7qQ3fLBSx",
+    "name": "matt-parker-10_24-DepthRot",
+    "url": "https://editor.p5js.org/jht9629-nyu/sketches/7qQ3fLBSx",
+    "updatedAt": "2026-11-16T06:02:38.809Z"
+  },
+  "p5js/ArtSketch/10_25_2020/Opening": {
+    "id": "ggyJmcyjU",
+    "name": "matt-parker-10_25-Opening",
+    "url": "https://editor.p5js.org/jht9629-nyu/sketches/ggyJmcyjU",
+    "updatedAt": "2026-11-16T06:02:41.018Z"
+  },
+  "p5js/ArtSketch/10_26_2020/CowSpots": {
+    "id": "YXy_etBBQ",
+    "name": "matt-parker-10_26-CowSpots",
+    "url": "https://editor.p5js.org/jht9629-nyu/sketches/YXy_etBBQ",
+    "updatedAt": "2026-11-16T06:02:43.285Z"
+  },
+  "p5js/ArtSketch/10_27_2020/ColorMerge": {
+    "id": "_2zIW2YfD",
+    "name": "matt-parker-10_27-ColorMerge",
+    "url": "https://editor.p5js.org/jht9629-nyu/sketches/_2zIW2YfD",
+    "updatedAt": "2026-11-16T06:02:45.603Z"
+  },
+  "p5js/ArtSketch/10_28_2020/ClipSpiral": {
+    "id": "1vlcwZ2va",
+    "name": "matt-parker-10_28-ClipSpiral",
+    "url": "https://editor.p5js.org/jht9629-nyu/sketches/1vlcwZ2va",
+    "updatedAt": "2026-11-16T06:02:47.857Z"
+  },
+  "p5js/ArtSketch/10_29_2020/ColorPortal": {
+    "id": "l2CTqeUay",
+    "name": "matt-parker-10_29-ColorPortal",
+    "url": "https://editor.p5js.org/jht9629-nyu/sketches/l2CTqeUay",
+    "updatedAt": "2026-11-16T06:02:50.289Z"
+  },
+  "p5js/ArtSketch/10_30_2020/ColorWheel": {
+    "id": "_TYEtAvfA",
+    "name": "matt-parker-10_30-ColorWheel",
+    "url": "https://editor.p5js.org/jht9629-nyu/sketches/_TYEtAvfA",
+    "updatedAt": "2026-11-16T06:07:39.201Z"
+  },
+  "p5js/ArtSketch/10_31_2020/ColorDrain": {
+    "id": "pAA4G44vg",
+    "name": "matt-parker-10_31-ColorDrain",
+    "url": "https://editor.p5js.org/jht9629-nyu/sketches/pAA4G44vg",
+    "updatedAt": "2026-11-16T06:07:41.482Z"
+  },
+  "p5js/ArtSketch/11_01_2020/EyesInTheDark": {
+    "id": "oFzZo_gYl",
+    "name": "matt-parker-11_01-EyesInTheDark",
+    "url": "https://editor.p5js.org/jht9629-nyu/sketches/oFzZo_gYl",
+    "updatedAt": "2026-11-16T06:07:43.779Z"
+  },
+  "p5js/ArtSketch/11_02_2020/SquareDown": {
+    "id": "ymzgRgT6k",
+    "name": "matt-parker-11_02-SquareDown",
+    "url": "https://editor.p5js.org/jht9629-nyu/sketches/ymzgRgT6k",
+    "updatedAt": "2026-11-16T06:07:46.044Z"
+  },
+  "p5js/ArtSketch/11_03_2020/DontPanic": {
+    "id": "fnGP84eXE",
+    "name": "matt-parker-11_03-DontPanic",
+    "url": "https://editor.p5js.org/jht9629-nyu/sketches/fnGP84eXE",
+    "updatedAt": "2026-11-16T06:07:48.425Z"
+  },
+  "p5js/ArtSketch/11_04_2020/Grouper": {
+    "id": "PndwAmiJ9",
+    "name": "matt-parker-11_04-Grouper",
+    "url": "https://editor.p5js.org/jht9629-nyu/sketches/PndwAmiJ9",
+    "updatedAt": "2026-11-16T06:07:50.745Z"
+  },
+  "p5js/ArtSketch/11_05_2020/RainbowBall": {
+    "id": "H7LIJZAxO",
+    "name": "matt-parker-11_05-RainbowBall",
+    "url": "https://editor.p5js.org/jht9629-nyu/sketches/H7LIJZAxO",
+    "updatedAt": "2026-11-16T06:07:53.012Z"
+  },
   "p5js/ArtSketch/11_06_2020/CaveExplorers": {
     "id": "U9IbSZiu4",
     "name": "matt-parker-11_06-CaveExplorers",
     "url": "https://editor.p5js.org/jht9629-nyu/sketches/U9IbSZiu4",
     "updatedAt": "2026-11-16T04:54:51.518Z"
+  },
+  "p5js/ArtSketch/11_07_2020/Flocking": {
+    "id": "2N2Ft29be",
+    "name": "matt-parker-11_07-Flocking",
+    "url": "https://editor.p5js.org/jht9629-nyu/sketches/2N2Ft29be",
+    "updatedAt": "2026-11-16T06:07:55.318Z"
+  },
+  "p5js/ArtSketch/11_08_2020/NoiseLines": {
+    "id": "ZdksarxaK",
+    "name": "matt-parker-11_08-NoiseLines",
+    "url": "https://editor.p5js.org/jht9629-nyu/sketches/ZdksarxaK",
+    "updatedAt": "2026-11-16T06:07:57.548Z"
+  },
+  "p5js/ArtSketch/11_09_2020/krispr": {
+    "id": "Ni1ShTydd",
+    "name": "matt-parker-11_09-krispr",
+    "url": "https://editor.p5js.org/jht9629-nyu/sketches/Ni1ShTydd",
+    "updatedAt": "2026-11-16T06:07:59.778Z"
+  },
+  "p5js/ArtSketch/11_10_2020/WaterOne": {
+    "id": "E1oessv36",
+    "name": "matt-parker-11_10-WaterOne",
+    "url": "https://editor.p5js.org/jht9629-nyu/sketches/E1oessv36",
+    "updatedAt": "2026-11-16T06:08:02.059Z"
+  },
+  "p5js/ArtSketch/11_11_2020/WaterWater": {
+    "id": "_KmJpVPRY",
+    "name": "matt-parker-11_11-WaterWater",
+    "url": "https://editor.p5js.org/jht9629-nyu/sketches/_KmJpVPRY",
+    "updatedAt": "2026-11-16T06:08:04.380Z"
+  },
+  "p5js/ArtSketch/11_12_2020/WaterFinal": {
+    "id": "mOMHTzRsF",
+    "name": "matt-parker-11_12-WaterFinal",
+    "url": "https://editor.p5js.org/jht9629-nyu/sketches/mOMHTzRsF",
+    "updatedAt": "2026-11-16T06:08:06.593Z"
+  },
+  "p5js/ArtSketch/11_13_2020/EsherSphere": {
+    "id": "-LkmrJopO",
+    "name": "matt-parker-11_13-EsherSphere",
+    "url": "https://editor.p5js.org/jht9629-nyu/sketches/-LkmrJopO",
+    "updatedAt": "2026-11-16T06:08:08.872Z"
   },
   "p5js/ArtSketch/11_14_2020/BlueCircle": {
     "id": "0uW9-3N81",
@@ -706,5 +910,29 @@
     "name": "matt-parker-11_15-ColorStorm",
     "url": "https://editor.p5js.org/jht9629-nyu/sketches/sS9vSRDfM",
     "updatedAt": "2026-11-16T04:54:55.855Z"
+  },
+  "p5js/ArtSketch/11_16_2020/OpenAir": {
+    "id": "1jNK0j_mJ",
+    "name": "matt-parker-11_16-OpenAir",
+    "url": "https://editor.p5js.org/jht9629-nyu/sketches/1jNK0j_mJ",
+    "updatedAt": "2026-11-16T06:08:11.199Z"
+  },
+  "p5js/ArtSketch/11_17_2020/NotGreat": {
+    "id": "0HSLQEziN",
+    "name": "matt-parker-11_17-NotGreat",
+    "url": "https://editor.p5js.org/jht9629-nyu/sketches/0HSLQEziN",
+    "updatedAt": "2026-11-16T06:08:13.421Z"
+  },
+  "p5js/ArtSketch/11_18_2020/Finale": {
+    "id": "7ANMVLJXF",
+    "name": "matt-parker-11_18-Finale",
+    "url": "https://editor.p5js.org/jht9629-nyu/sketches/7ANMVLJXF",
+    "updatedAt": "2026-11-16T06:08:15.722Z"
+  },
+  "p5js/ArtSketch/11_19_2020/PlusOne": {
+    "id": "E6cPNXasi",
+    "name": "matt-parker-11_19-PlusOne",
+    "url": "https://editor.p5js.org/jht9629-nyu/sketches/E6cPNXasi",
+    "updatedAt": "2026-11-16T06:08:18.038Z"
   }
 }
