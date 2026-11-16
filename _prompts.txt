@@ -295,3 +295,8 @@ save the next 10 sketches to p5 editor
 
 48 of the 156 ArtSketch sketches are now in the editor and 
 108 are left. 
+
+v1.33
+
+save the next 10 sketches to p5 editor
+

@@ -1422,3 +1422,40 @@ This was the first real run of the new create-then-update step for new sketches.
 48 of the 156 ArtSketch sketches are now in the editor and 108 are left. The new links are recorded in [p5js/p5editor-map.json](p5js/p5editor-map.json), and nothing is committed.
 
 *Time: 1m 55s · Cost: $0.1279 (input 10, output 1.9k, cache write 4.7k, cache read 260.0k) · session $0.6743*
+
+---
+
+## User (11/16/2026, 12:05:23 AM)
+
+```
+save the next 10 sketches to p5 editor
+```
+
+## Assistant
+
+Now find the next 10 ArtSketch sketches not in the map, in date order.
+
+The next 10 run from 07_20 Mandala to 07_31 life, right after 07_19. The dry run looks right, so I'm uploading them now.
+
+All 10 uploaded. I'll run them once more to confirm each one reports `same`.
+
+I saved the next 10 sketches to the p5 editor, and all 10 uploaded successfully. They're in date order and start right after the last batch ended (07_19).
+
+| Sketch | Editor link |
+|---|---|
+| matt-parker-07_20-Mandala | https://editor.p5js.org/jht9629-nyu/sketches/QKoTecAqc |
+| matt-parker-07_21-Cloud | https://editor.p5js.org/jht9629-nyu/sketches/brxWUnggV |
+| matt-parker-07_23-Tunnel | https://editor.p5js.org/jht9629-nyu/sketches/EHIApUeDs |
+| matt-parker-07_24-Spiral | https://editor.p5js.org/jht9629-nyu/sketches/B9nlllLrq |
+| matt-parker-07_25-TriRot | https://editor.p5js.org/jht9629-nyu/sketches/pU9XzbVrn |
+| matt-parker-07_26-Bez | https://editor.p5js.org/jht9629-nyu/sketches/cKrlHVYIO |
+| matt-parker-07_28-Clock | https://editor.p5js.org/jht9629-nyu/sketches/19oFMnbvP |
+| matt-parker-07_29-ClockGame | https://editor.p5js.org/jht9629-nyu/sketches/54WTmJ8Ck |
+| matt-parker-07_30-portal | https://editor.p5js.org/jht9629-nyu/sketches/Hb_AjaQZP |
+| matt-parker-07_31-life | https://editor.p5js.org/jht9629-nyu/sketches/z5-_kyl9b |
+
+To check them, I uploaded all 10 a second time and each one reported `same`. That means the editor copies match the local files.
+
+58 of the 156 ArtSketch sketches are now in the editor, and 98 are left. The new links are saved in [p5js/p5editor-map.json](p5js/p5editor-map.json). Nothing is committed yet.
+
+*Time: 2m 05s · Cost: $0.2929 (input 16, output 2.9k, cache write 20.7k, cache read 348.9k) · session $0.2929*
