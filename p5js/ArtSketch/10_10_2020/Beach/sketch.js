@@ -1,4 +1,4 @@
-// Beach (p5.js 1.11.12 port of a #p5t Processing sketch)
+// Beach (p5.js 2.3.4 port of a #p5t Processing sketch)
 // https://github.com/madparker/-p5t/blob/main/%23p5t/ArtSketch/10_10_2020/Beach/Beach.pde
 // #p5t/ArtSketch/10_10_2020/Beach/Beach.pde
 
@@ -6,8 +6,7 @@ let x, y, i, n = 480;
 let l = [0, 160, 320];
 
 function setup() {
-  pixelDensity(1); // p5t.js pixel access needs one canvas pixel per sketch pixel
-  createCanvas(480, 480);
+  jcreateCanvas(480, 480);
   background(204); // Processing default background
 }
 
@@ -27,6 +26,7 @@ function draw() {
           ? -1716703
           : jlerpColor(jget(x, y), -14567533, noise(x, y) / 9)
       );
+  jsync();
 }
 //#p5t
 

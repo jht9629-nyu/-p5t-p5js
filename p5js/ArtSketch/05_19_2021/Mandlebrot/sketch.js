@@ -1,4 +1,4 @@
-// Mandlebrot (p5.js 1.11.12 port of a #p5t Processing sketch)
+// Mandlebrot (p5.js 2.3.4 port of a #p5t Processing sketch)
 // https://github.com/madparker/-p5t/blob/main/%23p5t/ArtSketch/05_19_2021/Mandlebrot/Mandlebrot.pde
 // #p5t/ArtSketch/05_19_2021/Mandlebrot/Mandlebrot.pde
 
@@ -10,8 +10,7 @@ let s = 480,
   c;
 
 function setup() {
-  pixelDensity(1); // p5t.js pixel access needs one canvas pixel per sketch pixel
-  createCanvas(480, 480);
+  jcreateCanvas(480, 480);
 }
 
 function draw() {
@@ -44,6 +43,7 @@ function draw() {
     }
     y += d;
   }
+  jsync();
 }
 //#p5t
 

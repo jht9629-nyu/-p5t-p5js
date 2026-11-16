@@ -1,4 +1,4 @@
-// Nova (p5.js 1.11.12 port of a #p5t Processing sketch)
+// Nova (p5.js 2.3.4 port of a #p5t Processing sketch)
 // https://github.com/madparker/-p5t/blob/main/%23p5t/ArtSketch/08_31_2020/Nova/Nova.pde
 // #p5t/ArtSketch/08_31_2020/Nova/Nova.pde
 
@@ -8,8 +8,7 @@ let a = 0,
   d;
 
 function setup() {
-  pixelDensity(1); // p5t.js pixel access needs one canvas pixel per sketch pixel
-  createCanvas(500, 500);
+  jcreateCanvas(500, 500);
   background(204); // Processing default background
 }
 
@@ -27,8 +26,10 @@ function draw() {
     f = 0;
     a = random(99, 400);
     b = random(99, 400);
+    jsync(); // write the pixels before p5 draws on top
     circle(a, b, 50);
   }
+  jsync();
 }
 //#p5t
 

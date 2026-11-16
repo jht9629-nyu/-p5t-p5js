@@ -1,4 +1,4 @@
-// Clock (p5.js 1.11.12 port of a #p5t Processing sketch)
+// Clock (p5.js 2.3.4 port of a #p5t Processing sketch)
 // https://github.com/madparker/-p5t/blob/main/%23p5t/ArtSketch/07_28_2020/Clock/Clock.pde
 // #p5t/ArtSketch/07_28_2020/Clock/Clock.pde
 

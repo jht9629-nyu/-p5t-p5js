@@ -139,5 +139,17 @@ with approximate time cost
 
 v1.15
 
+plan upgrade so that sketches will work in p5js editor,
+- use p5@2.3.4 as show in this default index.html
+    tools/p5js-v2-index.html
+- replace p5js/lib/p5t.js with shared code 
+that does not rely on overloaded p5js internals
+ok to insert explicit function calls to accomplish the same results
+
 p5js/lib/p5t.js
 p5js/ArtSketch/06_28_2020/sketch_final/index.html
+
+start with:
+1. (b) Load it from GitHub Pages 
+2. leave sound out
+3. explicit jsync()

@@ -1,9 +1,9 @@
-// Abstract (p5.js 1.11.12 port of a #p5t Processing sketch)
+// Abstract (p5.js 2.3.4 port of a #p5t Processing sketch)
 // https://github.com/madparker/-p5t/blob/main/%23p5t/ArtSketch/09_12_2020/Abstract/Abstract.pde
 // #p5t/ArtSketch/09_12_2020/Abstract/Abstract.pde
 
 // The original used frameRate(99); browsers cap draw() at ~60fps,
-// so draw() runs several steps per frame to keep the original speed.
+// so draw() runs tick() several times per frame to keep the original speed.
 const STEPS_PER_FRAME = 2;
 
 let f = 0,
@@ -22,10 +22,11 @@ function setup() {
 }
 
 function draw() {
-  for (let k = 0; k < STEPS_PER_FRAME; k++) step();
+  for (let k = 0; k < STEPS_PER_FRAME; k++) tick();
 }
 
-function step() {
+// Named tick, not step: p5 2.x has a global step().
+function tick() {
   stroke((f++ / 10) % m, m, m, 59);
   if (c == 250) {
     square(x, y, f % m);

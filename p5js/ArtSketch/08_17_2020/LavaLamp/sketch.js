@@ -1,4 +1,4 @@
-// LavaLamp (p5.js 1.11.12 port of a #p5t Processing sketch)
+// LavaLamp (p5.js 2.3.4 port of a #p5t Processing sketch)
 // https://github.com/madparker/-p5t/blob/main/%23p5t/ArtSketch/08_17_2020/LavaLamp/LavaLamp.pde
 // #p5t/ArtSketch/08_17_2020/LavaLamp/LavaLamp.pde
 
@@ -13,13 +13,12 @@ let f = 0,
   o = 150;
 
 function setup() {
-  pixelDensity(1); // p5t.js pixel access needs one canvas pixel per sketch pixel
-  createCanvas(500, 500); // frame.setSize(500, 500) in draw()
+  jcreateCanvas(500, 500); // frame.setSize(500, 500) in draw()
   background(204); // Processing default background
 }
 
 function draw() {
-  colorMode(HSB, v);
+  jcolorMode(HSB, v);
   for (x = 0; x < h; x++) {
     for (y = 0; y < h; y++) {
       i = x + y * h;
@@ -31,6 +30,7 @@ function draw() {
     }
   }
   f++;
+  jsync();
 }
 //#p5t
 

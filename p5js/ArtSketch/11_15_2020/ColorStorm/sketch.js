@@ -1,14 +1,13 @@
-// ColorStorm (p5.js 1.11.12 port of a #p5t Processing sketch)
+// ColorStorm (p5.js 2.3.4 port of a #p5t Processing sketch)
 // https://github.com/madparker/-p5t/blob/main/%23p5t/ArtSketch/11_15_2020/ColorStorm/ColorStorm.pde
 // #p5t/ArtSketch/11_15_2020/ColorStorm/ColorStorm.pde
 
 let m = 0, x, y, o = 0, p = 0, n = 480;
 
 function setup() {
-  pixelDensity(1); // p5t.js pixel access needs one canvas pixel per sketch pixel
-  createCanvas(480, 480);
+  jcreateCanvas(480, 480);
   background(204); // Processing default background
-  colorMode(HSB, 255); // colorMode(3) keeps Processing's 255 ranges
+  jcolorMode(HSB, 255); // colorMode(3) keeps Processing's 255 ranges
 }
 
 function draw() {
@@ -17,6 +16,7 @@ function draw() {
     jset(9, 9, (p = jcolor(random(n), n, n)));
   }
   for (m = x = 0; x < n; x++) for (y = 0; y < n; y++) m += c(o) + c(p);
+  jsync();
 }
 
 function c(l) {

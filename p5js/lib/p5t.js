@@ -1,13 +1,21 @@
 // p5t.js: Processing-style pixels and int colors for the #p5t p5.js ports.
+// For p5.js 2.x; uses only public p5 functions, so it also works in the p5.js
+// web editor, loaded from https://jht9629-nyu.github.io/-p5t-p5js/lib/p5t.js
 //
 // Processing sketches treat colors as Java ints (0xAARRGGBB, so -1 is white
 // and #000000 is 0xFF000000) and read and write the canvas with get(), set()
 // and pixels[]. p5's versions use p5.Color objects and are far too slow for
 // loops over every pixel, so the ports use these j-prefixed stand-ins:
 //
+//   jcreateCanvas(w, h) createCanvas() with one canvas pixel per sketch pixel,
+//                       set up for fast pixel reads; use it instead of
+//                       pixelDensity(1) + createCanvas() in sketches that use jget/jset
+//   jsync()             hand the canvas between jget/jset and p5 drawing (see below)
 //   jget(x, y)          Processing get(x, y): int color, 0 when off-canvas
 //   jset(x, y, c)       Processing set(x, y, c) with an int color
 //   jloadPixels()       Processing loadPixels(); returns a pixels[] snapshot
+//   jcolorMode(...)     colorMode() that the j-color functions below follow;
+//                       use it instead of colorMode() in sketches that use them
 //   jcolor(...)         Processing color() with float arguments -> int
 //   jcolorInt(c[, a])   Processing color(int) / color(int, alpha) -> int
 //   jred/jgreen/jblue/jhue/jsaturation/jbrightness(c)   channel of an int color
@@ -16,29 +24,36 @@
 //   idiv(a, b)          Java int division (truncates toward zero)
 //   jint(v)             Java (int) cast of a float (truncates, saturates, NaN -> 0)
 //
-// jget/jset work on an int buffer kept in step with the canvas. The buffer is
-// reloaded after p5 draws anything and written back before p5 draws again and
-// at the end of each frame, so pixel access and shapes can be mixed freely.
+// jget/jset work on an int buffer copied from the canvas. Call jsync():
+//   - before p5 draws anything (background, shapes, text, image) after
+//     jget()/jset()/jloadPixels() calls in the same frame
+//   - at the end of draw()
+// jsync() writes jset() changes to the canvas and makes the next pixel access
+// reload the buffer from the canvas, so it sees whatever p5 drew in between.
+// A few jget() calls right after jsync() read single pixels instead of
+// reloading the whole buffer.
 // Processing's display surface is opaque, so pixels always show at full
 // alpha, and get() reports alpha 0xFF as Processing's RGB surface does.
-// Sketches that use this must call pixelDensity(1) before createCanvas().
-
-// Reading pixels back every frame is much faster from a CPU-backed canvas.
-(() => {
-  const getContext = HTMLCanvasElement.prototype.getContext;
-  HTMLCanvasElement.prototype.getContext = function (type, attrs) {
-    if (type === '2d') attrs = Object.assign({ willReadFrequently: true }, attrs);
-    return getContext.call(this, type, attrs);
-  };
-})();
 
 let _pxBuf = null; // Int32Array, one ARGB int per pixel
 let _pxImg = null; // ImageData the size of the canvas
 let _pxW = 0;
 let _pxH = 0;
-let _pxStale = true; // canvas changed since the buffer was loaded
+let _pxStale = true; // canvas may have changed since the buffer was loaded
 let _pxDirty = false; // buffer changed since it was written to the canvas
-let _pxStaleReads = 0; // single-pixel reads since the canvas last changed
+let _pxStaleReads = 0; // single-pixel reads since the last jsync()
+
+function jcreateCanvas(w, h) {
+  pixelDensity(1);
+  // Reading pixels back every frame is much faster from a CPU-backed canvas.
+  // The context made here is the one p5 gets when it calls getContext('2d').
+  const elt = document.createElement('canvas');
+  elt.getContext('2d', { willReadFrequently: true });
+  const renderer = createCanvas(w, h, P2D, elt);
+  _pxStale = true;
+  _pxDirty = false;
+  return renderer;
+}
 
 function _pxLoad() {
   const ctx = drawingContext;
@@ -67,21 +82,11 @@ function _pxFlush() {
   _pxDirty = false;
 }
 
-// Keep the buffer in step with anything p5 draws.
-for (const name of [
-  'arc', 'background', 'bezier', 'clear', 'curve', 'ellipse', 'endShape',
-  'image', 'line', 'point', 'quad', 'rect', 'triangle', '_renderText',
-]) {
-  const draw = p5.Renderer2D.prototype[name];
-  p5.Renderer2D.prototype[name] = function (...args) {
-    _pxFlush();
-    const result = draw.apply(this, args);
-    _pxStale = true;
-    _pxStaleReads = 0;
-    return result;
-  };
+function jsync() {
+  _pxFlush();
+  _pxStale = true;
+  _pxStaleReads = 0;
 }
-p5.prototype.registerMethod('post', _pxFlush);
 
 function jget(x, y) {
   x |= 0;
@@ -115,9 +120,32 @@ function jloadPixels() {
   return _pxBuf.slice();
 }
 
+// The color mode and per-mode maxes, kept here because p5 2.x keeps its own
+// copy in renderer internals. Defaults match p5's. The mode is RGB or HSB.
+let _cMode = null;
+let _cMaxes = null;
+
 function _colorState() {
-  const p = p5.instance;
-  return [p._colorMode, p._colorMaxes[p._colorMode]];
+  if (!_cMode) {
+    _cMode = RGB;
+    _cMaxes = { [RGB]: [255, 255, 255, 255], [HSB]: [360, 100, 100, 1] };
+  }
+  return [_cMode, _cMaxes[_cMode]];
+}
+
+function jcolorMode(mode, max1, max2, max3, maxA) {
+  colorMode(...arguments);
+  _colorState();
+  if (mode !== RGB && mode !== HSB) return;
+  _cMode = mode;
+  const m = (_cMaxes[mode] = _cMaxes[mode].slice());
+  if (arguments.length === 2) m.fill(max1);
+  else if (arguments.length >= 4) {
+    m[0] = max1;
+    m[1] = max2;
+    m[2] = max3;
+    if (arguments.length >= 5) m[3] = maxA;
+  }
 }
 
 const _clamp01 = (v) => (v > 1 ? 1 : v > 0 ? v : 0);

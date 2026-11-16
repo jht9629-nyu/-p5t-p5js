@@ -1,4 +1,4 @@
-// MazeMaker (p5.js 1.11.12 port of a #p5t Processing sketch)
+// MazeMaker (p5.js 2.3.4 port of a #p5t Processing sketch)
 // https://github.com/madparker/-p5t/blob/main/%23p5t/ArtSketch/05_20_2021/MazeMaker/MazeMaker.pde
 // #p5t/ArtSketch/05_20_2021/MazeMaker/MazeMaker.pde
 

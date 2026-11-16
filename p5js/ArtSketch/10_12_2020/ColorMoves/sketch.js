@@ -1,4 +1,4 @@
-// ColorMoves (p5.js 1.11.12 port of a #p5t Processing sketch)
+// ColorMoves (p5.js 2.3.4 port of a #p5t Processing sketch)
 // https://github.com/madparker/-p5t/blob/main/%23p5t/ArtSketch/10_12_2020/ColorMoves/ColorMoves.pde
 // #p5t/ArtSketch/10_12_2020/ColorMoves/ColorMoves.pde
 
@@ -8,13 +8,12 @@ let f = 0,
 let s = new Float32Array(h * h * 4);
 
 function setup() {
-  pixelDensity(1); // p5t.js pixel access needs one canvas pixel per sketch pixel
-  createCanvas(480, 480); // frame.setSize(480, 480) in draw()
+  jcreateCanvas(480, 480); // frame.setSize(480, 480) in draw()
   background(204); // Processing default background
 }
 
 function draw() {
-  colorMode(HSB, h);
+  jcolorMode(HSB, h);
   noStroke();
   for (x = 0; x < h * 2; x++)
     for (y = 0; y < h * 2; ) {
@@ -26,6 +25,7 @@ function draw() {
       i = x + y++ * h;
     }
   f += 0.2;
+  jsync();
 }
 //#p5t
 

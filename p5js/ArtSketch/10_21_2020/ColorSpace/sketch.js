@@ -1,4 +1,4 @@
-// ColorSpace (p5.js 1.11.12 port of a #p5t Processing sketch)
+// ColorSpace (p5.js 2.3.4 port of a #p5t Processing sketch)
 // https://github.com/madparker/-p5t/blob/main/%23p5t/ArtSketch/10_21_2020/ColorSpace/ColorSpace.pde
 // #p5t/ArtSketch/10_21_2020/ColorSpace/ColorSpace.pde
 
@@ -12,13 +12,10 @@ let x,
   c,
   s = 1;
 
-function preload() {
-  font = loadFont(
+async function setup() {
+  font = await loadFont(
     'https://cdn.jsdelivr.net/npm/dejavu-fonts-ttf@2.37.3/ttf/DejaVuSans.ttf'
   );
-}
-
-function setup() {
   createCanvas(480, 480, WEBGL);
   setAttributes('antialias', true); // Processing P3D smooths by default
   linePerspective(false); // Processing P3D strokes keep a constant width

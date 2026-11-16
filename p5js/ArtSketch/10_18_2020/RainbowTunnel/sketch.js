@@ -1,4 +1,4 @@
-// RainbowTunnel (p5.js 1.11.12 port of a #p5t Processing sketch)
+// RainbowTunnel (p5.js 2.3.4 port of a #p5t Processing sketch)
 // https://github.com/madparker/-p5t/blob/main/%23p5t/ArtSketch/10_18_2020/RainbowTunnel/RainbowTunnel.pde
 // #p5t/ArtSketch/10_18_2020/RainbowTunnel/RainbowTunnel.pde
 

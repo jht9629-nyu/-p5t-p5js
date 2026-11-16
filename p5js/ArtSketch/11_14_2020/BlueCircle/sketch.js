@@ -1,12 +1,11 @@
-// BlueCircle (p5.js 1.11.12 port of a #p5t Processing sketch)
+// BlueCircle (p5.js 2.3.4 port of a #p5t Processing sketch)
 // https://github.com/madparker/-p5t/blob/main/%23p5t/ArtSketch/11_14_2020/BlueCircle/BlueCircle.pde
 // #p5t/ArtSketch/11_14_2020/BlueCircle/BlueCircle.pde
 
 let x, y, t, a, b;
 
 function setup() {
-  pixelDensity(1); // p5t.js pixel access needs one canvas pixel per sketch pixel
-  createCanvas(480, 480);
+  jcreateCanvas(480, 480);
   background(204); // Processing default background
 }
 
@@ -20,6 +19,7 @@ function draw() {
       t = t == 3 ? -1 : t != 4 ? 0 : jcolor(jred(jget(x, y)) - 99, 255, 255);
       jset(x, y, jcolorInt(t));
     }
+  jsync();
 }
 //#p5t
 

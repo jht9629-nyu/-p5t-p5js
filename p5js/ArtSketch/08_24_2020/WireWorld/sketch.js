@@ -1,4 +1,4 @@
-// WireWorld (p5.js 1.11.12 port of a #p5t Processing sketch)
+// WireWorld (p5.js 2.3.4 port of a #p5t Processing sketch)
 // https://github.com/madparker/-p5t/blob/main/%23p5t/ArtSketch/08_24_2020/WireWorld/WireWorld.pde
 // #p5t/ArtSketch/08_24_2020/WireWorld/WireWorld.pde
 

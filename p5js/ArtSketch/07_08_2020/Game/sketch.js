@@ -1,9 +1,9 @@
-// Game (p5.js 1.11.12 port of a #p5t Processing sketch)
+// Game (p5.js 2.3.4 port of a #p5t Processing sketch)
 // https://github.com/madparker/-p5t/blob/main/%23p5t/ArtSketch/07_08_2020/Game/Game.pde
 // #p5t/ArtSketch/07_08_2020/Game/Game.pde
 
 // The original used frameRate(500); browsers cap draw() at ~60fps,
-// so draw() runs several steps per frame to keep the original speed.
+// so draw() runs tick() several times per frame to keep the original speed.
 const STEPS_PER_FRAME = 8;
 
 // Keys: 'a' moves left, 'd' moves right (the last key pressed keeps moving).
@@ -19,10 +19,11 @@ function setup() {
 }
 
 function draw() {
-  for (let n = 0; n < STEPS_PER_FRAME; n++) step();
+  for (let n = 0; n < STEPS_PER_FRAME; n++) tick();
 }
 
-function step() {
+// Named tick, not step: p5 2.x has a global step().
+function tick() {
   background(0); // clear()
   b--;
   rect(a, b, 99, 9);

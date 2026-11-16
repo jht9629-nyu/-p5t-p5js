@@ -1,12 +1,11 @@
-// SlowSpread (p5.js 1.11.12 port of a #p5t Processing sketch)
+// SlowSpread (p5.js 2.3.4 port of a #p5t Processing sketch)
 // https://github.com/madparker/-p5t/blob/main/%23p5t/ArtSketch/09_26_2020/SlowSpread/SlowSpread.pde
 // #p5t/ArtSketch/09_26_2020/SlowSpread/SlowSpread.pde
 
 let x, y, i = 0, a, b, o = -1, p = 0, t, c = 1, n = 500, m;
 
 function setup() {
-  pixelDensity(1); // p5t.js pixel access needs one canvas pixel per sketch pixel
-  createCanvas(500, 500); // frame.setSize(500, 500) in draw()
+  jcreateCanvas(500, 500); // frame.setSize(500, 500) in draw()
   background(204); // Processing default background
 }
 
@@ -28,9 +27,11 @@ function draw() {
     o = p;
     p = t;
     c *= -1;
+    jsync(); // write the pixels before p5 draws on top
     jbackground(p);
     jset(99, 99, o);
   }
+  jsync();
 }
 //#p5t
 

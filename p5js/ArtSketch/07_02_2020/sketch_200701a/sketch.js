@@ -1,9 +1,9 @@
-// sketch_200701a (p5.js 1.11.12 port of a #p5t Processing sketch)
+// sketch_200701a (p5.js 2.3.4 port of a #p5t Processing sketch)
 // https://github.com/madparker/-p5t/blob/main/%23p5t/ArtSketch/07_02_2020/sketch_200701a/sketch_200701a.pde
 // #p5t/ArtSketch/07_02_2020/sketch_200701a/sketch_200701a.pde
 
 // The original used frameRate(1250); browsers cap draw() at ~60fps,
-// so draw() runs several steps per frame to keep the original speed.
+// so draw() runs tick() several times per frame to keep the original speed.
 const STEPS_PER_FRAME = 20;
 
 let w = 0,
@@ -22,10 +22,11 @@ function setup() {
 }
 
 function draw() {
-  for (let n = 0; n < STEPS_PER_FRAME; n++) step();
+  for (let n = 0; n < STEPS_PER_FRAME; n++) tick();
 }
 
-function step() {
+// Named tick, not step: p5 2.x has a global step().
+function tick() {
   w += 0.5;
   x += 0.1;
   y += 0.1;

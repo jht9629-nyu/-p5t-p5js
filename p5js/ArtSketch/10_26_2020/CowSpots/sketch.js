@@ -1,12 +1,11 @@
-// CowSpots (p5.js 1.11.12 port of a #p5t Processing sketch)
+// CowSpots (p5.js 2.3.4 port of a #p5t Processing sketch)
 // https://github.com/madparker/-p5t/blob/main/%23p5t/ArtSketch/10_26_2020/CowSpots/CowSpots.pde
 // #p5t/ArtSketch/10_26_2020/CowSpots/CowSpots.pde
 
 let x, y, m = 0, a = -1, b, c, i;
 
 function setup() {
-  pixelDensity(1); // p5t.js pixel access needs one canvas pixel per sketch pixel
-  createCanvas(480, 480);
+  jcreateCanvas(480, 480);
   background(204); // Processing default background
   b = jcolorInt(0); // color(0): black
 }
@@ -29,6 +28,7 @@ function draw() {
             a
           );
       else m++;
+  jsync();
 }
 //#p5t
 

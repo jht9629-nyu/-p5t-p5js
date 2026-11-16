@@ -1,4 +1,4 @@
-// CaveExplorers (p5.js 1.11.12 port of a #p5t Processing sketch)
+// CaveExplorers (p5.js 2.3.4 port of a #p5t Processing sketch)
 // https://github.com/madparker/-p5t/blob/main/%23p5t/ArtSketch/11_06_2020/CaveExplorers/CaveExplorers.pde
 // #p5t/ArtSketch/11_06_2020/CaveExplorers/CaveExplorers.pde
 
@@ -17,6 +17,7 @@ class P {
         cos((this.a += jred(jget(Math.trunc(this.q), Math.trunc(this.w))) > 0 ? 1 : 0)) +
         ((this.w + c) % c))
     );
+    jsync(); // text() drew on the canvas; the next jget() reads it
   }
 }
 
@@ -26,8 +27,7 @@ let x = 0,
 let p = new Array(480);
 
 function setup() {
-  pixelDensity(1); // p5t.js pixel access needs one canvas pixel per sketch pixel
-  createCanvas(480, 480); // frame.setSize(c, c) in draw()
+  jcreateCanvas(480, 480); // frame.setSize(c, c) in draw()
   background(204); // Processing default background
   fill(255); // Processing's default fill; p5 draws text black until fill() is called
 }
@@ -36,8 +36,10 @@ function draw() {
   // color(gray) * c is Java int multiplication of a packed color.
   for (; x++ < c && c > 0; )
     for (y = 0; y++ < c; ) jset(x, y, Math.imul(jcolor(noise(x / 99, y / 99) * 2), c));
+  jsync(); // write the pixels before p5 draws on top
   while (c < 480) p[c++] = new P();
   for (const o of p) o.d();
+  jsync();
 }
 
 // ---- Original Processing source: #p5t/ArtSketch/11_06_2020/CaveExplorers/CaveExplorers.pde

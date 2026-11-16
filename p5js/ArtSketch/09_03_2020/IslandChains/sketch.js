@@ -1,9 +1,9 @@
-// IslandChains (p5.js 1.11.12 port of a #p5t Processing sketch)
+// IslandChains (p5.js 2.3.4 port of a #p5t Processing sketch)
 // https://github.com/madparker/-p5t/blob/main/%23p5t/ArtSketch/09_03_2020/IslandChains/IslandChains.pde
 // #p5t/ArtSketch/09_03_2020/IslandChains/IslandChains.pde
 
 // The original used frameRate(500); browsers cap draw() at ~60fps,
-// so draw() runs several steps per frame to keep the original speed.
+// so draw() runs tick() several times per frame to keep the original speed.
 const STEPS_PER_FRAME = 8;
 
 
@@ -13,17 +13,19 @@ let i = 0,
   w = 99;
 
 function setup() {
-  pixelDensity(1); // p5t.js pixel access needs one canvas pixel per sketch pixel
-  createCanvas(500, 500);
+  jcreateCanvas(500, 500);
   background(204); // Processing default background
 }
 
 function draw() {
-  for (let k = 0; k < STEPS_PER_FRAME; k++) step();
+  for (let k = 0; k < STEPS_PER_FRAME; k++) tick();
+  jsync();
 }
 
-function step() {
+// Named tick, not step: p5 2.x has a global step().
+function tick() {
   if (i == 0 || a < 0) {
+    jsync(); // write the pixels before p5 draws on top
     background(0, 150, c);
     a = b = c;
     noiseSeed(f);

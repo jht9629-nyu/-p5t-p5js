@@ -4,13 +4,15 @@
 
 const USAGE = `\
   node tools-js/p5t.mjs gallery                        # rebuild p5js/sketches.js and play/players.js
+  node tools-js/p5t.mjs html                           # rewrite every sketch's index.html and style.css
   node tools-js/p5t.mjs new-player NAME [--from wall]   # copy a player to p5js/play/NAME/
 
 The players in p5js/play/*/ are plain hand-edited files that read the sketch
 list from p5js/sketches.js; p5js/index.html is the launcher.
 
 Other scripts import writeSketch() to lay out a converted sketch as
-p5js/<same path as in #p5t>/{index.html, sketch.js}.`;
+p5js/<same path as in #p5t>/{index.html, style.css, sketch.js}; each folder
+is a complete p5.js web editor project (p5t.js loads from GitHub Pages).`;
 
 import fs from 'node:fs';
 import path from 'node:path';
@@ -20,42 +22,56 @@ export const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '
 export const SRC = path.join(ROOT, '#p5t');
 export const OUT = path.join(ROOT, 'p5js');
 export const PLAY = path.join(OUT, 'play');
-export const P5_VERSION = '1.11.12';
-export const P5_URL = `https://cdnjs.cloudflare.com/ajax/libs/p5.js/${P5_VERSION}/p5.min.js`;
+export const P5_VERSION = '2.3.4';
+export const P5_URL = `https://cdn.jsdelivr.net/npm/p5@${P5_VERSION}/lib/p5.min.js`;
+// p5js/lib/p5t.js as GitHub Pages serves it, so sketches also run in the web editor.
+export const LIB_URL = 'https://jht9629-nyu.github.io/-p5t-p5js/lib/p5t.js';
 const UPSTREAM = 'https://github.com/madparker/-p5t/blob/main/';
 
-// Sketches calling these get p5js/lib/p5t.js (Processing-style pixels and colors).
+// Sketches calling these load p5t.js from LIB_URL (Processing-style pixels and colors).
 const LIB_USE = new RegExp(
   String.raw`\b(j(get|set|loadPixels|color|colorInt|red|green|blue|hue|saturation|brightness` +
-  String.raw`|lerpColor|fill|stroke|background|int)|idiv)\(`
+  String.raw`|lerpColor|fill|stroke|background|int|createCanvas|sync|colorMode)|idiv)\(`
 );
 
 // Scratch copies left next to the real sketch; not ported.
 const SKIP_FILES = new Set(['BAK.pde', 'Temop.pde']);
 
+// Laid out like the p5.js web editor's default index.html (tools/p5js-v2-index.html).
 const indexHtml = ({ title, p5Url, libs }) => `<!doctype html>
 <html lang="en">
   <head>
+    <script src="${p5Url}"></script>
+${libs}    <link rel="stylesheet" type="text/css" href="style.css" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>${title}</title>
-    <script src="${p5Url}"></script>
-${libs}    <script src="sketch.js"></script>
-    <style>
-      body {
-        margin: 0;
-        padding: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-        background-color: #d0d0d0;
-      }
-    </style>
   </head>
-  <body></body>
+  <body>
+    <main></main>
+    <script src="sketch.js"></script>
+  </body>
 </html>
 `;
+
+const STYLE_CSS = `html,
+body {
+  margin: 0;
+  padding: 0;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #d0d0d0;
+}
+canvas {
+  display: block;
+}
+`;
+
+const ORIGINAL_MARK = '\n// ---- Original Processing source: ';
 
 // ---- Python-compatible helpers, so the output matches tools/p5t.py.
 
@@ -120,7 +136,7 @@ export function mainPde(relDir) {
 
 const upstreamUrl = pde => UPSTREAM + quote(rel(ROOT, pde));
 
-/** Write p5js/<relDir>/index.html and sketch.js (header + body + original). */
+/** Write p5js/<relDir>/sketch.js (header + body + original), index.html and style.css. */
 export function writeSketch(relDir, body) {
   const pde = mainPde(relDir);
   const srcRel = rel(ROOT, pde);
@@ -138,13 +154,29 @@ export function writeSketch(relDir, body) {
   const out = path.join(OUT, relDir);
   fs.mkdirSync(out, { recursive: true });
   fs.writeFileSync(path.join(out, 'sketch.js'), header + '\n' + body.trim() + '\n' + footer);
-  let libs = '';
-  if (LIB_USE.test(body)) {
-    const lib = '../'.repeat(relDir.split('/').length) + 'lib/p5t.js';
-    libs = `    <script src="${lib}"></script>\n`;
-  }
+  writeHtml(relDir, body);
+}
+
+/** Write p5js/<relDir>/index.html and style.css; code is the sketch's own JS. */
+export function writeHtml(relDir, code) {
+  const out = path.join(OUT, relDir);
+  const libs = LIB_USE.test(code) ? `    <script src="${LIB_URL}"></script>\n` : '';
   fs.writeFileSync(path.join(out, 'index.html'),
-    indexHtml({ title: escapeHtml(name), p5Url: P5_URL, libs }));
+    indexHtml({ title: escapeHtml(path.posix.basename(relDir)), p5Url: P5_URL, libs }));
+  fs.writeFileSync(path.join(out, 'style.css'), STYLE_CSS);
+}
+
+/** Rewrite index.html and style.css for every converted sketch. */
+export function buildHtml() {
+  let n = 0;
+  for (const r of sketchDirs()) {
+    const js = path.join(OUT, r, 'sketch.js');
+    if (fs.existsSync(js)) {
+      writeHtml(r, fs.readFileSync(js, 'utf8').split(ORIGINAL_MARK)[0]);
+      n++;
+    }
+  }
+  console.log(`html: ${n} sketches`);
 }
 
 /** Write p5js/sketches.js (the sketch list) and p5js/play/players.js. */
@@ -211,6 +243,7 @@ export function newPlayer(name, base) {
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   const args = process.argv.slice(2);
   if (args.length === 1 && args[0] === 'gallery') buildGallery();
+  else if (args.length === 1 && args[0] === 'html') buildHtml();
   else if (args.length === 2 && args[0] === 'new-player') newPlayer(args[1], 'wall');
   else if (args.length === 4 && args[0] === 'new-player' && args[2] === '--from') newPlayer(args[1], args[3]);
   else fail(USAGE);

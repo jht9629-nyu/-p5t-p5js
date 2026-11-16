@@ -1,9 +1,9 @@
-// Towers (p5.js 1.11.12 port of a #p5t Processing sketch)
+// Towers (p5.js 2.3.4 port of a #p5t Processing sketch)
 // https://github.com/madparker/-p5t/blob/main/%23p5t/ArtSketch/07_14_2020/Towers/Towers.pde
 // #p5t/ArtSketch/07_14_2020/Towers/Towers.pde
 
 // The original used frameRate(200); browsers cap draw() at ~60fps,
-// so draw() runs several steps per frame to keep the original speed.
+// so draw() runs tick() several times per frame to keep the original speed.
 const STEPS_PER_FRAME = 3;
 
 let x = 0,
@@ -20,10 +20,11 @@ function setup() {
 }
 
 function draw() {
-  for (let n = 0; n < STEPS_PER_FRAME; n++) step();
+  for (let n = 0; n < STEPS_PER_FRAME; n++) tick();
 }
 
-function step() {
+// Named tick, not step: p5 2.x has a global step().
+function tick() {
   y -= b;
   text('+', x + sin(y) * 100, y);
   if (y < 0) {

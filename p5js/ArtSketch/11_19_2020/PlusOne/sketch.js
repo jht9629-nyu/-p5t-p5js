@@ -1,12 +1,11 @@
-// PlusOne (p5.js 1.11.12 port of a #p5t Processing sketch)
+// PlusOne (p5.js 2.3.4 port of a #p5t Processing sketch)
 // https://github.com/madparker/-p5t/blob/main/%23p5t/ArtSketch/11_19_2020/PlusOne/PlusOne.pde
 // #p5t/ArtSketch/11_19_2020/PlusOne/PlusOne.pde
 
 let m, x, y, c, o, p = -1, s;
 
 function setup() {
-  pixelDensity(1); // p5t.js pixel access needs one canvas pixel per sketch pixel
-  createCanvas(480, 480);
+  jcreateCanvas(480, 480);
   background(204); // Processing default background
   o = jcolorInt(1); // color(1): gray 1
 }
@@ -23,6 +22,7 @@ function draw() {
         jget(x, y) == p ? p : o
       );
     }
+  jsync();
 }
 //#p5t
 

@@ -2,13 +2,15 @@
 """Helpers for porting the #p5t Processing sketches to p5.js.
 
   python3 tools/p5t.py gallery                        # rebuild p5js/sketches.js and play/players.js
+  python3 tools/p5t.py html                           # rewrite every sketch's index.html and style.css
   python3 tools/p5t.py new-player NAME [--from wall]   # copy a player to p5js/play/NAME/
 
 The players in p5js/play/*/ are plain hand-edited files that read the sketch
 list from p5js/sketches.js; p5js/index.html is the launcher.
 
 Other scripts import write_sketch() to lay out a converted sketch as
-p5js/<same path as in #p5t>/{index.html, sketch.js}.
+p5js/<same path as in #p5t>/{index.html, style.css, sketch.js}; each folder
+is a complete p5.js web editor project (p5t.js loads from GitHub Pages).
 """
 
 import html
@@ -23,42 +25,56 @@ ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "#p5t"
 OUT = ROOT / "p5js"
 PLAY = OUT / "play"
-P5_VERSION = "1.11.12"
-P5_URL = f"https://cdnjs.cloudflare.com/ajax/libs/p5.js/{P5_VERSION}/p5.min.js"
+P5_VERSION = "2.3.4"
+P5_URL = f"https://cdn.jsdelivr.net/npm/p5@{P5_VERSION}/lib/p5.min.js"
+# p5js/lib/p5t.js as GitHub Pages serves it, so sketches also run in the web editor.
+LIB_URL = "https://jht9629-nyu.github.io/-p5t-p5js/lib/p5t.js"
 UPSTREAM = "https://github.com/madparker/-p5t/blob/main/"
 
-# Sketches calling these get p5js/lib/p5t.js (Processing-style pixels and colors).
+# Sketches calling these load p5t.js from LIB_URL (Processing-style pixels and colors).
 LIB_USE = re.compile(
     r"\b(j(get|set|loadPixels|color|colorInt|red|green|blue|hue|saturation|brightness"
-    r"|lerpColor|fill|stroke|background|int)|idiv)\("
+    r"|lerpColor|fill|stroke|background|int|createCanvas|sync|colorMode)|idiv)\("
 )
 
 # Scratch copies left next to the real sketch; not ported.
 SKIP_FILES = {"BAK.pde", "Temop.pde"}
 
+# Laid out like the p5.js web editor's default index.html (tools/p5js-v2-index.html).
 INDEX_HTML = """<!doctype html>
 <html lang="en">
   <head>
+    <script src="{p5_url}"></script>
+{libs}    <link rel="stylesheet" type="text/css" href="style.css" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
-    <script src="{p5_url}"></script>
-{libs}    <script src="sketch.js"></script>
-    <style>
-      body {{
-        margin: 0;
-        padding: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-        background-color: #d0d0d0;
-      }}
-    </style>
   </head>
-  <body></body>
+  <body>
+    <main></main>
+    <script src="sketch.js"></script>
+  </body>
 </html>
 """
+
+STYLE_CSS = """html,
+body {
+  margin: 0;
+  padding: 0;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #d0d0d0;
+}
+canvas {
+  display: block;
+}
+"""
+
+ORIGINAL_MARK = "\n// ---- Original Processing source: "
 
 
 def sketch_dirs():
@@ -80,7 +96,7 @@ def upstream_url(pde):
 
 
 def write_sketch(rel, body):
-    """Write p5js/<rel>/index.html and sketch.js (header + body + original)."""
+    """Write p5js/<rel>/sketch.js (header + body + original), index.html and style.css."""
     pde = main_pde(rel)
     src_rel = pde.relative_to(ROOT).as_posix()
     original = pde.read_text().rstrip()
@@ -99,13 +115,28 @@ def write_sketch(rel, body):
     out = OUT / rel
     out.mkdir(parents=True, exist_ok=True)
     (out / "sketch.js").write_text(header + "\n" + body.strip() + "\n" + footer)
-    libs = ""
-    if LIB_USE.search(body):
-        lib = "../" * len(Path(rel).parts) + "lib/p5t.js"
-        libs = f'    <script src="{lib}"></script>\n'
+    write_html(rel, body)
+
+
+def write_html(rel, code):
+    """Write p5js/<rel>/index.html and style.css; code is the sketch's own JS."""
+    out = OUT / rel
+    libs = f'    <script src="{LIB_URL}"></script>\n' if LIB_USE.search(code) else ""
     (out / "index.html").write_text(
-        INDEX_HTML.format(title=html.escape(name), p5_url=P5_URL, libs=libs)
+        INDEX_HTML.format(title=html.escape(Path(rel).name), p5_url=P5_URL, libs=libs)
     )
+    (out / "style.css").write_text(STYLE_CSS)
+
+
+def build_html():
+    """Rewrite index.html and style.css for every converted sketch."""
+    n = 0
+    for rel in sketch_dirs():
+        js = OUT / rel / "sketch.js"
+        if js.exists():
+            write_html(rel, js.read_text().split(ORIGINAL_MARK)[0])
+            n += 1
+    print(f"html: {n} sketches")
 
 
 def build_gallery():
@@ -176,6 +207,8 @@ if __name__ == "__main__":
     args = sys.argv[1:]
     if args == ["gallery"]:
         build_gallery()
+    elif args == ["html"]:
+        build_html()
     elif len(args) == 2 and args[0] == "new-player":
         new_player(args[1], "wall")
     elif len(args) == 4 and args[0] == "new-player" and args[2] == "--from":

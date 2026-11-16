@@ -1,12 +1,11 @@
-// DessertIsland (p5.js 1.11.12 port of a #p5t Processing sketch)
+// DessertIsland (p5.js 2.3.4 port of a #p5t Processing sketch)
 // https://github.com/madparker/-p5t/blob/main/%23p5t/ArtSketch/10_11_2020/DessertIsland/DessertIsland.pde
 // #p5t/ArtSketch/10_11_2020/DessertIsland/DessertIsland.pde
 
 let x, y, n = 480, l = 0;
 
 function setup() {
-  pixelDensity(1); // p5t.js pixel access needs one canvas pixel per sketch pixel
-  createCanvas(480, 480);
+  jcreateCanvas(480, 480);
   background(204); // Processing default background
 }
 
@@ -26,6 +25,7 @@ function draw() {
       );
     jset(x++, Math.trunc(l + sin(x / 99) * 9), -1);
   }
+  jsync();
 }
 //#p5t
 

@@ -1,26 +1,27 @@
-// ColorLightning (p5.js 1.11.12 port of a #p5t Processing sketch)
+// ColorLightning (p5.js 2.3.4 port of a #p5t Processing sketch)
 // https://github.com/madparker/-p5t/blob/main/%23p5t/ArtSketch/08_27_2020/ColorLightning/ColorLightning.pde
 // #p5t/ArtSketch/08_27_2020/ColorLightning/ColorLightning.pde
 
 // The original used frameRate(999); browsers cap draw() at ~60fps,
-// so draw() runs several steps per frame to keep the original speed.
+// so draw() runs tick() several times per frame to keep the original speed.
 const STEPS_PER_FRAME = 16;
 
 
 let x, y, f = 0, c = 250, a = 0, b = 0, n = 0, i, p = 99, m = 500;
 
 function setup() {
-  pixelDensity(1); // p5t.js pixel access needs one canvas pixel per sketch pixel
-  createCanvas(500, 500);
+  jcreateCanvas(500, 500);
   background(0); // clear()
-  colorMode(HSB, c);
+  jcolorMode(HSB, c);
 }
 
 function draw() {
-  for (let k = 0; k < STEPS_PER_FRAME; k++) step();
+  for (let k = 0; k < STEPS_PER_FRAME; k++) tick();
+  jsync();
 }
 
-function step() {
+// Named tick, not step: p5 2.x has a global step().
+function tick() {
   f++;
   a = a > m ? 0 : a < 0 ? m : a;
   b = b > m ? 0 : b < 0 ? m : b;

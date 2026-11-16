@@ -1,15 +1,14 @@
-// ColorNoise (p5.js 1.11.12 port of a #p5t Processing sketch)
+// ColorNoise (p5.js 2.3.4 port of a #p5t Processing sketch)
 // https://github.com/madparker/-p5t/blob/main/%23p5t/ArtSketch/09_08_2020/ColorNoise/ColorNoise.pde
 // #p5t/ArtSketch/09_08_2020/ColorNoise/ColorNoise.pde
 
 let x, y, c, f = 0, n = 500, a = -1, b;
 
 function setup() {
-  pixelDensity(1); // p5t.js pixel access needs one canvas pixel per sketch pixel
-  createCanvas(500, 500);
+  jcreateCanvas(500, 500);
   background(204); // Processing default background
   b = jcolorInt(0); // color(0) before colorMode(): black
-  colorMode(HSB, n);
+  jcolorMode(HSB, n);
 }
 
 function draw() {
@@ -25,6 +24,7 @@ function draw() {
     a = b;
     b = jcolor(random(n), n, n);
   }
+  jsync();
 }
 //#p5t
 

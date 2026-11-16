@@ -1,4 +1,4 @@
-// MazeAdventure (p5.js 1.11.12 port of a #p5t Processing sketch)
+// MazeAdventure (p5.js 2.3.4 port of a #p5t Processing sketch)
 // https://github.com/madparker/-p5t/blob/main/%23p5t/ArtSketch/10_17_2020/MazeAdventure/MazeAdventure.pde
 // #p5t/ArtSketch/10_17_2020/MazeAdventure/MazeAdventure.pde
 
@@ -6,8 +6,7 @@
 let x, y, s = 0, o = 0, p = 0, f = 0, c = 480;
 
 function setup() {
-  pixelDensity(1); // p5t.js pixel access needs one canvas pixel per sketch pixel
-  createCanvas(480, 480);
+  jcreateCanvas(480, 480);
 }
 
 function draw() {
@@ -20,8 +19,10 @@ function draw() {
   o += key == 'a' ? -2 : key == 'd' ? 2 : 0;
   p += key == 'w' ? -2 : key == 's' ? 2 : 0;
   if (jred(jget((o = (o + c) % c), (p = (p + c) % c))) > 0) s = 0;
+  jsync(); // write the pixels before p5 draws on top
   fill(255); // fill(-1)
   text(s, o, p + 4);
+  jsync();
 }
 //#p5t
 

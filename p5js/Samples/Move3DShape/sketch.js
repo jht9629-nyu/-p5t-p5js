@@ -1,4 +1,4 @@
-// Move3DShape (p5.js 1.11.12 port of a #p5t Processing sketch)
+// Move3DShape (p5.js 2.3.4 port of a #p5t Processing sketch)
 // https://github.com/madparker/-p5t/blob/main/%23p5t/Samples/Move3DShape/Move3DShape.pde
 // #p5t/Samples/Move3DShape/Move3DShape.pde
 

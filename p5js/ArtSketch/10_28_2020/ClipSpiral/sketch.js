@@ -1,4 +1,4 @@
-// ClipSpiral (p5.js 1.11.12 port of a #p5t Processing sketch)
+// ClipSpiral (p5.js 2.3.4 port of a #p5t Processing sketch)
 // https://github.com/madparker/-p5t/blob/main/%23p5t/ArtSketch/10_28_2020/ClipSpiral/ClipSpiral.pde
 // #p5t/ArtSketch/10_28_2020/ClipSpiral/ClipSpiral.pde
 

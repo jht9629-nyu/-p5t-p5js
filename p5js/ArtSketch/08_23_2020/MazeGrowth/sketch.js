@@ -1,12 +1,11 @@
-// MazeGrowth (p5.js 1.11.12 port of a #p5t Processing sketch)
+// MazeGrowth (p5.js 2.3.4 port of a #p5t Processing sketch)
 // https://github.com/madparker/-p5t/blob/main/%23p5t/ArtSketch/08_23_2020/MazeGrowth/MazeGrowth.pde
 // #p5t/ArtSketch/08_23_2020/MazeGrowth/MazeGrowth.pde
 
 let x, y, t, a, b, o, p = -1, m = 71501, s;
 
 function setup() {
-  pixelDensity(1); // p5t.js pixel access needs one canvas pixel per sketch pixel
-  createCanvas(500, 500);
+  jcreateCanvas(500, 500);
   background(204); // Processing default background
   o = jcolorInt(1); // color(1): gray 1
 }
@@ -28,6 +27,7 @@ function draw() {
       if (t < 0) jset(x, y, t);
       else m++;
     }
+  jsync();
 }
 
 // ---- Original Processing source: #p5t/ArtSketch/08_23_2020/MazeGrowth/MazeGrowth.pde

@@ -1,4 +1,4 @@
-// CovidCases (p5.js 1.11.12 port of a #p5t Processing sketch)
+// CovidCases (p5.js 2.3.4 port of a #p5t Processing sketch)
 // https://github.com/madparker/-p5t/blob/main/%23p5t/ArtSketch/08_11_2020/CovidCases/CovidCases.pde
 // #p5t/ArtSketch/08_11_2020/CovidCases/CovidCases.pde
 
@@ -6,15 +6,12 @@
 let t;
 let f = 0;
 
-function preload() {
-  // No 'header' option: row 0 is the header row, as in Processing.
-  t = loadTable(
+async function setup() {
+  // No header argument: row 0 is the header row, as in Processing.
+  t = await loadTable(
     'https://raw.githubusercontent.com/nytimes/covid-19-data/master/us.csv',
-    'csv'
+    ','
   );
-}
-
-function setup() {
   createCanvas(500, 500);
   fill(255); // Processing's default fill; p5 draws text black until fill() is called
   frameRate(9);

@@ -1,4 +1,4 @@
-// Covid (p5.js 1.11.12 port of a #p5t Processing sketch)
+// Covid (p5.js 2.3.4 port of a #p5t Processing sketch)
 // https://github.com/madparker/-p5t/blob/main/%23p5t/ArtSketch/08_08_2020/Covid/Covid.pde
 // #p5t/ArtSketch/08_08_2020/Covid/Covid.pde
 
@@ -14,8 +14,7 @@ let f = 0,
   s;
 
 function setup() {
-  pixelDensity(1); // p5t.js pixel access needs one canvas pixel per sketch pixel
-  createCanvas(500, 500);
+  jcreateCanvas(500, 500);
   background(204); // Processing default background
   a = jcolorInt(1); // color(1): gray 1
   o = a;
@@ -40,6 +39,7 @@ function draw() {
     o = p;
     p = s;
   } else f++;
+  jsync();
 }
 
 // ---- Original Processing source: #p5t/ArtSketch/08_08_2020/Covid/Covid.pde

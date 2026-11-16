@@ -1,4 +1,4 @@
-// LavaFlow (p5.js 1.11.12 port of a #p5t Processing sketch)
+// LavaFlow (p5.js 2.3.4 port of a #p5t Processing sketch)
 // https://github.com/madparker/-p5t/blob/main/%23p5t/ArtSketch/08_13_2020/LavaFlow/LavaFlow.pde
 // #p5t/ArtSketch/08_13_2020/LavaFlow/LavaFlow.pde
 
@@ -10,9 +10,8 @@ let d = 16,
   p = 40;
 
 function setup() {
-  pixelDensity(1); // p5t.js pixel access needs one canvas pixel per sketch pixel
-  createCanvas(500, 500);
-  colorMode(HSB, l);
+  jcreateCanvas(500, 500);
+  jcolorMode(HSB, l);
 }
 
 function draw() {
@@ -29,6 +28,7 @@ function draw() {
         : jcolor(n / 2, l, l, p);
     jset(x, y, c);
   }
+  jsync();
 }
 //p5t
 

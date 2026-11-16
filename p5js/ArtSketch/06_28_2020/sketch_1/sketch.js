@@ -1,4 +1,4 @@
-// sketch_1 (p5.js 1.11.12 port of a #p5t Processing sketch)
+// sketch_1 (p5.js 2.3.4 port of a #p5t Processing sketch)
 // https://github.com/madparker/-p5t/blob/main/%23p5t/ArtSketch/06_28_2020/sketch_1/sketch_1.pde
 // #p5t/ArtSketch/06_28_2020/sketch_1/sketch_1.pde
 
