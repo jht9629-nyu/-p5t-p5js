@@ -2081,3 +2081,38 @@ I tested both. The Python lookup returns the right lines for `sketch_final` and 
 I also reworded the comment in [p5t-upload.mjs](tools-js/p5t-upload.mjs#L165-L169) that said only the uploaded copy gets the header. Nothing is committed yet.
 
 *Time: 44s · Cost: $0.2699 (input 20, output 4.4k, cache write 9.1k, cache read 547.1k) · session $0.5804*
+
+---
+
+## User (11/24/2026, 9:20:30 PM)
+
+```
+push to main github pages workflow fails with error:
+Error: No artifacts named "github-pages" were found for this workflow run. Ensure artifacts are uploaded with actions/upload-artifact@v4 or later.
+
+previous run give this warning:
+Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/configure-pages@v5, actions/deploy-pages@v4, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+```
+
+## Assistant
+
+I've updated the four action versions in [.github/workflows/pages.yml](.github/workflows/pages.yml) to the latest major releases. It hasn't run in CI yet, and I haven't committed it.
+
+| Step | Before | After |
+|---|---|---|
+| checkout | v4 | v6 |
+| configure-pages | v5 | v6 |
+| upload-pages-artifact | v3 | v5 |
+| deploy-pages | v4 | v5 |
+
+**Why it failed:** the two warnings are connected. The old versions are written for Node 20, so GitHub now forces them to run on Node 24. The deploy step (`deploy-pages@v4`) then couldn't find the artifact the upload step had just made. The new versions run on Node 24 natively, and the upload and deploy versions match each other. Your `p5js/` folder itself is fine: it's only 2 MB, with no symlinks or hidden files.
+
+One behaviour change: `upload-pages-artifact` now leaves out hidden files (dotfiles) by default. Nothing in `p5js/` is affected, but if you later add something like `.nojekyll`, you'll need `include-hidden-files: true` in the upload step.
+
+**Next steps:**
+1. You're on branch `p5jslib2.0`, and the workflow only runs on pushes to `main`. Commit this and get it onto `main`; the workflow runs automatically because the file itself changed.
+2. If it fails again with the same error, use **Re-run all jobs** on the run's page in GitHub's Actions tab. This error is sometimes just a timing glitch on GitHub's side.
+
+Want me to commit it?
+
+*Time: 37s · Cost: $0.2616 (input 16, output 2.9k, cache write 17.6k, cache read 315.6k) · session $0.2616*
