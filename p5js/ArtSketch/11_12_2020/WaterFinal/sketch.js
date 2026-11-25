@@ -1,4 +1,5 @@
-// WaterFinal (p5.js 2.3.4 port of a #p5t Processing sketch)
+// https://editor.p5js.org/jht9629-nyu/sketches/mOMHTzRsF
+// matt-parker-11_12-WaterFinal
 // https://github.com/madparker/-p5t/blob/main/%23p5t/ArtSketch/11_12_2020/WaterFinal/WaterFinal.pde
 // #p5t/ArtSketch/11_12_2020/WaterFinal/WaterFinal.pde
 

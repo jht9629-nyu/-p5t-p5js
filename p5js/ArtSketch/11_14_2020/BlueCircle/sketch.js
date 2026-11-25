@@ -1,4 +1,5 @@
-// BlueCircle (p5.js 2.3.4 port of a #p5t Processing sketch)
+// https://editor.p5js.org/jht9629-nyu/sketches/0uW9-3N81
+// matt-parker-11_14-BlueCircle
 // https://github.com/madparker/-p5t/blob/main/%23p5t/ArtSketch/11_14_2020/BlueCircle/BlueCircle.pde
 // #p5t/ArtSketch/11_14_2020/BlueCircle/BlueCircle.pde
 

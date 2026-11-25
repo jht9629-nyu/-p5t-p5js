@@ -1,4 +1,5 @@
-// Abstract (p5.js 2.3.4 port of a #p5t Processing sketch)
+// https://editor.p5js.org/jht9629-nyu/sketches/KSb9e_750
+// matt-parker-09_12-Abstract
 // https://github.com/madparker/-p5t/blob/main/%23p5t/ArtSketch/09_12_2020/Abstract/Abstract.pde
 // #p5t/ArtSketch/09_12_2020/Abstract/Abstract.pde
 

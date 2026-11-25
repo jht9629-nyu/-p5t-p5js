@@ -1,4 +1,5 @@
-// BezSwirl (p5.js 2.3.4 port of a #p5t Processing sketch)
+// https://editor.p5js.org/jht9629-nyu/sketches/F-7kg5JAQ
+// matt-parker-08_30-BezSwirl
 // https://github.com/madparker/-p5t/blob/main/%23p5t/ArtSketch/08_30_2020/BezSwirl/BezSwirl.pde
 // #p5t/ArtSketch/08_30_2020/BezSwirl/BezSwirl.pde
 

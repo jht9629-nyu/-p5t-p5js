@@ -1,4 +1,5 @@
-// SunDown (p5.js 2.3.4 port of a #p5t Processing sketch)
+// https://editor.p5js.org/jht9629-nyu/sketches/qi8XVEeIx
+// matt-parker-09_01-SunDown
 // https://github.com/madparker/-p5t/blob/main/%23p5t/ArtSketch/09_01_2020/SunDown/SunDown.pde
 // #p5t/ArtSketch/09_01_2020/SunDown/SunDown.pde
 

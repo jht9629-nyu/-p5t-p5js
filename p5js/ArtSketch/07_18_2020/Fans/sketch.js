@@ -1,4 +1,5 @@
-// Fans (p5.js 2.3.4 port of a #p5t Processing sketch)
+// https://editor.p5js.org/jht9629-nyu/sketches/7ESgGHwjs
+// matt-parker-07_18-Fans
 // https://github.com/madparker/-p5t/blob/main/%23p5t/ArtSketch/07_18_2020/Fans/Fans.pde
 // #p5t/ArtSketch/07_18_2020/Fans/Fans.pde
 

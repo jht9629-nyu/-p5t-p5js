@@ -1,4 +1,5 @@
-// Spiral (p5.js 2.3.4 port of a #p5t Processing sketch)
+// https://editor.p5js.org/jht9629-nyu/sketches/S0WX2HLd6
+// matt-parker-07_24-Spiral
 // https://github.com/madparker/-p5t/blob/main/%23p5t/ArtSketch/07_22_2020/07_24_2020/Spiral/Spiral.pde
 // #p5t/ArtSketch/07_22_2020/07_24_2020/Spiral/Spiral.pde
 

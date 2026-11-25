@@ -1,4 +1,5 @@
-// RedStar (p5.js 2.3.4 port of a #p5t Processing sketch)
+// https://editor.p5js.org/jht9629-nyu/sketches/1l5lG8iUk
+// matt-parker-10_04-RedStar
 // https://github.com/madparker/-p5t/blob/main/%23p5t/ArtSketch/10_04_2020/RedStar/RedStar.pde
 // #p5t/ArtSketch/10_04_2020/RedStar/RedStar.pde
 

@@ -1,4 +1,5 @@
-// RingOfNonFire (p5.js 2.3.4 port of a #p5t Processing sketch)
+// https://editor.p5js.org/jht9629-nyu/sketches/4q5Aq4BYB
+// matt-parker-10_02-RingOfNonFire
 // https://github.com/madparker/-p5t/blob/main/%23p5t/ArtSketch/10_02_2020/RingOfNonFire/RingOfNonFire.pde
 // #p5t/ArtSketch/10_02_2020/RingOfNonFire/RingOfNonFire.pde
 

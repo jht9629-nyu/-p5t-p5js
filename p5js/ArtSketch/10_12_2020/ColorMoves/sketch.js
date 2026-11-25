@@ -1,4 +1,5 @@
-// ColorMoves (p5.js 2.3.4 port of a #p5t Processing sketch)
+// https://editor.p5js.org/jht9629-nyu/sketches/d8DkFLngS
+// matt-parker-10_12-ColorMoves
 // https://github.com/madparker/-p5t/blob/main/%23p5t/ArtSketch/10_12_2020/ColorMoves/ColorMoves.pde
 // #p5t/ArtSketch/10_12_2020/ColorMoves/ColorMoves.pde
 

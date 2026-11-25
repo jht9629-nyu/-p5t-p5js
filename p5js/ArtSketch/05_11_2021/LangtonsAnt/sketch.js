@@ -1,5 +1,5 @@
-// https://editor.p5js.org/jht9629-nyu/sketches/ROcHl72Lk
-// matt-parker-05_11 v1
+// https://editor.p5js.org/jht9629-nyu/sketches/SzpF8TGe4
+// matt-parker-05_11-LangtonsAnt
 
 // fails in p5.js 2.3.3
 // ok in p5.js 1.11.12

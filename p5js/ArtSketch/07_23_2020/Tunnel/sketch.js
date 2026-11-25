@@ -1,4 +1,5 @@
-// Tunnel (p5.js 2.3.4 port of a #p5t Processing sketch)
+// https://editor.p5js.org/jht9629-nyu/sketches/EHIApUeDs
+// matt-parker-07_23-Tunnel
 // https://github.com/madparker/-p5t/blob/main/%23p5t/ArtSketch/07_23_2020/Tunnel/Tunnel.pde
 // #p5t/ArtSketch/07_23_2020/Tunnel/Tunnel.pde
 

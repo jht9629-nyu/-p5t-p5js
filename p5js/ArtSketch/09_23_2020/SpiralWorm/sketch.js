@@ -1,4 +1,5 @@
-// SpiralWorm (p5.js 2.3.4 port of a #p5t Processing sketch)
+// https://editor.p5js.org/jht9629-nyu/sketches/g8x29CXUH
+// matt-parker-09_23-SpiralWorm
 // https://github.com/madparker/-p5t/blob/main/%23p5t/ArtSketch/09_23_2020/SpiralWorm/SpiralWorm.pde
 // #p5t/ArtSketch/09_23_2020/SpiralWorm/SpiralWorm.pde
 

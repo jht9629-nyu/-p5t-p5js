@@ -1,4 +1,5 @@
-// MazeGrowth (p5.js 2.3.4 port of a #p5t Processing sketch)
+// https://editor.p5js.org/jht9629-nyu/sketches/C11ce8WLk
+// matt-parker-08_23-MazeGrowth
 // https://github.com/madparker/-p5t/blob/main/%23p5t/ArtSketch/08_23_2020/MazeGrowth/MazeGrowth.pde
 // #p5t/ArtSketch/08_23_2020/MazeGrowth/MazeGrowth.pde
 

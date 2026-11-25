@@ -1,4 +1,5 @@
-// LineColor (p5.js 2.3.4 port of a #p5t Processing sketch)
+// https://editor.p5js.org/jht9629-nyu/sketches/mcUV4WB41
+// matt-parker-10_09-LineColor
 // https://github.com/madparker/-p5t/blob/main/%23p5t/ArtSketch/10_09_2020/LineColor/LineColor.pde
 // #p5t/ArtSketch/10_09_2020/LineColor/LineColor.pde
 

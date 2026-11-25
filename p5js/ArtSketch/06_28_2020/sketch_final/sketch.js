@@ -1,4 +1,5 @@
-// sketch_final (p5.js 2.3.4 port of a #p5t Processing sketch)
+// https://editor.p5js.org/jht9629-nyu/sketches/qCnALUL54
+// matt-parker-06_28-sketch_final
 // https://github.com/madparker/-p5t/blob/main/%23p5t/ArtSketch/06_28_2020/sketch_final/sketch_final.pde
 // #p5t/ArtSketch/06_28_2020/sketch_final/sketch_final.pde
 

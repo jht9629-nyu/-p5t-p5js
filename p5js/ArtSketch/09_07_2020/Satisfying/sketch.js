@@ -1,4 +1,5 @@
-// Satisfying (p5.js 2.3.4 port of a #p5t Processing sketch)
+// https://editor.p5js.org/jht9629-nyu/sketches/uawC8LZRu
+// matt-parker-09_07-Satisfying
 // https://github.com/madparker/-p5t/blob/main/%23p5t/ArtSketch/09_07_2020/Satisfying/Satisfying.pde
 // #p5t/ArtSketch/09_07_2020/Satisfying/Satisfying.pde
 

@@ -1,4 +1,5 @@
-// Multiverse (p5.js 2.3.4 port of a #p5t Processing sketch)
+// https://editor.p5js.org/jht9629-nyu/sketches/TozqrNHIT
+// matt-parker-07_16-Multiverse
 // https://github.com/madparker/-p5t/blob/main/%23p5t/ArtSketch/07_16_2020/Multiverse/Multiverse.pde
 // #p5t/ArtSketch/07_16_2020/Multiverse/Multiverse.pde
 

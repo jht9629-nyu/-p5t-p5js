@@ -1,4 +1,5 @@
-// Pattern (p5.js 2.3.4 port of a #p5t Processing sketch)
+// https://editor.p5js.org/jht9629-nyu/sketches/Oe3Q6gjBr
+// matt-parker-07_07-Pattern
 // https://github.com/madparker/-p5t/blob/main/%23p5t/ArtSketch/07_07_2020/Pattern/Pattern.pde
 // #p5t/ArtSketch/07_07_2020/Pattern/Pattern.pde
 

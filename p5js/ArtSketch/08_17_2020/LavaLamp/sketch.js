@@ -1,4 +1,5 @@
-// LavaLamp (p5.js 2.3.4 port of a #p5t Processing sketch)
+// https://editor.p5js.org/jht9629-nyu/sketches/H1RP64ChY
+// matt-parker-08_17-LavaLamp
 // https://github.com/madparker/-p5t/blob/main/%23p5t/ArtSketch/08_17_2020/LavaLamp/LavaLamp.pde
 // #p5t/ArtSketch/08_17_2020/LavaLamp/LavaLamp.pde
 

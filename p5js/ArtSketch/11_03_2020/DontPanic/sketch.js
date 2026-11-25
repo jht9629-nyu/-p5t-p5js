@@ -1,4 +1,5 @@
-// DontPanic (p5.js 2.3.4 port of a #p5t Processing sketch)
+// https://editor.p5js.org/jht9629-nyu/sketches/fnGP84eXE
+// matt-parker-11_03-DontPanic
 // https://github.com/madparker/-p5t/blob/main/%23p5t/ArtSketch/11_03_2020/DontPanic/DontPanic.pde
 // #p5t/ArtSketch/11_03_2020/DontPanic/DontPanic.pde
 

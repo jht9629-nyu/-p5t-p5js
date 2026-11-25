@@ -1,4 +1,5 @@
-// CommetCross (p5.js 2.3.4 port of a #p5t Processing sketch)
+// https://editor.p5js.org/jht9629-nyu/sketches/hKjGglluN
+// matt-parker-09_27-CommetCross
 // https://github.com/madparker/-p5t/blob/main/%23p5t/ArtSketch/09_27_2020/CommetCross/CommetCross.pde
 // #p5t/ArtSketch/09_27_2020/CommetCross/CommetCross.pde
 

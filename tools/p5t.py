@@ -30,6 +30,8 @@ P5_URL = f"https://cdn.jsdelivr.net/npm/p5@{P5_VERSION}/lib/p5.min.js"
 # p5js/lib/p5t.js as GitHub Pages serves it, so sketches also run in the web editor.
 LIB_URL = "https://jht9629-nyu.github.io/-p5t-p5js/lib/p5t.js"
 UPSTREAM = "https://github.com/madparker/-p5t/blob/main/"
+# Written by tools-js/p5t-upload.mjs: "p5js/<rel>" -> {url, name} of the web editor copy.
+EDITOR_MAP = OUT / "p5editor-map.json"
 
 # Sketches calling these load p5t.js from LIB_URL (Processing-style pixels and colors).
 LIB_USE = re.compile(
@@ -99,14 +101,21 @@ def upstream_url(pde):
     return UPSTREAM + quote(pde.relative_to(ROOT).as_posix())
 
 
+def title_lines(rel):
+    """First header lines: the web editor link and name once uploaded, else the port line."""
+    entry = json.loads(EDITOR_MAP.read_text()).get(f"p5js/{Path(rel).as_posix()}") if EDITOR_MAP.exists() else None
+    if entry:
+        return f"// {entry['url']}\n// {entry['name']}\n"
+    return f"// {Path(rel).name} (p5.js {P5_VERSION} port of a #p5t Processing sketch)\n"
+
+
 def write_sketch(rel, body):
     """Write p5js/<rel>/sketch.js (header + body + original), index.html and style.css."""
     pde = main_pde(rel)
     src_rel = pde.relative_to(ROOT).as_posix()
     original = pde.read_text().rstrip()
-    name = Path(rel).name
     header = (
-        f"// {name} (p5.js {P5_VERSION} port of a #p5t Processing sketch)\n"
+        title_lines(rel) +
         f"// {upstream_url(pde)}\n"
         f"// {src_rel}\n"
     )

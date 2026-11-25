@@ -1,4 +1,5 @@
-// NoiseLines (p5.js 2.3.4 port of a #p5t Processing sketch)
+// https://editor.p5js.org/jht9629-nyu/sketches/ZdksarxaK
+// matt-parker-11_08-NoiseLines
 // https://github.com/madparker/-p5t/blob/main/%23p5t/ArtSketch/11_08_2020/NoiseLines/NoiseLines.pde
 // #p5t/ArtSketch/11_08_2020/NoiseLines/NoiseLines.pde
 

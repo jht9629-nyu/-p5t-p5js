@@ -1,4 +1,5 @@
-// EsherSphere (p5.js 2.3.4 port of a #p5t Processing sketch)
+// https://editor.p5js.org/jht9629-nyu/sketches/-LkmrJopO
+// matt-parker-11_13-EsherSphere
 // https://github.com/madparker/-p5t/blob/main/%23p5t/ArtSketch/11_13_2020/EsherSphere/EsherSphere.pde
 // #p5t/ArtSketch/11_13_2020/EsherSphere/EsherSphere.pde
 

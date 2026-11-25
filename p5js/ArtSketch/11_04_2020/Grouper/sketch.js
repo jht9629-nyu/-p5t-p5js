@@ -1,4 +1,5 @@
-// Grouper (p5.js 2.3.4 port of a #p5t Processing sketch)
+// https://editor.p5js.org/jht9629-nyu/sketches/PndwAmiJ9
+// matt-parker-11_04-Grouper
 // https://github.com/madparker/-p5t/blob/main/%23p5t/ArtSketch/11_04_2020/Grouper/Grouper.pde
 // #p5t/ArtSketch/11_04_2020/Grouper/Grouper.pde
 

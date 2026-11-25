@@ -165,7 +165,8 @@ function sketchName(folder) {
 // The editor copy of sketch.js starts with two comment lines naming where it lives:
 //   // https://editor.p5js.org/jht9629-nyu/sketches/Oe3Q6gjBr
 //   // matt-parker-07_07-Pattern
-// Only the uploaded copy gets them; the local file stays as the generator wrote it.
+// tools/p5t.py and tools-js/p5t.mjs write the same lines locally once a sketch is in
+// p5editor-map.json; any existing header is replaced here so it is never doubled.
 const HEADER_FILE = 'sketch.js';
 const OLD_HEADER = new RegExp(`^// ${EDITOR.replace(/[.]/g, '\\.')}/\\S*\\n//[^\\n]*\\n`);
 

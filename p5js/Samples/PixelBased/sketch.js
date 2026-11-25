@@ -1,4 +1,5 @@
-// PixelBased (p5.js 2.3.4 port of a #p5t Processing sketch)
+// https://editor.p5js.org/jht9629-nyu/sketches/4zKw44vi8
+// matt-parker-PixelBased
 // https://github.com/madparker/-p5t/blob/main/%23p5t/Samples/PixelBased/PixelBased.pde
 // #p5t/Samples/PixelBased/PixelBased.pde
 

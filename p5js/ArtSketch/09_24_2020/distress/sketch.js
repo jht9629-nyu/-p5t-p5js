@@ -1,4 +1,5 @@
-// distress (p5.js 2.3.4 port of a #p5t Processing sketch)
+// https://editor.p5js.org/jht9629-nyu/sketches/5me_wC0a9
+// matt-parker-09_24-distress
 // https://github.com/madparker/-p5t/blob/main/%23p5t/ArtSketch/09_24_2020/distress/distress.pde
 // #p5t/ArtSketch/09_24_2020/distress/distress.pde
 

@@ -1,4 +1,5 @@
-// TriRot (p5.js 2.3.4 port of a #p5t Processing sketch)
+// https://editor.p5js.org/jht9629-nyu/sketches/pU9XzbVrn
+// matt-parker-07_25-TriRot
 // https://github.com/madparker/-p5t/blob/main/%23p5t/ArtSketch/07_25_2020/TriRot/TriRot.pde
 // #p5t/ArtSketch/07_25_2020/TriRot/TriRot.pde
 

@@ -2001,3 +2001,83 @@ I updated [p5js/index.html](p5js/index.html) to link the video and include its d
 - **Styling:** I added a few small CSS rules for the `details` section so its spacing and numbered list match the rest of the readme.
 
 *Time: 32s · Cost: $0.2801 (input 14, output 2.7k, cache write 21.6k, cache read 267.9k) · session $0.2801*
+
+---
+
+## User (11/24/2026, 8:51:51 PM)
+
+```
+currently a sketch begins two comments
+eg. in file p5js/ArtSketch/06_28_2020/sketch_final/sketch.js
+// sketch_final (p5.js 2.3.4 port of a #p5t Processing sketch)
+// https://github.com/madparker/-p5t/blob/main/%23p5t/ArtSketch/06_28_2020/sketch_final/sketch_final.pde
+replace the first line with a link p5js editor link
+and the name of the sketch:
+// https://editor.p5js.org/jht9629-nyu/sketches/qCnALUL54
+// matt-parker-06_28-sketch_final
+you will only need to edit the files locally
+the exported p5js version of the sketches already has these lines in them
+```
+
+## Assistant
+
+All 159 local sketches are in the map, and one already has the header. I'll replace line 1 in the other 158.
+
+LangtonsAnt was skipped because it already had a header, but its ID (`ROcHl72Lk`) doesn't match the map (`SzpF8TGe4`). Checking it:
+
+I updated 158 of the 159 local `sketch.js` files. In each one, the first line (`// <Name> (p5.js 2.3.4 port …)`) is now the editor link and the sketch name from [p5editor-map.json](p5js/p5editor-map.json). The GitHub `.pde` link stays below them:
+
+```
+// https://editor.p5js.org/jht9629-nyu/sketches/qCnALUL54
+// matt-parker-06_28-sketch_final
+// https://github.com/madparker/-p5t/blob/main/%23p5t/ArtSketch/06_28_2020/sketch_final/sketch_final.pde
+// #p5t/ArtSketch/06_28_2020/sketch_final/sketch_final.pde
+```
+
+**I left one file alone:** [LangtonsAnt/sketch.js](p5js/ArtSketch/05_11_2021/LangtonsAnt/sketch.js). Its header was already written by hand, but it points to a different editor sketch (`ROcHl72Lk`, named `matt-parker-05_11 v1`) from the one in the map (`SzpF8TGe4`). It also has notes saying it fails in p5.js 2.3.3. Tell me if you want it switched to the map's link.
+
+Two things to know for later:
+- If you re-upload, you won't get a doubled header, because [p5t-upload.mjs:170](tools-js/p5t-upload.mjs#L170) strips an existing editor header before adding a new one. The editor copy will lose the old `(p5.js 2.3.4 port …)` line, just like the local files. The comment at line 168 of that script, "Only the uploaded copy gets them", is now out of date.
+- If you run the generator again ([p5t.py](tools/p5t.py) / [p5t.mjs](tools-js/p5t.mjs)), it will put the old first line back.
+
+None of this is committed yet.
+
+*Time: 32s · Cost: $0.3105 (input 14, output 2.9k, cache write 23.4k, cache read 331.3k) · session $0.3105*
+
+---
+
+## User (11/24/2026, 8:54:45 PM)
+
+```
+fix  LangtonsAnt/sketch.js
+correct generator not put old line back
+```
+
+## Assistant
+
+I'll set the LangtonsAnt header to match the map and keep its notes. Then I'll change both generators so that when a sketch has an entry in p5editor-map.json, they write the editor link and name.
+
+Both generators are edited. Next I'll check that each one produces the same header the files now have:
+
+The Python version is correct. The JS `titleLines` isn't exported, so I'll test it through `writeSketch` on a backed-up sketch, then restore the files:
+
+Both generators now produce the right header, and the test sketch is back to its edited state. I'll also correct the out-of-date comment in the upload script:
+
+I fixed LangtonsAnt and changed both generators so they won't put the old first line back.
+
+**LangtonsAnt:** [sketch.js](p5js/ArtSketch/05_11_2021/LangtonsAnt/sketch.js) now opens with the link and name from the map:
+```
+// https://editor.p5js.org/jht9629-nyu/sketches/SzpF8TGe4
+// matt-parker-05_11-LangtonsAnt
+```
+I kept its hand-written notes below that ("fails in p5.js 2.3.3" and so on). That means its third line isn't the GitHub `.pde` link like the other sketches have.
+
+**Generators:** [tools/p5t.py](tools/p5t.py) and [tools-js/p5t.mjs](tools-js/p5t.mjs) now look up each sketch in [p5editor-map.json](p5js/p5editor-map.json) before writing it:
+- **Sketch in the map:** the header starts with the editor link and the sketch name, followed by the GitHub `.pde` link.
+- **New sketch not uploaded yet:** it still gets the old `// Name (p5.js 2.3.4 port …)` line. Once it's uploaded and you regenerate it, it gets the new header.
+
+I tested both. The Python lookup returns the right lines for `sketch_final` and the old line for a sketch that isn't in the map. For the JS version, I ran `writeSketch` on a backup of `sketch_final`, checked the header was right, and then restored the original files.
+
+I also reworded the comment in [p5t-upload.mjs](tools-js/p5t-upload.mjs#L165-L169) that said only the uploaded copy gets the header. Nothing is committed yet.
+
+*Time: 44s · Cost: $0.2699 (input 20, output 4.4k, cache write 9.1k, cache read 547.1k) · session $0.5804*

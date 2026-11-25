@@ -27,6 +27,8 @@ export const P5_URL = `https://cdn.jsdelivr.net/npm/p5@${P5_VERSION}/lib/p5.min.
 // p5js/lib/p5t.js as GitHub Pages serves it, so sketches also run in the web editor.
 export const LIB_URL = 'https://jht9629-nyu.github.io/-p5t-p5js/lib/p5t.js';
 const UPSTREAM = 'https://github.com/madparker/-p5t/blob/main/';
+// Written by tools-js/p5t-upload.mjs: "p5js/<relDir>" -> {url, name} of the web editor copy.
+const EDITOR_MAP = path.join(OUT, 'p5editor-map.json');
 
 // Sketches calling these load p5t.js from LIB_URL (Processing-style pixels and colors).
 const LIB_USE = new RegExp(
@@ -140,14 +142,21 @@ export function mainPde(relDir) {
 
 const upstreamUrl = pde => UPSTREAM + quote(rel(ROOT, pde));
 
+/** First header lines: the web editor link and name once uploaded, else the port line. */
+function titleLines(relDir) {
+  const map = fs.existsSync(EDITOR_MAP) ? JSON.parse(fs.readFileSync(EDITOR_MAP, 'utf8')) : {};
+  const entry = map[`p5js/${relDir.split(path.sep).join('/')}`];
+  if (entry) return `// ${entry.url}\n// ${entry.name}\n`;
+  return `// ${path.posix.basename(relDir)} (p5.js ${P5_VERSION} port of a #p5t Processing sketch)\n`;
+}
+
 /** Write p5js/<relDir>/sketch.js (header + body + original), index.html and style.css. */
 export function writeSketch(relDir, body) {
   const pde = mainPde(relDir);
   const srcRel = rel(ROOT, pde);
   const original = fs.readFileSync(pde, 'utf8').trimEnd();
-  const name = path.posix.basename(relDir);
   const header =
-    `// ${name} (p5.js ${P5_VERSION} port of a #p5t Processing sketch)\n` +
+    titleLines(relDir) +
     `// ${upstreamUrl(pde)}\n` +
     `// ${srcRel}\n`;
   const quoted = original.includes('*/')

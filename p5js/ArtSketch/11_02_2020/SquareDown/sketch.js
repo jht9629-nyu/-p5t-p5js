@@ -1,4 +1,5 @@
-// SquareDown (p5.js 2.3.4 port of a #p5t Processing sketch)
+// https://editor.p5js.org/jht9629-nyu/sketches/ymzgRgT6k
+// matt-parker-11_02-SquareDown
 // https://github.com/madparker/-p5t/blob/main/%23p5t/ArtSketch/11_02_2020/SquareDown/SquareDown.pde
 // #p5t/ArtSketch/11_02_2020/SquareDown/SquareDown.pde
 

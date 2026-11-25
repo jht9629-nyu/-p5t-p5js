@@ -1,4 +1,5 @@
-// Ranges (p5.js 2.3.4 port of a #p5t Processing sketch)
+// https://editor.p5js.org/jht9629-nyu/sketches/hxuiCBsRj
+// matt-parker-07_06-Ranges
 // https://github.com/madparker/-p5t/blob/main/%23p5t/ArtSketch/07_06_2020/Ranges/Ranges.pde
 // #p5t/ArtSketch/07_06_2020/Ranges/Ranges.pde
 

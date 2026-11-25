@@ -1,4 +1,5 @@
-// Rose (p5.js 2.3.4 port of a #p5t Processing sketch)
+// https://editor.p5js.org/jht9629-nyu/sketches/-p0HQn4EP
+// matt-parker-Rose
 // https://github.com/madparker/-p5t/blob/main/%23p5t/Rose/Rose.pde
 // #p5t/Rose/Rose.pde
 

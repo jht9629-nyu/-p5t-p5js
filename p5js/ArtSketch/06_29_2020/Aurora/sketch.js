@@ -1,4 +1,5 @@
-// Aurora (p5.js 2.3.4 port of a #p5t Processing sketch)
+// https://editor.p5js.org/jht9629-nyu/sketches/229mgvaUF
+// matt-parker-06_29-Aurora
 // https://github.com/madparker/-p5t/blob/main/%23p5t/ArtSketch/06_29_2020/Aurora/Aurora.pde
 // #p5t/ArtSketch/06_29_2020/Aurora/Aurora.pde
 

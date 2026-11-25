@@ -1,4 +1,5 @@
-// Herd (p5.js 2.3.4 port of a #p5t Processing sketch)
+// https://editor.p5js.org/jht9629-nyu/sketches/16fjJQcFt
+// matt-parker-09_19-Herd
 // https://github.com/madparker/-p5t/blob/main/%23p5t/ArtSketch/09_19_2020/Herd/Herd.pde
 // #p5t/ArtSketch/09_19_2020/Herd/Herd.pde
 

@@ -1,4 +1,5 @@
-// sketch_200718a (p5.js 2.3.4 port of a #p5t Processing sketch)
+// https://editor.p5js.org/jht9629-nyu/sketches/atJyaCbzt
+// matt-parker-07_19-sketch_200718a
 // https://github.com/madparker/-p5t/blob/main/%23p5t/ArtSketch/07_19_2020/sketch_200718a/sketch_200718a.pde
 // #p5t/ArtSketch/07_19_2020/sketch_200718a/sketch_200718a.pde
 

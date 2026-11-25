@@ -1,4 +1,5 @@
-// NotGreat (p5.js 2.3.4 port of a #p5t Processing sketch)
+// https://editor.p5js.org/jht9629-nyu/sketches/0HSLQEziN
+// matt-parker-11_17-NotGreat
 // https://github.com/madparker/-p5t/blob/main/%23p5t/ArtSketch/11_17_2020/NotGreat/NotGreat.pde
 // #p5t/ArtSketch/11_17_2020/NotGreat/NotGreat.pde
 

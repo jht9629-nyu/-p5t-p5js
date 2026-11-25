@@ -1,4 +1,5 @@
-// ColorVolcano (p5.js 2.3.4 port of a #p5t Processing sketch)
+// https://editor.p5js.org/jht9629-nyu/sketches/ic0BuYMfR
+// matt-parker-08_07-ColorVolcano
 // https://github.com/madparker/-p5t/blob/main/%23p5t/ArtSketch/08_07_2020/ColorVolcano/ColorVolcano.pde
 // #p5t/ArtSketch/08_07_2020/ColorVolcano/ColorVolcano.pde
 

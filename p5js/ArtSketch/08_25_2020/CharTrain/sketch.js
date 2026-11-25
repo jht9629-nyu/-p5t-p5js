@@ -1,4 +1,5 @@
-// CharTrain (p5.js 2.3.4 port of a #p5t Processing sketch)
+// https://editor.p5js.org/jht9629-nyu/sketches/VLuVSNoQY
+// matt-parker-08_25-CharTrain
 // https://github.com/madparker/-p5t/blob/main/%23p5t/ArtSketch/08_25_2020/CharTrain/CharTrain.pde
 // #p5t/ArtSketch/08_25_2020/CharTrain/CharTrain.pde
 

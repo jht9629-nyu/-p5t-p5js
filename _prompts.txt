@@ -359,3 +359,19 @@ to include link to youtube video
 https://youtu.be/p07CAS2mWGc?is=IdsIBz5VSZYteCW0
 include as a detail/summary paragraph the description
 from the video
+
+v1.42
+
+currently a sketch begins two comments
+eg. in file p5js/ArtSketch/06_28_2020/sketch_final/sketch.js
+// sketch_final (p5.js 2.3.4 port of a #p5t Processing sketch)
+// https://github.com/madparker/-p5t/blob/main/%23p5t/ArtSketch/06_28_2020/sketch_final/sketch_final.pde
+replace the first line with a link p5js editor link
+and the name of the sketch:
+// https://editor.p5js.org/jht9629-nyu/sketches/qCnALUL54
+// matt-parker-06_28-sketch_final
+you will only need to edit the files locally
+the exported p5js version of the sketches already has these lines in them
+
+fix  LangtonsAnt/sketch.js
+correct generator not put old line back

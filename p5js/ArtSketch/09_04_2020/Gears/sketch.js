@@ -1,4 +1,5 @@
-// Gears (p5.js 2.3.4 port of a #p5t Processing sketch)
+// https://editor.p5js.org/jht9629-nyu/sketches/gmZX13h7E
+// matt-parker-09_04-Gears
 // https://github.com/madparker/-p5t/blob/main/%23p5t/ArtSketch/09_04_2020/Gears/Gears.pde
 // #p5t/ArtSketch/09_04_2020/Gears/Gears.pde
 

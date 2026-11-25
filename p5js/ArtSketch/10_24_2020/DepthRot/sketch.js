@@ -1,4 +1,5 @@
-// DepthRot (p5.js 2.3.4 port of a #p5t Processing sketch)
+// https://editor.p5js.org/jht9629-nyu/sketches/7qQ3fLBSx
+// matt-parker-10_24-DepthRot
 // https://github.com/madparker/-p5t/blob/main/%23p5t/ArtSketch/10_24_2020/DepthRot/DepthRot.pde
 // #p5t/ArtSketch/10_24_2020/DepthRot/DepthRot.pde
 

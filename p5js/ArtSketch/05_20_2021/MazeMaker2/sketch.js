@@ -1,4 +1,5 @@
-// MazeMaker2 (p5.js 2.3.4 port of a #p5t Processing sketch)
+// https://editor.p5js.org/jht9629-nyu/sketches/W-JA5WYhG
+// matt-parker-05_20-MazeMaker2
 // https://github.com/madparker/-p5t/blob/main/%23p5t/ArtSketch/05_20_2021/MazeMaker2/MazeMaker2.pde
 // #p5t/ArtSketch/05_20_2021/MazeMaker2/MazeMaker2.pde
 

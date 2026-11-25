@@ -1,4 +1,5 @@
-// ColorDrain (p5.js 2.3.4 port of a #p5t Processing sketch)
+// https://editor.p5js.org/jht9629-nyu/sketches/pAA4G44vg
+// matt-parker-10_31-ColorDrain
 // https://github.com/madparker/-p5t/blob/main/%23p5t/ArtSketch/10_31_2020/ColorDrain/ColorDrain.pde
 // #p5t/ArtSketch/10_31_2020/ColorDrain/ColorDrain.pde
 

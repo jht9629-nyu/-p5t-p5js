@@ -1,4 +1,5 @@
-// PlusOne (p5.js 2.3.4 port of a #p5t Processing sketch)
+// https://editor.p5js.org/jht9629-nyu/sketches/E6cPNXasi
+// matt-parker-11_19-PlusOne
 // https://github.com/madparker/-p5t/blob/main/%23p5t/ArtSketch/11_19_2020/PlusOne/PlusOne.pde
 // #p5t/ArtSketch/11_19_2020/PlusOne/PlusOne.pde
 

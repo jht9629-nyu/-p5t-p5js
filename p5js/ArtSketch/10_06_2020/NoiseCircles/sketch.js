@@ -1,4 +1,5 @@
-// NoiseCircles (p5.js 2.3.4 port of a #p5t Processing sketch)
+// https://editor.p5js.org/jht9629-nyu/sketches/BOenJtbnc
+// matt-parker-10_06-NoiseCircles
 // https://github.com/madparker/-p5t/blob/main/%23p5t/ArtSketch/10_06_2020/NoiseCircles/NoiseCircles.pde
 // #p5t/ArtSketch/10_06_2020/NoiseCircles/NoiseCircles.pde
 

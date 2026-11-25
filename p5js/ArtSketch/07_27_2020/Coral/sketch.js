@@ -1,4 +1,5 @@
-// Coral (p5.js 2.3.4 port of a #p5t Processing sketch)
+// https://editor.p5js.org/jht9629-nyu/sketches/YXUvGQ5OA
+// matt-parker-07_27-Coral
 // https://github.com/madparker/-p5t/blob/main/%23p5t/ArtSketch/07_27_2020/Coral/Coral.pde
 // #p5t/ArtSketch/07_27_2020/Coral/Coral.pde
 

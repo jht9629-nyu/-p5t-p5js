@@ -1,4 +1,5 @@
-// BoltTunnel (p5.js 2.3.4 port of a #p5t Processing sketch)
+// https://editor.p5js.org/jht9629-nyu/sketches/BPXQBPa3U
+// matt-parker-10_08-BoltTunnel
 // https://github.com/madparker/-p5t/blob/main/%23p5t/ArtSketch/10_08_2020/BoltTunnel/BoltTunnel.pde
 // #p5t/ArtSketch/10_08_2020/BoltTunnel/BoltTunnel.pde
 

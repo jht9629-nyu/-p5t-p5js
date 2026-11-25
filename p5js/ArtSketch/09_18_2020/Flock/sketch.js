@@ -1,4 +1,5 @@
-// Flock (p5.js 2.3.4 port of a #p5t Processing sketch)
+// https://editor.p5js.org/jht9629-nyu/sketches/RyoyLpZs-
+// matt-parker-09_18-Flock
 // https://github.com/madparker/-p5t/blob/main/%23p5t/ArtSketch/09_18_2020/Flock/Flock.pde
 // #p5t/ArtSketch/09_18_2020/Flock/Flock.pde
 

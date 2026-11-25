@@ -1,4 +1,5 @@
-// Blake (p5.js 2.3.4 port of a #p5t Processing sketch)
+// https://editor.p5js.org/jht9629-nyu/sketches/7T4-kYXxx
+// matt-parker-08_26-Blake
 // https://github.com/madparker/-p5t/blob/main/%23p5t/ArtSketch/08_26_2020/Blake/Blake.pde
 // #p5t/ArtSketch/08_26_2020/Blake/Blake.pde
 

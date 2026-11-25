@@ -1,4 +1,5 @@
-// Knit (p5.js 2.3.4 port of a #p5t Processing sketch)
+// https://editor.p5js.org/jht9629-nyu/sketches/W5udAFlQk
+// matt-parker-07_01-Knit
 // https://github.com/madparker/-p5t/blob/main/%23p5t/ArtSketch/07_01_2020/Knit/Knit.pde
 // #p5t/ArtSketch/07_01_2020/Knit/Knit.pde
 

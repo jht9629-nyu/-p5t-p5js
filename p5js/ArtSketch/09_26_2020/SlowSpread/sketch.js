@@ -1,4 +1,5 @@
-// SlowSpread (p5.js 2.3.4 port of a #p5t Processing sketch)
+// https://editor.p5js.org/jht9629-nyu/sketches/O_-KQ41rS
+// matt-parker-09_26-SlowSpread
 // https://github.com/madparker/-p5t/blob/main/%23p5t/ArtSketch/09_26_2020/SlowSpread/SlowSpread.pde
 // #p5t/ArtSketch/09_26_2020/SlowSpread/SlowSpread.pde
 

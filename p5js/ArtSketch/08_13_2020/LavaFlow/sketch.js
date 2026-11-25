@@ -1,4 +1,5 @@
-// LavaFlow (p5.js 2.3.4 port of a #p5t Processing sketch)
+// https://editor.p5js.org/jht9629-nyu/sketches/CQ7QLnBlN
+// matt-parker-08_13-LavaFlow
 // https://github.com/madparker/-p5t/blob/main/%23p5t/ArtSketch/08_13_2020/LavaFlow/LavaFlow.pde
 // #p5t/ArtSketch/08_13_2020/LavaFlow/LavaFlow.pde
 

@@ -1,4 +1,5 @@
-// RainbowFlag (p5.js 2.3.4 port of a #p5t Processing sketch)
+// https://editor.p5js.org/jht9629-nyu/sketches/cGvcf1HkU
+// matt-parker-08_02-RainbowFlag
 // https://github.com/madparker/-p5t/blob/main/%23p5t/ArtSketch/08_02_2020/RainbowFlag/RainbowFlag.pde
 // #p5t/ArtSketch/08_02_2020/RainbowFlag/RainbowFlag.pde
 

@@ -1,4 +1,5 @@
-// RainbowTunnel (p5.js 2.3.4 port of a #p5t Processing sketch)
+// https://editor.p5js.org/jht9629-nyu/sketches/nZuCdiiwn
+// matt-parker-10_18-RainbowTunnel
 // https://github.com/madparker/-p5t/blob/main/%23p5t/ArtSketch/10_18_2020/RainbowTunnel/RainbowTunnel.pde
 // #p5t/ArtSketch/10_18_2020/RainbowTunnel/RainbowTunnel.pde
 

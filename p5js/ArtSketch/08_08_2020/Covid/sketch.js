@@ -1,4 +1,5 @@
-// Covid (p5.js 2.3.4 port of a #p5t Processing sketch)
+// https://editor.p5js.org/jht9629-nyu/sketches/cBhYvma_R
+// matt-parker-08_08-Covid
 // https://github.com/madparker/-p5t/blob/main/%23p5t/ArtSketch/08_08_2020/Covid/Covid.pde
 // #p5t/ArtSketch/08_08_2020/Covid/Covid.pde
 

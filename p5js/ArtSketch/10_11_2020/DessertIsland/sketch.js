@@ -1,4 +1,5 @@
-// DessertIsland (p5.js 2.3.4 port of a #p5t Processing sketch)
+// https://editor.p5js.org/jht9629-nyu/sketches/nTYLTyntu
+// matt-parker-10_11-DessertIsland
 // https://github.com/madparker/-p5t/blob/main/%23p5t/ArtSketch/10_11_2020/DessertIsland/DessertIsland.pde
 // #p5t/ArtSketch/10_11_2020/DessertIsland/DessertIsland.pde
 

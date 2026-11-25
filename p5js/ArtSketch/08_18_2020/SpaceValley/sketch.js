@@ -1,4 +1,5 @@
-// SpaceValley (p5.js 2.3.4 port of a #p5t Processing sketch)
+// https://editor.p5js.org/jht9629-nyu/sketches/swmcFAivC
+// matt-parker-08_18-SpaceValley
 // https://github.com/madparker/-p5t/blob/main/%23p5t/ArtSketch/08_18_2020/SpaceValley/SpaceValley.pde
 // #p5t/ArtSketch/08_18_2020/SpaceValley/SpaceValley.pde
 

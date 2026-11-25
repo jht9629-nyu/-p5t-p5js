@@ -1,4 +1,5 @@
-// Mandlebrot (p5.js 2.3.4 port of a #p5t Processing sketch)
+// https://editor.p5js.org/jht9629-nyu/sketches/zal5XgYS-
+// matt-parker-05_19-Mandlebrot
 // https://github.com/madparker/-p5t/blob/main/%23p5t/ArtSketch/05_19_2021/Mandlebrot/Mandlebrot.pde
 // #p5t/ArtSketch/05_19_2021/Mandlebrot/Mandlebrot.pde
 

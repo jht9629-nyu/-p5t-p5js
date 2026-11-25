@@ -1,4 +1,5 @@
-// Spider_Man (p5.js 2.3.4 port of a #p5t Processing sketch)
+// https://editor.p5js.org/jht9629-nyu/sketches/d0fh_gkLP
+// matt-parker-08_09-Spider_Man
 // https://github.com/madparker/-p5t/blob/main/%23p5t/ArtSketch/08_09_2020/Spider_Man/Spider_Man.pde
 // #p5t/ArtSketch/08_09_2020/Spider_Man/Spider_Man.pde
 
