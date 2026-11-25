@@ -351,3 +351,11 @@ matt-parker-08_28-WASD	Keys w a s d	https://editor.p5js.org/jht9629-nyu/sketches
 matt-parker-09_15-Snake	Keys w a s d	https://editor.p5js.org/jht9629-nyu/sketches/LO5j6pdxY
 matt-parker-10_16-CaveAdventure	Keys w a s d	https://editor.p5js.org/jht9629-nyu/sketches/LoaDTc232
 matt-parker-10_17-MazeAdventure	Keys w a s d	https://editor.p5js.org/jht9629-nyu/sketches/1DuQrws03
+
+v1.41
+
+update p5js/index.html
+to include link to youtube video
+https://youtu.be/p07CAS2mWGc?is=IdsIBz5VSZYteCW0
+include as a detail/summary paragraph the description
+from the video

@@ -1977,3 +1977,27 @@ Here are the p5.js editor links for the 7 sketches that take input, from [p5js/p
 For the six keyboard sketches, click the canvas once after pressing Play, or the keys won't reach the sketch.
 
 *Time: 8s · Cost: $0.0495 (input 6, output 837, cache write 763, cache read 133.1k) · session $0.9329*
+
+---
+
+## User (11/24/2026, 8:29:41 PM)
+
+```
+update p5js/index.html
+to include link to youtube video
+https://youtu.be/p07CAS2mWGc?is=IdsIBz5VSZYteCW0
+include as a detail/summary paragraph the description
+from the video
+```
+
+## Assistant
+
+Got the description. Adding a link item plus a details/summary block in the readme section.
+
+I updated [p5js/index.html](p5js/index.html) to link the video and include its description. I haven't opened the page in a browser to check how it looks.
+
+- **Video link:** a new item in the readme list, "video [#p5t (2020-Ongoing)](https://youtu.be/p07CAS2mWGc) by Matt Parker". I dropped the `?is=` sharing parameter from the URL.
+- **Description:** right below the link is a collapsed `<details>` section labelled "video description". It holds the full YouTube description, copied word for word from the page. That covers the madparker.com link, the 144-day challenge, the six rules (as a numbered list), the 16×9 8k grid, the Persona 5 Tactica hashtag note, and the contact link.
+- **Styling:** I added a few small CSS rules for the `details` section so its spacing and numbered list match the rest of the readme.
+
+*Time: 32s · Cost: $0.2801 (input 14, output 2.7k, cache write 21.6k, cache read 267.9k) · session $0.2801*
